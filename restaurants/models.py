@@ -29,6 +29,9 @@ class Channel(core_models.TimeStampedModel):
     thumbnail = models.ImageField(_("thumbnail"), upload_to="channel_thumbnails")
     image = models.ImageField(_("image"), upload_to="channel_images")
 
+    def __str__(self):
+        return self.name
+
 
 class Category(AbstractItem):
 
@@ -56,6 +59,9 @@ class Photo(core_models.TimeStampedModel):
         verbose_name=_("restaurant"),
     )
 
+    def __str__(self):
+        return self.caption
+
 
 class Tag(core_models.TimeStampedModel):
 
@@ -66,6 +72,9 @@ class Tag(core_models.TimeStampedModel):
         verbose_name_plural = _("tags")
 
     name = models.CharField(_("name"), max_length=20, unique=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Restaurant(core_models.TimeStampedModel):
@@ -96,6 +105,9 @@ class Restaurant(core_models.TimeStampedModel):
     tag_set = models.ManyToManyField(
         "Tag", related_name="restaurant", blank=True, verbose_name=_("tag set")
     )
+
+    def __str__(self):
+        return self.title
 
     def total_rating(self):
         all_reviews = self.reviews.all()

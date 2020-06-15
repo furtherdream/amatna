@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 from . import models
 
 
@@ -18,7 +19,50 @@ class RestaurantAdmin(admin.ModelAdmin):
 
     """ Restaurant Admin Definition """
 
-    pass
+    fieldsets = (
+        (
+            _("BasicInfo"),
+            {
+                "fields": (
+                    "title",
+                    "address",
+                    "phone_number",
+                    "price",
+                    "biztime",
+                    "breaktime",
+                    "menu",
+                    "holiday",
+                )
+            },
+        ),
+        (_("Media"), {"fields": ("youtube_id", "instagram_url",)}),
+        (_("SortOfRestaurant"), {"fields": ("channel", "category", "tag_set",)},),
+    )
+
+    list_display = (
+        "title",
+        "youtube_id",
+        "instagram_url",
+        "address",
+        "phone_number",
+        "price",
+        "biztime",
+        "breaktime",
+        "menu",
+        "holiday",
+    )
+
+    list_filter = (
+        "channel",
+        "category",
+        "tag_set",
+    )
+
+    filter_horizontal = (
+        "channel",
+        "category",
+        "tag_set",
+    )
 
 
 @admin.register(models.Photo)

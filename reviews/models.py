@@ -26,7 +26,9 @@ class Review(core_models.TimeStampedModel):
     )
 
     def __str__(self):
-        return f"{self.review} - {self.room}"
+        return self.review
 
     class Meta:
         ordering = ("-created",)
+        verbose_name = _("review")
+        verbose_name_plural = _("reviews")
