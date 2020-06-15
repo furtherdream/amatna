@@ -63,6 +63,17 @@ class Photo(core_models.TimeStampedModel):
         return self.caption
 
 
+class Youtube(core_models.TimeStampedModel):
+
+    """ Youtube Model Definition """
+
+    class Meta:
+        verbose_name = _("youtube ID")
+        verbose_name_plural = _("youtube IDs")
+
+    video_id = models.CharField(_("video ID"), max_length=20, blank=True)
+
+
 class Tag(core_models.TimeStampedModel):
 
     """ Tag Model Definition """
@@ -86,7 +97,9 @@ class Restaurant(core_models.TimeStampedModel):
         verbose_name_plural = _("restaurants")
 
     title = models.CharField(_("title"), max_length=40, default="")
-    youtube_id = models.CharField(_("youtube video"), max_length=20, blank=True)
+    youtube = models.ManyToManyField(
+        "Youtube", related_name="restaurant", blank=True, verbose_name=_("youtube")
+    )
     instagram_url = models.CharField(_("instagram url"), max_length=40, blank=True)
     channel = models.ManyToManyField(
         "Channel", related_name="restaurant", blank=True, verbose_name=_("channel"),
@@ -114,6 +127,6 @@ class Restaurant(core_models.TimeStampedModel):
         all_ratings = 0
         if len(all_reviews) > 0:
             for review in all_reviews:
-                all_ratings += review.rating()
+                all_ratings += review.rating
             return round(all_ratings / len(all_reviews), 2)
         return 0

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 16:14+0900\n"
+"POT-Creation-Date: 2020-06-15 17:27+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,17 +39,21 @@ msgstr "음식점"
 msgid "Number of Restaurants"
 msgstr "관심목록 갯수"
 
-#: restaurants/admin.py:24
+#: restaurants/admin.py:31
 msgid "BasicInfo"
 msgstr "기본정보"
 
-#: restaurants/admin.py:38
+#: restaurants/admin.py:45
 msgid "Media"
 msgstr "미디어"
 
-#: restaurants/admin.py:39
+#: restaurants/admin.py:46
 msgid "SortOfRestaurant"
 msgstr "음식점 필터"
+
+#: restaurants/admin.py:86 restaurants/models.py:29
+msgid "thumbnail"
+msgstr "썸네일"
 
 #: restaurants/models.py:10 restaurants/models.py:27 restaurants/models.py:74
 msgid "name"
@@ -65,15 +69,11 @@ msgstr "채널"
 
 #: restaurants/models.py:28
 msgid "description"
-msgstr "카테고리 설명"
-
-#: restaurants/models.py:29
-msgid "thumbnail"
-msgstr "카테고리 썸네일"
+msgstr "채널 설명"
 
 #: restaurants/models.py:30
 msgid "image"
-msgstr "카테고리 이미지"
+msgstr "채널 이미지"
 
 #: restaurants/models.py:41 restaurants/models.py:97
 msgid "category"
@@ -171,7 +171,7 @@ msgstr "평점"
 msgid "reviews"
 msgstr "리뷰"
 
-#: users/admin.py:14
+#: users/admin.py:21
 msgid "Custom Profile"
 msgstr "사용자정보"
 

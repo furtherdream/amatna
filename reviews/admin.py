@@ -7,4 +7,10 @@ class ReviewAdmin(admin.ModelAdmin):
 
     """Review Admin Definition"""
 
-    list_display = ("__str__", "rating")
+    list_display = (
+        "__str__",
+        "user",
+        "rating",
+    )
+
+    search_fields = ("user__nickname",)

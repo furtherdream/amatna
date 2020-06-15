@@ -10,3 +10,5 @@ class ListAdmin(admin.ModelAdmin):
     list_display = ("user", "count_restaurants")
 
     filter_horizontal = ("restaurants",)
+
+    search_fields = ("user__nickname",)
