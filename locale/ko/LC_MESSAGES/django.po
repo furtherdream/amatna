@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-13 09:57+0900\n"
+"POT-Creation-Date: 2020-06-15 10:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,121 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: restaurants/models.py:10 restaurants/models.py:67
+msgid "name"
+msgstr "제목"
+
+#: restaurants/models.py:24 restaurants/models.py:82
+msgid "channel"
+msgstr "채널"
+
+#: restaurants/models.py:25
+msgid "channels"
+msgstr "채널"
+
+#: restaurants/models.py:27
+msgid "description"
+msgstr "카테고리 설명"
+
+#: restaurants/models.py:28
+msgid "thumbnail"
+msgstr "카테고리 썸네일"
+
+#: restaurants/models.py:29
+msgid "image"
+msgstr "카테고리 이미지"
+
+#: restaurants/models.py:37 restaurants/models.py:87
+msgid "category"
+msgstr "카테고리"
+
+#: restaurants/models.py:38
+msgid "categories"
+msgstr "카테고리"
+
+#: restaurants/models.py:46
+msgid "photo"
+msgstr "음식점 이미지"
+
+#: restaurants/models.py:47
+msgid "photos"
+msgstr "음식점 이미지"
+
+#: restaurants/models.py:49
+msgid "caption"
+msgstr "설명"
+
+#: restaurants/models.py:50
+msgid "file"
+msgstr "파일"
+
+#: restaurants/models.py:55 restaurants/models.py:75
+msgid "restaurant"
+msgstr "음식점"
+
+#: restaurants/models.py:64
+msgid "tag"
+msgstr "태그"
+
+#: restaurants/models.py:65
+msgid "tags"
+msgstr "태그"
+
+#: restaurants/models.py:76
+msgid "restaurants"
+msgstr "음식점"
+
+#: restaurants/models.py:78
+msgid "title"
+msgstr "제목"
+
+#: restaurants/models.py:79
+msgid "youtube video"
+msgstr "유튜브 영상"
+
+#: restaurants/models.py:80
+msgid "instagram url"
+msgstr "인스타그램 링크"
+
+#: restaurants/models.py:84
+msgid "address"
+msgstr "주소"
+
+#: restaurants/models.py:85
+msgid "phone number"
+msgstr "전화번호"
+
+#: restaurants/models.py:89
+msgid "price"
+msgstr "가격대"
+
+#: restaurants/models.py:90
+msgid "biztime"
+msgstr "영업시간"
+
+#: restaurants/models.py:91
+msgid "breaktime"
+msgstr "휴식시간"
+
+#: restaurants/models.py:92
+msgid "info"
+msgstr "업체정보"
+
+#: restaurants/models.py:93
+msgid "menu"
+msgstr "메뉴"
+
+#: restaurants/models.py:94
+msgid "holiday"
+msgstr "휴일"
+
+#: restaurants/models.py:96
+msgid "tag set"
+msgstr "태그모음"
+
 #: users/admin.py:14
 msgid "Custom Profile"
-msgstr "사용자정보"
+msgstr "사용자정보"
 
 #: users/models.py:16
 msgid "Email"
@@ -57,3 +169,9 @@ msgstr "이메일 인증키"
 #: users/models.py:29
 msgid "login method"
 msgstr "로그인 방식"
+
+#~ msgid "munu"
+#~ msgstr "메뉴"
+
+#~ msgid "menus"
+#~ msgstr "메뉴"
