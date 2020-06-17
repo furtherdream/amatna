@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block page_title %}
+
+Search
+
+{% endblock page_title %}
+
+{% block content %}
+
+    <h2>Search!!</h2>
+
+
+    <h4>Searching by {{tag}}</h4>
+
+    
+
+    {% for r in restaurants.object_list %}
+        <div>
+        <a href="{% url "restaurants:detail" r.pk %}">
+            <h1>{{r.title}} / {{r.price}}</h1>        
+        </a>        
+        </div>
+    {% endfor %}   
+
+    <h4>
+        {% if restaurants.has_previous %}
+            <a href="?page={{restaurants.number|add:-1}}">Previous</a>
+        {% endif %}
+        
+        Page {{restaurants.number}} of {{restaurants.paginator.num_pages}}
+        
+        {% if restaurants.has_next %}
+            <a href="?page={{restaurants.number|add:1}}">Next</a>
+        {% endif %}
+        
+        </h4>
+        </h6>
+        {% for page in restaurants.paginator.page_range %}
+            <a href="?page={{page}}">{{page}}</a>
+        {% endfor %}
+    </h6>
+
+{% endblock content %}
