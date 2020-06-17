@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block page_name %}
+Home
+{% endblock page_name %}
+
+
+{% block content %}
+
+<h3>{% trans 'Channels' %}</h3>
+<ul>    
+    {% for c in restaurant.channel.all %}
+        <li>{{c}}</li>
+    {% endfor %}        
+</ul>
+
+<h3>{% trans 'Tags' %}</h3>
+<ul>    
+    {% for t in restaurant.tag_set.all %}
+        <li>{{t}}</li>
+    {% endfor %}        
+</ul>
+
+<div>
+    {{restaurant.title}}
+</div>
+
+<h3>youtube</h3>
+<ul>    
+    {% for y in restaurant.youtube.all %}
+        <li>{{y}}</li>
+    {% endfor %}        
+</ul>
+
+<div>
+    {{restaurant.instagram_url}}
+</div>
+
+<div>
+    {{restaurant.address}}
+</div>
+
+<div>
+    {{restaurant.phone_number}}
+</div>
+
+<div>
+    {{restaurant.category}}
+<div>
+
+<div>    
+    {{restaurant.price}}
+</div>
+
+<div>    
+    {{restaurant.biztime}}
+</div>
+
+<div>    
+    {{restaurant.breaktime}}
+</div>
+
+<div>    
+    {{restaurant.info}}
+</div>
+
+<div>    
+    {{restaurant.menu}}
+</div>
+
+<div>    
+    {{restaurant.holiday}}
+</div>
+
+
+{% endblock %}

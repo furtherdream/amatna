@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+{% load i18n %} 
+{% block page_name %} 
+Home 
+{% endblock page_name %} 
+
+{% block content %} 
+
+
+  {% for c in channels %}
+    <a href="#">
+      <img src="{{c.thumbnail.url}}"/>
+      <img src="{{c.image.url}}"/>
+      <h1>{{c.name}} / {{c.description}} / {{c.pk}}</h1>
+    </a>
+  {% endfor %}
+    
+  {% for r in restaurants.object_list %}
+      <div>
+        <a href="{% url "restaurants:detail" r.pk %}">
+          {{r.title}}
+        </a>        
+      </div>
+  {% endfor %}  
+
+
+  <h4>
+    {% if restaurants.has_previous %}
+      <a href="?page={{restaurants.number|add:-1}}">Previous</a>
+    {% endif %}
+    
+    Page {{restaurants.number}} of {{restaurants.paginator.num_pages}}
+    
+    {% if restaurants.has_next %}
+      <a href="?page={{restaurants.number|add:1}}">Next</a>
+    {% endif %}
+    
+  </h4>
+  </h6>
+    {% for page in restaurants.paginator.page_range %}
+      <a href="?page={{page}}">{{page}}</a>
+    {% endfor %}
+  </h6>
+    
+
+{% endblock content %}

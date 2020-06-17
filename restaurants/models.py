@@ -71,7 +71,11 @@ class Youtube(core_models.TimeStampedModel):
         verbose_name = _("youtube ID")
         verbose_name_plural = _("youtube IDs")
 
+    name = models.CharField(_("name"), max_length=80, default="")
     video_id = models.CharField(_("video ID"), max_length=20, blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Tag(core_models.TimeStampedModel):
@@ -109,7 +113,7 @@ class Restaurant(core_models.TimeStampedModel):
     category = models.ManyToManyField(
         "Category", related_name="restaurant", blank=True, verbose_name=_("category")
     )
-    price = models.CharField(_("price"), blank=True, max_length=3)
+    price = models.CharField(_("price"), blank=True, max_length=20)
     biztime = models.TextField(_("biztime"), blank=True)
     breaktime = models.TextField(_("breaktime"), blank=True)
     info = models.TextField(_("info"), blank=True)

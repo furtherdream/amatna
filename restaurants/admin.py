@@ -4,7 +4,7 @@ from django.utils.html import mark_safe
 from . import models
 
 
-@admin.register(models.Channel, models.Category, models.Tag)
+@admin.register(models.Channel, models.Category, models.Tag, models.Youtube)
 class ItemAdmin(admin.ModelAdmin):
 
     """ Item Admin Definition """
@@ -38,12 +38,13 @@ class RestaurantAdmin(admin.ModelAdmin):
                     "price",
                     "biztime",
                     "breaktime",
+                    "info",
                     "menu",
                     "holiday",
                 )
             },
         ),
-        (_("Media"), {"fields": ("youtube_id", "instagram_url",)}),
+        (_("Media"), {"fields": ("youtube", "instagram_url",)}),
         (_("SortOfRestaurant"), {"fields": ("channel", "category", "tag_set",)},),
     )
 
@@ -65,13 +66,9 @@ class RestaurantAdmin(admin.ModelAdmin):
         "tag_set",
     )
 
-    filter_horizontal = (
-        "channel",
-        "category",
-        "tag_set",
-    )
+    filter_horizontal = ("channel", "category", "tag_set", "youtube")
 
-    search_fields = ("title", "youtube_id")
+    search_fields = ("title",)
 
 
 @admin.register(models.Photo)
