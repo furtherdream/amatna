@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block page_title %}
+    {% trans 'Login' %}    
+{% endblock page_title %}
+
+{% block search-bar %}
+{% endblock search-bar %}
+
+{% block content %}
+    <form method="POST" action={% url "users:login" %}>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Login</button>
+    </form>
+
+
+{% endblock content %}
