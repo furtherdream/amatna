@@ -8,7 +8,7 @@ def main_views(request):
     all_channels = models.Channel.objects.all()
     page = request.GET.get("page")
     all_restaurant = models.Restaurant.objects.all().order_by("-created")
-    paginator = Paginator(all_restaurant, 1)
+    paginator = Paginator(all_restaurant, 16)
     restaurants = paginator.get_page(page)
     return render(
         request,
@@ -28,7 +28,7 @@ def search(request):
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(tag_set__name=tag).order_by("-created")
-    paginator = Paginator(qs, 1)
+    paginator = Paginator(qs, 100)
     restaurants = paginator.get_page(page)
 
     return render(
