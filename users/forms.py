@@ -50,14 +50,6 @@ class SignUpForm(forms.ModelForm):
         except models.User.DoesNotExist:
             return email
 
-    def clean_nickname(self):
-        nickname = self.cleaned_data.get("nickname")
-        try:
-            models.User.objects.get(nickname=nickname)
-            raise forms.ValidationError("User already exists with that nickname")
-        except models.User.DoesNotExist:
-            return nickname
-
     def clean_password1(self):
         password = self.cleaned_data.get("password")
         password1 = self.cleaned_data.get("password1")
