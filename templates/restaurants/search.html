@@ -20,7 +20,7 @@ Search
 
 
 
-    {% if restaurants.object_list.count > 1 %}
+    {% if restaurants.object_list.count > 0 %}
         {% for r in restaurants.object_list %}
             <div>
             <a href="{% url "restaurants:detail" r.pk %}">
