@@ -1,0 +1,23 @@
+{
+  "name": "amatna",
+  "version": "1.0.0",
+  "description": "# TV에 나오는 맛집, 식도락들의 비밀 지도를 모아놓은 아맛나!",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furtherdream/amatna.git"
+  },
+  "scripts": {
+    "css": "gulp"
+  },
+  "homepage": "https://github.com/furtherdream/amatna#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.8.2",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1",
+    "tailwindcss": "^1.4.6"
+  }
+}
