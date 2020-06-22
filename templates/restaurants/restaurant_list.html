@@ -5,42 +5,42 @@ Home
 {% endblock page_title %} 
 
 {% block content %} 
+  <div class="container mx-auto pb-10">
+
+    <div class="flex flex-wrap mx-0 mb-10">
+      {% for channel in channels %}
+          {% include 'mixins/channel_card.html' with channel=channel %}
+      {% endfor %}
+    </div>
+
+      
+    {% for r in restaurants.object_list %}
+        <div>
+          <a href="{% url "restaurants:detail" r.pk %}">
+            {{r.title}}
+          </a>        
+        </div>
+    {% endfor %}  
 
 
-  {% for c in channels %}
-    <a href="#">
-      <img src="{{c.thumbnail.url}}"/>
-      <img src="{{c.image.url}}"/>
-      <h1>{{c.name}} / {{c.description}} / {{c.pk}}</h1>
-    </a>
-  {% endfor %}
-    
-  {% for r in restaurants.object_list %}
-      <div>
-        <a href="{% url "restaurants:detail" r.pk %}">
-          {{r.title}}
-        </a>        
-      </div>
-  {% endfor %}  
-
-
-  <h4>
-    {% if restaurants.has_previous %}
-      <a href="?page={{restaurants.number|add:-1}}">Previous</a>
-    {% endif %}
-    
-    Page {{restaurants.number}} of {{restaurants.paginator.num_pages}}
-    
-    {% if restaurants.has_next %}
-      <a href="?page={{restaurants.number|add:1}}">Next</a>
-    {% endif %}
-    
-  </h4>
-  </h6>
-    {% for page in restaurants.paginator.page_range %}
-      <a href="?page={{page}}">{{page}}</a>
-    {% endfor %}
-  </h6>
+    <h4>
+      {% if restaurants.has_previous %}
+        <a href="?page={{restaurants.number|add:-1}}">Previous</a>
+      {% endif %}
+      
+      Page {{restaurants.number}} of {{restaurants.paginator.num_pages}}
+      
+      {% if restaurants.has_next %}
+        <a href="?page={{restaurants.number|add:1}}">Next</a>
+      {% endif %}
+      
+    </h4>
+    </h6>
+      {% for page in restaurants.paginator.page_range %}
+        <a href="?page={{page}}">{{page}}</a>
+      {% endfor %}
+    </h6>
+  </div>
     
 
 {% endblock content %}

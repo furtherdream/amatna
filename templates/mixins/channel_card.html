@@ -1,0 +1,19 @@
+{% load i18n %}
+<div class="w-1/2 lg:w-1/4 mb-10 p-3">
+    <a href="w-full">
+        <div class="w-full h-64 lg:h-50vh bg-cover bg-center rounded-lg mb-2" style="background-image: url({{channel.image.url}});"></div>
+        <div class="w-full flex justify-between mb-2 items-center">
+            <img src="{{channel.thumbnail.url}}" class="h-16 w-16 border-gray-200 border rounded-lg"/>
+            <div class="ml-3 w-4/5">
+                <span class="text-black font-medium truncate block ">{{channel.name}}</span>                
+            </div>
+        </div>    
+        <div class="text-sm m-2">
+           {{channel.description}}
+        </div>
+        <div class="text-right text-blue-400 mr-3">
+            {% trans 'view more >' %}
+        </div>
+    </a>
+</div>
+
