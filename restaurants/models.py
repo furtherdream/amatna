@@ -28,6 +28,9 @@ class Channel(core_models.TimeStampedModel):
     description = models.TextField(_("description"),)
     thumbnail = models.ImageField(_("thumbnail"), upload_to="channel_thumbnails")
     image = models.ImageField(_("image"), upload_to="channel_images")
+    youtube_link = models.CharField(_("youtube link"), max_length=40, blank=True)
+    instagram_link = models.CharField(_("instagram link"), max_length=40, blank=True)
+    rank = models.PositiveSmallIntegerField(_("rank"), blank=True, default="0")
 
     def __str__(self):
         return self.name

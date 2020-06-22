@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 16:29+0900\n"
+"POT-Creation-Date: 2020-06-22 22:13+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "관심목록"
 msgid "user"
 msgstr "사용자"
 
-#: lists/models.py:24 restaurants/models.py:59 restaurants/models.py:100
+#: lists/models.py:24 restaurants/models.py:62 restaurants/models.py:103
 #: reviews/models.py:25
 msgid "restaurant"
 msgstr "음식점"
@@ -55,12 +55,12 @@ msgstr "음식점 필터"
 msgid "thumbnail"
 msgstr "썸네일"
 
-#: restaurants/models.py:10 restaurants/models.py:27 restaurants/models.py:74
-#: restaurants/models.py:89
+#: restaurants/models.py:10 restaurants/models.py:27 restaurants/models.py:77
+#: restaurants/models.py:92
 msgid "name"
 msgstr "제목"
 
-#: restaurants/models.py:24 restaurants/models.py:109
+#: restaurants/models.py:24 restaurants/models.py:112
 msgid "channel"
 msgstr "채널"
 
@@ -76,99 +76,111 @@ msgstr "채널 설명"
 msgid "image"
 msgstr "채널 이미지"
 
-#: restaurants/models.py:41 restaurants/models.py:114
+#: restaurants/models.py:31
+msgid "youtube link"
+msgstr "유튜브 링크"
+
+#: restaurants/models.py:32
+msgid "instagram link"
+msgstr "인스타그램 링크"
+
+#: restaurants/models.py:33
+msgid "rank"
+msgstr "노출순서"
+
+#: restaurants/models.py:44 restaurants/models.py:117
 msgid "category"
 msgstr "카테고리"
 
-#: restaurants/models.py:42
+#: restaurants/models.py:45
 msgid "categories"
 msgstr "카테고리"
 
-#: restaurants/models.py:50
+#: restaurants/models.py:53
 msgid "photo"
 msgstr "음식점 이미지"
 
-#: restaurants/models.py:51
+#: restaurants/models.py:54
 msgid "photos"
 msgstr "음식점 이미지"
 
-#: restaurants/models.py:53
+#: restaurants/models.py:56
 msgid "caption"
 msgstr "설명"
 
-#: restaurants/models.py:54
+#: restaurants/models.py:57
 msgid "file"
 msgstr "파일"
 
-#: restaurants/models.py:71
+#: restaurants/models.py:74
 msgid "youtube ID"
 msgstr "유튜브"
 
-#: restaurants/models.py:72
+#: restaurants/models.py:75
 msgid "youtube IDs"
 msgstr "유튜브"
 
-#: restaurants/models.py:75
+#: restaurants/models.py:78
 msgid "video ID"
 msgstr "영상코드"
 
-#: restaurants/models.py:86
+#: restaurants/models.py:89
 msgid "tag"
 msgstr "태그"
 
-#: restaurants/models.py:87
+#: restaurants/models.py:90
 msgid "tags"
 msgstr "태그"
 
-#: restaurants/models.py:101
+#: restaurants/models.py:104
 msgid "restaurants"
 msgstr "음식점"
 
-#: restaurants/models.py:103
+#: restaurants/models.py:106
 msgid "title"
 msgstr "제목"
 
-#: restaurants/models.py:105
+#: restaurants/models.py:108
 msgid "youtube"
 msgstr "유튜브"
 
-#: restaurants/models.py:107
+#: restaurants/models.py:110
 msgid "instagram url"
 msgstr "인스타그램 링크"
 
-#: restaurants/models.py:111
+#: restaurants/models.py:114
 msgid "address"
 msgstr "주소"
 
-#: restaurants/models.py:112
+#: restaurants/models.py:115
 msgid "phone number"
 msgstr "전화번호"
 
-#: restaurants/models.py:116
+#: restaurants/models.py:119
 msgid "price"
 msgstr "가격대"
 
-#: restaurants/models.py:117
+#: restaurants/models.py:120
 msgid "biztime"
 msgstr "영업시간"
 
-#: restaurants/models.py:118
+#: restaurants/models.py:121
 msgid "breaktime"
 msgstr "휴식시간"
 
-#: restaurants/models.py:119
+#: restaurants/models.py:122
 msgid "info"
 msgstr "업체정보"
 
-#: restaurants/models.py:120
+#: restaurants/models.py:123
 msgid "menu"
 msgstr "메뉴"
 
-#: restaurants/models.py:121
+#: restaurants/models.py:124
 msgid "holiday"
 msgstr "휴일"
 
-#: restaurants/models.py:123
+#: restaurants/models.py:126
 msgid "tag set"
 msgstr "태그모음"
 
@@ -184,17 +196,29 @@ msgstr "평점"
 msgid "reviews"
 msgstr "리뷰"
 
+#: templates/mixins/channel_card.html:13
+msgid "visit youtube"
+msgstr "방문하기"
+
+#: templates/mixins/channel_card.html:15
+msgid "visit instagram"
+msgstr "방문하기"
+
+#: templates/mixins/channel_card.html:26
+msgid "view more >"
+msgstr "채널 맛집 모아보기 >"
+
 #: templates/partials/footer.html:3
 msgid "Amatna"
 msgstr "아!맛나"
 
-#: templates/partials/nav.html:5
-msgid "Profile"
-msgstr "프로필"
-
-#: templates/partials/nav.html:7
+#: templates/partials/nav.html:6
 msgid "Favorite"
 msgstr "관심목록"
+
+#: templates/partials/nav.html:12
+msgid "Profile"
+msgstr "프로필"
 
 #: templates/partials/nav.html:13
 msgid "Log out"

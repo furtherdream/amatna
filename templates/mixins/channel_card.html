@@ -1,17 +1,28 @@
 {% load i18n %}
 <div class="w-1/2 lg:w-1/4 mb-10 p-3">
-    <a href="w-full">
+    <a href="#">
         <div class="w-full h-64 lg:h-50vh bg-cover bg-center rounded-lg mb-2" style="background-image: url({{channel.image.url}});"></div>
+    </a>
+    <a href="{% if channel.youtube_link %}https://www.youtube.com/channel/{{channel.youtube_link}}{% elif channel.instagram_link %}https://www.instagram.com/{{channel.instagram_link}}{% endif %}">        
         <div class="w-full flex justify-between mb-2 items-center">
             <img src="{{channel.thumbnail.url}}" class="h-16 w-16 border-gray-200 border rounded-lg"/>
-            <div class="ml-3 w-4/5">
-                <span class="text-black font-medium truncate block ">{{channel.name}}</span>                
+            <div class="flex justify-between ml-3 w-4/5">
+                <span class="text-black font-medium">{{channel.name}}</span>             
+                <span class="text-sm text-red-400 mr-1 font-normal truncate block ">
+                    {% if channel.youtube_link %}
+                        {% trans 'visit youtube' %}
+                    {% elif channel.instagram_link %}
+                        {% trans 'visit instagram' %}
+                    {% endif %}
+                </span>
             </div>
         </div>    
+    </a>
+    <a href="채널의 레스토랑">
         <div class="text-sm m-2">
            {{channel.description}}
         </div>
-        <div class="text-right text-blue-400 mr-3">
+        <div class="text-sm text-right text-blue-400 mr-3">
             {% trans 'view more >' %}
         </div>
     </a>
