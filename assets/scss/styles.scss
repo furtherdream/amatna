@@ -20,4 +20,11 @@
   }
 }
 
+.tag {
+  @apply bg-teal-400 rounded-full font-medium text-sm text-white px-4 py-2 ml-1 mb-2;
+  button {
+    @apply bg-teal-400 rounded-full font-medium text-sm text-white px-4 py-2 ml-1 mb-2;
+  }
+}
+
 @tailwind utilities;

@@ -1,0 +1,10 @@
+<div class="table-row w-11/12 flex flex-row">                  
+    {% for t in restaruant.tag_set.all %}
+    <form class="inline" mehtod="get" action="{% url 'restaurants:search' %}">
+        <button class="tag" name="tag_set" type="submit" value="{{t.name}}">
+            {{t.name}}
+        </button>
+    </form>
+    {% endfor %}
+</div>
+
