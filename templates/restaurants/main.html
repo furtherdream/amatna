@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% load i18n %} 
 {% block page_title %} 
-Home 
+  {% trans 'ENJOY your meal in Korea with Amatna' %}
 {% endblock page_title %} 
 
 {% block content %} 
@@ -9,10 +9,12 @@ Home
 
     <div class="bg-gray-100 -mt-4 w-full">
       <div class=" pt-12 mb-10 flex flex-col">
-        <span class="font-bold text-2xl text-red-500 ml-8 mb-2">아무 맛집이나 가지 않는 나!</span>
-        <span class="text-xl text-gray-800 ml-8">방송에 나온 맛집과 크리에이터, 셀럽들의 맛집을 모았어요!</span>
+        <span class="font-bold text-2xl text-red-500 ml-8 mb-2">{% trans 'DO NOT pay your time for searching restaurant in Korea' %}</span>
+        <span class="text-xl text-gray-800 ml-8">{% trans 'HOT PLACE in Korea assembled' %}</span>
       </div> 
+
       {% include 'restaurants/channel_list.html' %}
+
       <div class="w-full pb-12">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- amatna_horizontal -->
@@ -25,15 +27,18 @@ Home
         </script>
       </div>
     </div>
+
+
     <div class="w-full pt-10">
       <div class=" pt-12 mb-10 flex flex-col">
-        <span class="font-bold text-2xl text-red-500 ml-8 mb-2">오늘은 어떤 맛집이 올라왔을까?</span>
-        <span class="font-normal text-xl text-teal-500 ml-8 mb-1">백댓이 불여일동!</span>
-        <span class="text-lg text-gray-800 ml-8">댓글 백개 읽어도 가고 싶은 맛집인지 아닌지 헷갈리다구요?</span>
-        <span class="text-lg text-gray-800 ml-8">방송 혹은 크리에이터의 생생한 동영상으로 가고 싶은 맛집을 찾아보세요.</span>
+        <span class="font-bold text-2xl text-red-500 ml-8 mb-2">{% trans 'Last Updated Restaurants' %}</span>
+        <span class="font-normal text-xl text-teal-500 ml-8 mb-1">{% trans 'Videos is better than reviews' %}</span>
+        <span class="text-lg text-gray-800 ml-8">{% trans 'Do not search reviews' %}</span>
+        <span class="text-lg text-gray-800 ml-8">{% trans 'Watch mukbang in Korean Creators' %}</span>
       </div> 
+
       {% include 'restaurants/restaurant_list.html' %}
-    </div>
       
+    </div>      
   </div>
 {% endblock content %}

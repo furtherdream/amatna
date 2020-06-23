@@ -4,29 +4,43 @@
 
 
     <div class="flex flex-wrap mx-0 mb-10">
-        {% for restaruant in restaurants.object_list %}
-          {% include 'mixins/restaurant_card.html' with restaruant=restaruant %}
+        {% for restaurant in restaurants.object_list %}
+          {% include 'mixins/restaurant_card.html' with restaurant=restaurant %}
         {% endfor %}
     </div>   
 
-    <h4>
+      <div class="w-full pb-12">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- amatna_horizontal -->
+        <ins class="adsbygoogle"
+            style="display:inline-block;width:728px;height:90px"
+            data-ad-client="ca-pub-3931834768948104"
+            data-ad-slot="9354540521"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+    <div class="flex item-center justify-center font-medium text-lg mb-10"> 
+
       {% if restaurants.has_previous %}
-        <a href="?page={{restaurants.number|add:-1}}">Previous</a>
+        <a href="?page={{restaurants.number|add:-1}}" class="text-teal-500">
+          <i class="fas fa-arrow-left fa-lg"></i>
+        </a>
       {% endif %}
       
-      Page {{restaurants.number}} of {{restaurants.paginator.num_pages}}
-      
+      <span class="mx-3">
+        {% blocktrans with current_page=restaurants.number total_pages=restaurants.paginator.num_pages %}Page {{current_page}} of {{total_pages}}{% endblocktrans %}
+      </span>
+
       {% if restaurants.has_next %}
-        <a href="?page={{restaurants.number|add:1}}">Next</a>
+        <a href="?page={{restaurants.number|add:1}}" class="text-teal-500">
+          <i class="fas fa-arrow-right fa-lg"></i>
+        </a>
       {% endif %}
       
-    </h4>
-    </h6>
-      {% for page in restaurants.paginator.page_range %}
-        <a href="?page={{page}}">{{page}}</a>
-      {% endfor %}
-    </h6>
-  </div>
-    
+    </div>
+
 
 {% endblock content %}

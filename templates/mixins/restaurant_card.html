@@ -1,8 +1,8 @@
 <div class="w-1/2 lg:w-1/4 mb-0 p-4">
     
     <div class="bg-white rounded-xl shadow-2xl">
-        <a href="{% url "restaurants:detail" restaruant.pk %}" class="flex flex-col pb-12 justify-center items-center">   
-            {% for y in restaruant.youtube.all %}
+        <a href="{% url "restaurants:detail" restaurant.pk %}" class="flex flex-col pb-12 justify-center items-center">   
+            {% for y in restaurant.youtube.all %}
                 <iframe 
                 id="ytplayer" 
                 type="text/html" 
@@ -13,9 +13,11 @@
                 class=" rounded-t-xl w-full mb-8"
                 ></iframe>
                 <div class="text-base text-gray-800 w-5/6">{{y.name}}</div>
-            {% endfor %}         
-            <span class="font-bold text-2xl text-gray-800 p-6 mb-4">{{restaruant.title}}</span> 
-            {% include 'mixins/tag.html' with restaruant=restaruant %}
+            {% endfor %}
+            
+            <span class="font-bold text-2xl text-gray-800 p-6 mb-4">{{restaurant.title}}</span> 
+
+            {% include 'mixins/tag.html' with restaurant=restaurant %}
         </a>   
     </div>
 </div>

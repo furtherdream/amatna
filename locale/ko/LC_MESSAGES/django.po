@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 22:13+0900\n"
+"POT-Creation-Date: 2020-06-23 17:07+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "관심목록"
 msgid "user"
 msgstr "사용자"
 
-#: lists/models.py:24 restaurants/models.py:62 restaurants/models.py:103
+#: lists/models.py:24 restaurants/models.py:64 restaurants/models.py:105
 #: reviews/models.py:25
 msgid "restaurant"
 msgstr "음식점"
@@ -51,16 +51,16 @@ msgstr "미디어"
 msgid "SortOfRestaurant"
 msgstr "음식점 필터"
 
-#: restaurants/admin.py:84 restaurants/models.py:29
+#: restaurants/admin.py:84 restaurants/models.py:30
 msgid "thumbnail"
 msgstr "썸네일"
 
-#: restaurants/models.py:10 restaurants/models.py:27 restaurants/models.py:77
-#: restaurants/models.py:92
+#: restaurants/models.py:10 restaurants/models.py:27 restaurants/models.py:79
+#: restaurants/models.py:94
 msgid "name"
 msgstr "제목"
 
-#: restaurants/models.py:24 restaurants/models.py:112
+#: restaurants/models.py:24 restaurants/models.py:114
 msgid "channel"
 msgstr "채널"
 
@@ -72,115 +72,115 @@ msgstr "채널"
 msgid "description"
 msgstr "채널 설명"
 
-#: restaurants/models.py:30
+#: restaurants/models.py:32
 msgid "image"
 msgstr "채널 이미지"
 
-#: restaurants/models.py:31
+#: restaurants/models.py:33
 msgid "youtube link"
 msgstr "유튜브 링크"
 
-#: restaurants/models.py:32
+#: restaurants/models.py:34
 msgid "instagram link"
 msgstr "인스타그램 링크"
 
-#: restaurants/models.py:33
+#: restaurants/models.py:35
 msgid "rank"
 msgstr "노출순서"
 
-#: restaurants/models.py:44 restaurants/models.py:117
+#: restaurants/models.py:46 restaurants/models.py:119
 msgid "category"
 msgstr "카테고리"
 
-#: restaurants/models.py:45
+#: restaurants/models.py:47
 msgid "categories"
 msgstr "카테고리"
 
-#: restaurants/models.py:53
+#: restaurants/models.py:55
 msgid "photo"
 msgstr "음식점 이미지"
 
-#: restaurants/models.py:54
+#: restaurants/models.py:56
 msgid "photos"
 msgstr "음식점 이미지"
 
-#: restaurants/models.py:56
+#: restaurants/models.py:58
 msgid "caption"
 msgstr "설명"
 
-#: restaurants/models.py:57
+#: restaurants/models.py:59
 msgid "file"
 msgstr "파일"
 
-#: restaurants/models.py:74
+#: restaurants/models.py:76
 msgid "youtube ID"
 msgstr "유튜브"
 
-#: restaurants/models.py:75
+#: restaurants/models.py:77
 msgid "youtube IDs"
 msgstr "유튜브"
 
-#: restaurants/models.py:78
+#: restaurants/models.py:80
 msgid "video ID"
 msgstr "영상코드"
 
-#: restaurants/models.py:89
+#: restaurants/models.py:91
 msgid "tag"
 msgstr "태그"
 
-#: restaurants/models.py:90
+#: restaurants/models.py:92
 msgid "tags"
 msgstr "태그"
 
-#: restaurants/models.py:104
+#: restaurants/models.py:106
 msgid "restaurants"
 msgstr "음식점"
 
-#: restaurants/models.py:106
+#: restaurants/models.py:108
 msgid "title"
 msgstr "제목"
 
-#: restaurants/models.py:108
+#: restaurants/models.py:110
 msgid "youtube"
 msgstr "유튜브"
 
-#: restaurants/models.py:110
+#: restaurants/models.py:112
 msgid "instagram url"
 msgstr "인스타그램 링크"
 
-#: restaurants/models.py:114
+#: restaurants/models.py:116
 msgid "address"
 msgstr "주소"
 
-#: restaurants/models.py:115
+#: restaurants/models.py:117
 msgid "phone number"
 msgstr "전화번호"
 
-#: restaurants/models.py:119
+#: restaurants/models.py:121
 msgid "price"
 msgstr "가격대"
 
-#: restaurants/models.py:120
+#: restaurants/models.py:122
 msgid "biztime"
 msgstr "영업시간"
 
-#: restaurants/models.py:121
+#: restaurants/models.py:123
 msgid "breaktime"
 msgstr "휴식시간"
 
-#: restaurants/models.py:122
+#: restaurants/models.py:124
 msgid "info"
 msgstr "업체정보"
 
-#: restaurants/models.py:123
+#: restaurants/models.py:125
 msgid "menu"
 msgstr "메뉴"
 
-#: restaurants/models.py:124
+#: restaurants/models.py:126
 msgid "holiday"
 msgstr "휴일"
 
-#: restaurants/models.py:126
+#: restaurants/models.py:128
 msgid "tag set"
 msgstr "태그모음"
 
@@ -196,6 +196,10 @@ msgstr "평점"
 msgid "reviews"
 msgstr "리뷰"
 
+#: templates/base.html:10
+msgid "Amatna : DO NOT pay your time for searching restaurant"
+msgstr "아!맛나 : 아무 맛집이나 가지 않는 나"
+
 #: templates/mixins/channel_card.html:13
 msgid "visit youtube"
 msgstr "방문하기"
@@ -208,9 +212,13 @@ msgstr "방문하기"
 msgid "view more >"
 msgstr "채널 맛집 모아보기 >"
 
-#: templates/partials/footer.html:3
-msgid "Amatna"
-msgstr "아!맛나"
+#: templates/partials/footer.html:5
+msgid "Please don't copy us."
+msgstr "아무 맛집이나 가지 않는 나"
+
+#: templates/partials/footer.html:7
+msgid "Amatna : All rights reserved"
+msgstr "아!맛나  |  크리에이터의 맛집 정보를 수집하여 제공합니다."
 
 #: templates/partials/nav.html:6
 msgid "Favorite"
@@ -224,17 +232,49 @@ msgstr "프로필"
 msgid "Log out"
 msgstr "로그아웃"
 
-#: templates/partials/nav.html:15
+#: templates/partials/nav.html:35
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:16
+#: templates/partials/nav.html:36
 msgid "Sign up"
 msgstr "회원가입"
 
 #: templates/partials/search_bar.html:7
 msgid "Search by menu or area"
 msgstr "메뉴나 지역으로 검색하세요."
+
+#: templates/partials/social_login.html:3
+msgid "Continue with Kakao"
+msgstr "카카오 아이디로 시작하기"
+
+#: templates/restaurants/main.html:4
+msgid "ENJOY your meal in Korea with Amatna"
+msgstr "맛있는 하루 되세요"
+
+#: templates/restaurants/main.html:12
+msgid "DO NOT pay your time for searching restaurant in Korea"
+msgstr "아무 맛집이나 가지 않는 나!"
+
+#: templates/restaurants/main.html:13
+msgid "HOT PLACE in Korea assembled"
+msgstr "방송에 나온 맛집과 크리에이터, 셀럽들의 맛집을 모았어요!"
+
+#: templates/restaurants/main.html:34
+msgid "Last Updated Restaurants"
+msgstr "오늘은 어떤 맛집이 올라왔을까?"
+
+#: templates/restaurants/main.html:35
+msgid "Videos is better than reviews"
+msgstr "백댓이 불여일동!"
+
+#: templates/restaurants/main.html:36
+msgid "Do not search reviews"
+msgstr "댓글 백개 읽어도 가고 싶은 맛집인지 아닌지 헷갈리다구요?"
+
+#: templates/restaurants/main.html:37
+msgid "Watch mukbang in Korean Creators"
+msgstr "방송 혹은 크리에이터의 생생한 동영상으로 가고 싶은 맛집을 찾아보세요."
 
 #: templates/restaurants/restaurant_detail.html:10
 msgid "Channels"
@@ -243,6 +283,11 @@ msgstr "채널"
 #: templates/restaurants/restaurant_detail.html:17
 msgid "Tags"
 msgstr "태그"
+
+#: templates/restaurants/restaurant_list.html:34
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "%(current_page)s 페이지  /  %(total_pages)s 페이지"
 
 #: templates/users/login.html:4
 msgid "Login"
@@ -291,6 +336,9 @@ msgstr "이메일 인증키"
 #: users/models.py:29
 msgid "login method"
 msgstr "로그인 방식"
+
+#~ msgid "Amatna"
+#~ msgstr "아!맛나"
 
 #~ msgid "munu"
 #~ msgstr "메뉴"
