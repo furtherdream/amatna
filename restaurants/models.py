@@ -26,7 +26,9 @@ class Channel(core_models.TimeStampedModel):
 
     name = models.CharField(_("name"), max_length=20, unique=True)
     description = models.TextField(_("description"),)
-    thumbnail = models.ImageField(_("thumbnail"), upload_to="channel_thumbnails")
+    thumbnail = models.ImageField(
+        _("thumbnail"), upload_to="channel_thumbnails", blank=True
+    )
     image = models.ImageField(_("image"), upload_to="channel_images")
     youtube_link = models.CharField(_("youtube link"), max_length=40, blank=True)
     instagram_link = models.CharField(_("instagram link"), max_length=40, blank=True)

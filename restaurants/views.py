@@ -5,7 +5,7 @@ from . import models
 
 
 def main_views(request):
-    all_channels = models.Channel.objects.all().order_by("rank")[0:10]
+    all_channels = models.Channel.objects.all().order_by("rank")[0:8]
     page = request.GET.get("page")
     all_restaurant = models.Restaurant.objects.all().order_by("-created")
     paginator = Paginator(all_restaurant, 16)
