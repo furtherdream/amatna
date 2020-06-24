@@ -1,12 +1,56 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% block page_title %}
     {{restaurant.title}}
 {% endblock page_title %}
 
 
 {% block content %}
+    <div class=" w-full mb-20 flex flex-col items-center justify-center">
+        <div class="flex flex-row bg-gray-400 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
+            <div class="text-3xl font-normal text-gray-700">{{restaurant.title}}
+                {% if restaurant.total_rating != 0 %}    
+                   <span class="ml-3 text-red-400 font-normal text-2xl ">{{restaurant.total_rating}}</span>
+                {% endif %}
+            </div>
+            <a href="#">
+                <img class="w-10" src="{% static 'img/heart_filled.png'%}">
+            </a>
+        </div>
+        
+        <div class="bg-gray-200 w-11/12 lg:w-3/5 justify-start mb-5 px-3 pt-5 pb-3 rounded-b-lg">
+            {% include 'mixins/tag.html' with restaurant=restaurant %}
+        </div>
 
+
+        {% for y in restaurant.youtube.all %}
+            <div class="flex flex-row bg-red-200 p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                <img src="{% static 'img/youtube_logo.png' %}" class=" w-16">
+                <span class="p-4 -ml-3 font-normal text-lg block truncate">{{y.name}}</span>
+            </div>
+            <div class="bg-red-300 p-5 rounded-b-lg w-11/12 lg:w-3/5">
+                <iframe 
+                id="ytplayer" 
+                type="text/html" d
+                src="https://www.youtube.com/embed/{{y.video_id}}?autoplay=1?modestbranding=1"
+                frameborder="0"
+                class="w-full h-25vh lg:h-50vh rounded-lg"
+                ></iframe>
+                <div>    
+                    아!맛나 comment : {{restaurant.info}}
+                </div>
+                
+            </div>
+        {% endfor %}       
+
+        <div class="w-1/2 h-full flex flex-wrap">            
+            {% for photo in room.get_next_four_photos %}
+                <div style="background-image: url({{photo.file.url}});" class="w-1/2 h-auto bg-cover bg-center border border-white"></div>     
+            {% endfor %}
+                
+        </div>
+    </div>
+    
 <h3>{% trans 'Channels' %}</h3>
 <ul>    
     {% for c in restaurant.channel.all %}
@@ -25,17 +69,6 @@
     {{restaurant.title}}
 </div>
 
-<h3>youtube</h3>
-{% for y in restaurant.youtube.all %}
-    <div>{{y.name}}</div>
-    <iframe 
-    id="ytplayer" 
-    type="text/html" 
-    width="480" 
-    height="270"
-    src="https://www.youtube.com/embed/{{y.video_id}}?autoplay=1"
-    frameborder="0"></iframe>
-{% endfor %}        
 
 <div>
     {{restaurant.instagram_url}}
@@ -76,6 +109,8 @@
 <div>    
     {{restaurant.holiday}}
 </div>
+
+
 
 
 {% endblock %}

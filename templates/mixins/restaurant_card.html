@@ -16,8 +16,9 @@
             {% endfor %}
             
             <span class="font-bold text-2xl text-gray-800 p-6 mb-4">{{restaurant.title}}</span> 
-
-            {% include 'mixins/tag.html' with restaurant=restaurant %}
+            <div class="w-11/12">
+                {% include 'mixins/tag.html' with restaurant=restaurant %}
+            </div>
         </a>   
     </div>
 </div>
