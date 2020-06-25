@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% block page_title %}
 
 Search
@@ -56,8 +56,54 @@ Search
 
     {% else %}
 
-    <h1>없어없어 다른 검색어로 찾아줘</h1>
-
+        {% if tag %}
+            <div class="container mx-auto min-h-75vh flex flex-col items-center ">
+                <div class="flex flex-col">
+                    <span class="font-normal text-2xl pt-20 pb-5">
+                        <span class="font-bold text-red-600">"{{tag}}"</span>
+                        {% trans 'There is no restaurant for this keyword' %}
+                    </span>
+                    <span class="mb-2 text-lg">• {% trans 'Make sure you enter the word correctly.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please search for the local name, (local name) restaurant, and menu you want to find.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'We do not support searching in English.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please click on the image below to recommend a creator who wants to make a list of restaurants.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
+                </div>
+                <div class="w-3/4 lg:w-1/3">
+                    <a href="{% url 'core:home' %}">
+                        <div class="bg-red-500 py-5 mt-20 mb-8 rounded-md w-full text-white text-xl text-center hover:opacity-75">{% trans 'Back to home' %}</div>
+                    </a>
+                    <a href="mailto:furtherdream.ceo@gmail.com?subject=맛집 목록을 만들고 싶은 크리에이터를 추천합니다.">
+                        <img src="{% static 'img/eating_show_ha.png' %}" class="rounded-t-lg w-full hover:opacity-75">
+                        <div class="bg-teal-500 py-5 rounded-b-lg text-white text-xl w-full text-center mb-20 hover:opacity-75 p-2">{% trans 'Please recommend a creator who wants to know the list of good restaurants.' %}</div>
+                    </a>
+                </div>
+            </div>
+        {% elif category %}
+            <div class="container mx-auto min-h-75vh flex flex-col items-center ">
+                <div class="flex flex-col">
+                    <span class="font-normal text-2xl pt-20 pb-5">
+                        <span class="font-bold text-red-600">"{{category}}"</span>
+                        {% trans 'There are no search results for the category.' %}
+                    </span>
+                    <span class="mb-2 text-lg">• {% trans 'Use the search box to find a restaurant.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please search for the local name, (local name) restaurant, and menu you want to find.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'We do not support searching in English.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please click on the image below to recommend a creator who wants to make a list of restaurants.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
+                </div>
+                <div class="w-3/4 lg:w-1/3">
+                    <a href="{% url 'core:home' %}">
+                        <div class="bg-red-500 py-5 mt-20 mb-8 rounded-md w-full text-white text-xl text-center hover:opacity-75">{% trans 'Back to home' %}</div>
+                    </a>
+                    <a href="mailto:furtherdream.ceo@gmail.com?subject=맛집 목록을 만들고 싶은 크리에이터를 추천합니다.">
+                        <img src="{% static 'img/eating_show_ha.png' %}" class="rounded-t-lg w-full hover:opacity-75">
+                        <div class="bg-teal-500 py-5 rounded-b-lg text-white text-xl w-full text-center mb-20 hover:opacity-75 p-2">{% trans 'Please recommend a creator who wants to know the list of good restaurants.' %}</div>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    
     {% endif %}     
     
 
