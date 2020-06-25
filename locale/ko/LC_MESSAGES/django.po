@@ -170,7 +170,7 @@ msgstr "휴식시간"
 
 #: restaurants/models.py:124
 msgid "info"
-msgstr "업체정보"
+msgstr "아!만다 코멘트"
 
 #: restaurants/models.py:125
 msgid "menu"

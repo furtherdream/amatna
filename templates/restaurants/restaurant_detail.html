@@ -24,11 +24,11 @@
 
 
         {% for y in restaurant.youtube.all %}
-            <div class="flex flex-row bg-red-200 p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+            <div class="flex flex-row  p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
                 <img src="{% static 'img/youtube_logo.png' %}" class=" w-16">
-                <span class="p-4 -ml-3 font-normal text-lg block truncate">{{y.name}}</span>
+                <span class="p-4 -ml-3 font-normal text-xl block truncate">{{y.name}}</span>
             </div>
-            <div class="bg-red-100 p-5 rounded-b-lg w-11/12 lg:w-3/5 mb-12">
+            <div class="bg-red-100 p-5 rounded-lg w-11/12 lg:w-3/5 mb-12">
                 <iframe 
                 id="ytplayer" 
                 type="text/html"
@@ -36,26 +36,22 @@
                 frameborder="0"
                 class="w-full h-25vh lg:h-50vh rounded-lg"
                 ></iframe>
-                <div>    
-                    아!맛나 comment : {{restaurant.info}}
-                </div>
-                
             </div>
-        {% endfor %}       
+        {% endfor %}
 
-        <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+        <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-3">
             <span class="p-4 font-normal text-xl block truncate">{% trans 'Information' %}</span>
         </div>     
         <table class="table-fixed w-11/12 lg:w-3/5 mb-20">
             <tbody>
                 <tr>
-                    <td class="table-title">{% trans 'Restaurant Name' %}</td>
-                    <td class="table-description">{{restaurant.title}}</td>
+                    <td class="table-title border-t">{% trans 'Restaurant Name' %}</td>
+                    <td class="table-description border-t">{{restaurant.title}}</td>
                   </tr>              
                   <tr>
                     <td class="table-title">{% trans 'instagram' %}</td>
                     <td class="table-description text-blue-500">
-                        <a href="https://www.instagram.com/explore/{{restaurant.instagram_url}}" target="_blank" class="flex flex-row">
+                        <a href="https://www.instagram.com/explore/{{restaurant.instagram_url}}" target="_blank" class="flex flex-row hover:opacity-50">
                             <span class="py-2 mr-2">인스타그램으로 보러가기</span>
                             <img src="{% static 'img/instagram_logo.png' %}" class="w-10" />
                         </a>                        
@@ -73,8 +69,10 @@
                     <td class="table-title">{% trans 'Category' %}</td>
                     <td class="table-description">                        
                         {% for c in restaurant.category.all %}
-                            <span class="mr-1 py-2 px-4 bg-yellow-400 rounded-full">{{c}}</span>
-                        {% endfor %}                            
+                            <a href="{% url 'restaurants:category' c.pk %}">
+                                <span class="bg-yellow-400 font-medium px-4 py-2 rounded-full">{{c}}</span>
+                            </a>   
+                        {% endfor %}
                     </td>
                   </tr>
                   <tr>
@@ -97,8 +95,6 @@
                     <td class="table-title">{% trans 'Holiday' %}</td>
                     <td class="table-description">{{restaurant.holiday}}</td>
                   </tr>
-
-
             </tbody>
           </table>
 

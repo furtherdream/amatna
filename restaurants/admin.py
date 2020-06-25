@@ -38,9 +38,9 @@ class RestaurantAdmin(admin.ModelAdmin):
                     "price",
                     "biztime",
                     "breaktime",
-                    "info",
                     "menu",
                     "holiday",
+                    "info",
                 )
             },
         ),

@@ -28,7 +28,7 @@ def search(request):
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(tag_set__name=tag).order_by("-created")
-    paginator = Paginator(qs, 100)
+    paginator = Paginator(qs, 40)
     restaurants = paginator.get_page(page)
     return render(
         request, "restaurants/search.html", {"tag": tag, "restaurants": restaurants},
@@ -45,4 +45,17 @@ def channel_view(request, pk):
         request,
         "restaurants/search.html",
         {"channel": channel, "restaurants": restaurants},
+    )
+
+
+def category_search(request, pk):
+    category = models.Category.objects.get(pk=pk)
+    page = request.GET.get("page")
+    qs = models.Restaurant.objects.filter(category__pk=pk).order_by("-created")
+    paginator = Paginator(qs, 40)
+    restaurants = paginator.get_page(page)
+    return render(
+        request,
+        "restaurants/search.html",
+        {"category": category, "restaurants": restaurants},
     )
