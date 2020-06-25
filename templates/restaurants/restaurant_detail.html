@@ -14,7 +14,7 @@
                 {% endif %}
             </div>
             <a href="#">
-                <img class="w-10" src="{% static 'img/heart_filled.png'%}">
+                <img class="w-8" src="{% static 'img/heart_filled.png'%}">
             </a>
         </div>
         
@@ -28,7 +28,7 @@
                 <img src="{% static 'img/youtube_logo.png' %}" class=" w-16">
                 <span class="p-4 -ml-3 font-normal text-xl block truncate">{{y.name}}</span>
             </div>
-            <div class="bg-red-100 p-5 rounded-lg w-11/12 lg:w-3/5 mb-12">
+            <div class="bg-red-200 p-5 rounded-lg w-11/12 lg:w-3/5 mb-12">
                 <iframe 
                 id="ytplayer" 
                 type="text/html"
@@ -70,7 +70,7 @@
                     <td class="table-description">                        
                         {% for c in restaurant.category.all %}
                             <a href="{% url 'restaurants:category' c.pk %}">
-                                <span class="bg-yellow-400 font-medium px-4 py-2 rounded-full">{{c}}</span>
+                                <span class="bg-yellow-400 font-medium px-4 py-2 rounded-full hover:opacity-50">{{c}}</span>
                             </a>   
                         {% endfor %}
                     </td>
@@ -81,7 +81,7 @@
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Menu' %}</td>
-                    <td class="table-description">{{restaurant.menu}}</td>
+                    <td class="table-description text-xl">{{restaurant.menu|linebreaks}}</td>
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Business time' %}</td>
@@ -124,9 +124,13 @@
                         frameborder="0"
                         class=" rounded-t-xl w-full bg-whitel shadow-xl"
                     ></iframe>
-                    <div class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-8 px-3">
-                        {{y.name}}
-                    </div>
+                    <a href="https://www.youtube.com/watch?v={{y.video_id}}" target="_blank" class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-8 px-3 hover:opacity-75">
+                        <span>{{y.name}}</span>
+                        <div class="flex flex-row mt-3">                                
+                            <img src="{% static 'img/youtube_logo.png' %}" class="-ml-2 w-12">
+                            <span class="p-3 -ml-2 text-red-600 font-medium">{% trans 'watch on youtube' %}</span>
+                        </div>
+                    </a>                        
                 </div>
             {% endfor %}
         </div>

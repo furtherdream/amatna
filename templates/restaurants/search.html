@@ -13,54 +13,52 @@ Search
 
 {% block content %}
 
-    <h2>Search!!</h2>
-
-
-    
-    
-    {% if tag %}
-        <h4>Searching by {{tag}}</h4>
-    {% elif channel %}
-        <h1>{{channel}}</h1>
-    {% elif category %}
-        <h1>category</h1>
-    {% endif %}
-        
-
 
     {% if restaurants.object_list.count > 0 %}
-        {% for r in restaurants.object_list %}
-            <div>
-            <a href="{% url "restaurants:detail" r.pk %}">
-                <h1>{{r.title}} / {{r.price}}</h1>        
-            </a>        
-            </div>
-        {% endfor %}   
+        <div class="container mx-auto">        
+            {% blocktrans with total_restaurants=restaurants.object_list.count %}We searched {{total_restaurants}} restaurant(s){% endblocktrans %}
+            {% if tag %}
+                <h4>Searching by {{tag}}</h4>
+            {% elif channel %}
+                <h1>{{channel}}</h1>
+            {% elif category %}
+                <h1>{{category}}</h1>
+            {% endif %}
+        </div>
 
-        <h4>
+        <div class="container mx-auto pb-10">
+            <div class="flex flex-wrap mx-0 mb-10">
+                {% for restaurant in restaurants.object_list %}
+                    {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
+                {% endfor %}
+            </div>         
+        </div>
+        
+        <div class="flex item-center justify-center font-medium text-lg mb-10"> 
+        
             {% if restaurants.has_previous %}
-                <a href="?page={{restaurants.number|add:-1}}">Previous</a>
+            <a href="?page={{restaurants.number|add:-1}}" class="text-teal-500">
+                <i class="fas fa-arrow-left fa-lg"></i>
+            </a>
             {% endif %}
             
-            Page {{restaurants.number}} of {{restaurants.paginator.num_pages}}
-            
+            <span class="mx-3">
+            {% blocktrans with current_page=restaurants.number total_pages=restaurants.paginator.num_pages %}Page {{current_page}} of {{total_pages}}{% endblocktrans %}
+            </span>
+        
             {% if restaurants.has_next %}
-                <a href="?page={{restaurants.number|add:1}}">Next</a>
+            <a href="?page={{restaurants.number|add:1}}" class="text-teal-500">
+                <i class="fas fa-arrow-right fa-lg"></i>
+            </a>
             {% endif %}
             
-            </h4>
-            </h6>
-            {% for page in restaurants.paginator.page_range %}
-                <a href="?page={{page}}">{{page}}</a>
-            {% endfor %}
-        </h6>
-    
+        </div>
+
     {% else %}
 
-        <h1>없어없어 다른 검색어로 찾아줘</h1>
+    <h1>없어없어 다른 검색어로 찾아줘</h1>
 
-    {% endif %}
-        
+    {% endif %}     
     
 
 
