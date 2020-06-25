@@ -1,11 +1,11 @@
-{% load i18n %}
+{% load i18n static %}
 <div class="w-1/2 lg:w-1/4 mb-8 p-3">
     <a href="{% url 'restaurants:channel' channel.pk %}">
         <div class="w-full h-64 lg:h-25vh bg-cover bg-center rounded-lg mb-2" style="background-image: url({{channel.image.url}});"></div>
     </a>
     <a href="{% if channel.youtube_link %}https://www.youtube.com/channel/{{channel.youtube_link}}{% elif channel.instagram_link %}https://www.instagram.com/{{channel.instagram_link}}{% else %}{% url 'restaurants:channel' channel.pk %}{% endif %}" target="_blank">        
         <div class="w-full flex justify-between mb-2 items-center">
-            <img src="{{channel.thumbnail.url}}" class="h-16 w-16 border-gray-200 border rounded-lg"/>
+            <img src="{% if channel.youtube_link %}{% static 'img/youtube_logo.png' %}{% elif channel.instagram_link %}{% static 'img/instagram_logo.png' %}{% else %}{{channel.thumbnail.url}}{% endif %}" class="h-16 w-16 border-gray-200 border rounded-lg"/>
             <div class="flex justify-between ml-3 w-4/5">
                 <span class="text-black font-medium">{{channel.name}}</span>             
                 <span class="text-sm text-red-400 mr-1 font-normal truncate block ">

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-23 17:07+0900\n"
+"POT-Creation-Date: 2020-06-25 10:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -244,7 +244,7 @@ msgstr "회원가입"
 msgid "Search by menu or area"
 msgstr "메뉴나 지역으로 검색하세요."
 
-#: templates/partials/social_login.html:3
+#: templates/partials/social_login.html:4
 msgid "Continue with Kakao"
 msgstr "카카오 아이디로 시작하기"
 
@@ -276,13 +276,57 @@ msgstr "댓글 백개 읽어도 가고 싶은 맛집인지 아닌지 헷갈리�
 msgid "Watch mukbang in Korean Creators"
 msgstr "방송 혹은 크리에이터의 생생한 동영상으로 가고 싶은 맛집을 찾아보세요."
 
-#: templates/restaurants/restaurant_detail.html:10
-msgid "Channels"
-msgstr "채널"
+#: templates/restaurants/restaurant_detail.html:47
+msgid "Information"
+msgstr "음식점 정보"
 
-#: templates/restaurants/restaurant_detail.html:17
-msgid "Tags"
-msgstr "태그"
+#: templates/restaurants/restaurant_detail.html:52
+msgid "Restaurant Name"
+msgstr "상호명"
+
+#: templates/restaurants/restaurant_detail.html:56
+msgid "instagram"
+msgstr "인스타그램"
+
+#: templates/restaurants/restaurant_detail.html:60
+msgid "Address"
+msgstr "주소"
+
+#: templates/restaurants/restaurant_detail.html:64
+msgid "Phone number"
+msgstr "전화번호"
+
+#: templates/restaurants/restaurant_detail.html:68
+msgid "Category"
+msgstr "카테고리"
+
+#: templates/restaurants/restaurant_detail.html:76
+msgid "Price"
+msgstr "가격대"
+
+#: templates/restaurants/restaurant_detail.html:80
+msgid "Menu"
+msgstr "메뉴"
+
+#: templates/restaurants/restaurant_detail.html:84
+msgid "Business time"
+msgstr "영업시간"
+
+#: templates/restaurants/restaurant_detail.html:88
+msgid "Break time"
+msgstr "휴식시간"
+
+#: templates/restaurants/restaurant_detail.html:92
+msgid "Holiday"
+msgstr "휴일"
+
+#: templates/restaurants/restaurant_detail.html:105
+msgid "The channel that visited this restaurant."
+msgstr "이 음식점을 방문한 채널"
+
+#: templates/restaurants/restaurant_detail.html:115
+msgid "A video of a visit to this restaurant"
+msgstr "이 음식점을 방문한 영상"
 
 #: templates/restaurants/restaurant_list.html:34
 #, python-format
@@ -336,6 +380,12 @@ msgstr "이메일 인증키"
 #: users/models.py:29
 msgid "login method"
 msgstr "로그인 방식"
+
+#~ msgid "Channels"
+#~ msgstr "채널"
+
+#~ msgid "Tags"
+#~ msgstr "태그"
 
 #~ msgid "Amatna"
 #~ msgstr "아!맛나"

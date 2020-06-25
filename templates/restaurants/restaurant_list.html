@@ -5,7 +5,7 @@
 
     <div class="flex flex-wrap mx-0 mb-10">
         {% for restaurant in restaurants.object_list %}
-          {% include 'mixins/restaurant_card.html' with restaurant=restaurant %}
+          {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
         {% endfor %}
     </div>   
 

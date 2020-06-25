@@ -7,7 +7,7 @@
 
 {% block content %}
     <div class=" w-full mb-20 flex flex-col items-center justify-center">
-        <div class="flex flex-row bg-gray-400 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
+        <div class="flex flex-row bg-gray-200 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
             <div class="text-3xl font-normal text-gray-700">{{restaurant.title}}
                 {% if restaurant.total_rating != 0 %}    
                    <span class="ml-3 text-red-400 font-normal text-2xl ">{{restaurant.total_rating}}</span>
@@ -18,7 +18,7 @@
             </a>
         </div>
         
-        <div class="bg-gray-200 w-11/12 lg:w-3/5 justify-start mb-5 px-3 pt-5 pb-3 rounded-b-lg">
+        <div class="bg-gray-100 w-11/12 lg:w-3/5 justify-start mb-5 px-3 pt-5 pb-3 rounded-b-lg">
             {% include 'mixins/tag.html' with restaurant=restaurant %}
         </div>
 
@@ -28,10 +28,10 @@
                 <img src="{% static 'img/youtube_logo.png' %}" class=" w-16">
                 <span class="p-4 -ml-3 font-normal text-lg block truncate">{{y.name}}</span>
             </div>
-            <div class="bg-red-300 p-5 rounded-b-lg w-11/12 lg:w-3/5">
+            <div class="bg-red-100 p-5 rounded-b-lg w-11/12 lg:w-3/5">
                 <iframe 
                 id="ytplayer" 
-                type="text/html" d
+                type="text/html"
                 src="https://www.youtube.com/embed/{{y.video_id}}?autoplay=1?modestbranding=1"
                 frameborder="0"
                 class="w-full h-25vh lg:h-50vh rounded-lg"
@@ -43,74 +43,96 @@
             </div>
         {% endfor %}       
 
-        <div class="w-1/2 h-full flex flex-wrap">            
-            {% for photo in room.get_next_four_photos %}
-                <div style="background-image: url({{photo.file.url}});" class="w-1/2 h-auto bg-cover bg-center border border-white"></div>     
-            {% endfor %}
-                
+        <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+            <span class="p-4 font-normal text-xl block truncate">{% trans 'Information' %}</span>
+        </div>     
+        <table class="table-fixed w-11/12 lg:w-3/5 mb-10">
+            <tbody>
+                <tr>
+                    <td class="table-title">{% trans 'Restaurant Name' %}</td>
+                    <td class="table-description">{{restaurant.title}}</td>
+                  </tr>              
+                  <tr>
+                    <td class="table-title">{% trans 'instagram' %}</td>
+                    <td class="table-description">{{restaurant.instagram_url}}</td>
+                  </tr>                  
+                  <tr>
+                    <td class="table-title">{% trans 'Address' %}</td>
+                    <td class="table-description">{{restaurant.address}}</td>
+                  </tr>                  
+                  <tr>
+                    <td class="table-title">{% trans 'Phone number' %}</td>
+                    <td class="table-description">{{restaurant.phone_number}}</td>
+                  </tr>
+                  <tr>
+                    <td class="table-title">{% trans 'Category' %}</td>
+                    <td class="table-description">                        
+                        {% for c in restaurant.category.all %}
+                            <span class="mr-1">{{c}}</span>
+                        {% endfor %}                            
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="table-title">{% trans 'Price' %}</td>
+                    <td class="table-description">{{restaurant.price}}</td>
+                  </tr>
+                  <tr>
+                    <td class="table-title">{% trans 'Menu' %}</td>
+                    <td class="table-description">{{restaurant.menu}}</td>
+                  </tr>
+                  <tr>
+                    <td class="table-title">{% trans 'Business time' %}</td>
+                    <td class="table-description">{{restaurant.biztime}}</td>
+                  </tr>
+                  <tr>
+                    <td class="table-title">{% trans 'Break time' %}</td>
+                    <td class="table-description">{{restaurant.breaktime}}</td>
+                  </tr>
+                  <tr>
+                    <td class="table-title">{% trans 'Holiday' %}</td>
+                    <td class="table-description">{{restaurant.holiday}}</td>
+                  </tr>
+
+
+            </tbody>
+          </table>
+
+      
+
+
+
+        <div class="bg-gray-200 p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+            <span class="p-4 font-normal text-xl block truncate">{% trans 'The channel that visited this restaurant.' %}</span>
+        </div>        
+        <div class="bg-gray-100 p-1 rounded-m-lg flex flex-wrap mx-0 mb-10 w-11/12 lg:w-3/5">
+                {% for channel in restaurant.channel.all %}                    
+                    {% include 'mixins/channel_card.html' with channel=channel %}
+                {% endfor %}                    
         </div>
+
+
+        <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+            <span class="p-4 font-normal text-xl block truncate">{% trans 'A video of a visit to this restaurant' %}</span>
+        </div>                
+        <div class="w-11/12 lg:w-3/5 flex-wrap flex">           
+            {% for y in restaurant.youtube.all %}                   
+                <div class="flex p-2 flex-wrap w-1/2 lg:w-1/4 justify-center items-center">        
+                    <iframe 
+                        id="ytplayer" 
+                        type="text/html" 
+                        width="300" 
+                        height="200"
+                        src="https://www.youtube.com/embed/{{y.video_id}}?autoplay=1?modestbranding=1"
+                        frameborder="0"
+                        class=" rounded-t-xl w-full bg-whitel shadow-xl"
+                    ></iframe>
+                    <div class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-8 px-3">
+                        {{y.name}}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
-    
-<h3>{% trans 'Channels' %}</h3>
-<ul>    
-    {% for c in restaurant.channel.all %}
-        <li>{{c}}</li>
-    {% endfor %}        
-</ul>
-
-<h3>{% trans 'Tags' %}</h3>
-<ul>    
-    {% for t in restaurant.tag_set.all %}
-        <li>{{t}}</li>
-    {% endfor %}        
-</ul>
-
-<div>
-    {{restaurant.title}}
-</div>
-
-
-<div>
-    {{restaurant.instagram_url}}
-</div>
-
-<div>
-    {{restaurant.address}}
-</div>
-
-<div>
-    {{restaurant.phone_number}}
-</div>
-
-<div>
-    {{restaurant.category}}
-<div>
-
-<div>    
-    {{restaurant.price}}
-</div>
-
-<div>    
-    {{restaurant.biztime}}
-</div>
-
-<div>    
-    {{restaurant.breaktime}}
-</div>
-
-<div>    
-    {{restaurant.info}}
-</div>
-
-<div>    
-    {{restaurant.menu}}
-</div>
-
-<div>    
-    {{restaurant.holiday}}
-</div>
-
-
-
 
 {% endblock %}

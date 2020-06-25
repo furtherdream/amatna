@@ -34,4 +34,12 @@
   @apply border-b border-gray-400 pb-8 mt-8;
 }
 
+.table-title {
+  @apply border-b border-r w-1/4 py-4 text-center text-red-600 text-lg font-medium;
+}
+
+.table-description {
+  @apply border-b px-6 py-4 text-lg text-gray-700 font-normal;
+}
+
 @tailwind utilities;

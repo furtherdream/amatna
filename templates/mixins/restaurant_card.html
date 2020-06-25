@@ -2,18 +2,16 @@
     
     <div class="bg-white rounded-xl shadow-2xl">
         <a href="{% url "restaurants:detail" restaurant.pk %}" class="flex flex-col pb-12 justify-center items-center">   
-            {% for y in restaurant.youtube.all %}
-                <iframe 
+            <iframe 
                 id="ytplayer" 
                 type="text/html" 
                 width="300" 
                 height="200"
-                src="https://www.youtube.com/embed/{{y.video_id}}?autoplay=1?modestbranding=1"
+                src="https://www.youtube.com/embed/{{youtube.video_id}}?autoplay=1?modestbranding=1"
                 frameborder="0"
                 class=" rounded-t-xl w-full mb-8"
-                ></iframe>
-                <div class="text-base text-gray-800 w-5/6">{{y.name}}</div>
-            {% endfor %}
+            ></iframe>
+            <div class="text-base text-gray-800 w-5/6">{{youtube.name}}</div>
             
             <span class="font-bold text-2xl text-gray-800 p-6 mb-4">{{restaurant.title}}</span> 
             <div class="w-11/12">
