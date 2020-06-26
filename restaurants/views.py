@@ -6,6 +6,7 @@ from . import models
 
 def main_views(request):
     all_channels = models.Channel.objects.all().order_by("rank")[0:8]
+    all_categories = models.Category.objects.all().order_by("created")
     page = request.GET.get("page")
     all_restaurant = models.Restaurant.objects.all().order_by("-created")
     paginator = Paginator(all_restaurant, 16)
@@ -13,7 +14,11 @@ def main_views(request):
     return render(
         request,
         "restaurants/main.html",
-        context={"channels": all_channels, "restaurants": restaurants},
+        context={
+            "channels": all_channels,
+            "restaurants": restaurants,
+            "all_categories": all_categories,
+        },
     )
 
 
@@ -25,13 +30,16 @@ class RestaurantDetail(DetailView):
 
 
 def search(request):
+    recommend_tag = models.Tag.objects.all().order_by("")[0:11]
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(tag_set__name=tag).order_by("-created")
     paginator = Paginator(qs, 40)
     restaurants = paginator.get_page(page)
     return render(
-        request, "restaurants/search.html", {"tag": tag, "restaurants": restaurants},
+        request,
+        "restaurants/search.html",
+        {"tag": tag, "restaurants": restaurants, "recommend_tag": recommend_tag},
     )
 
 
@@ -49,6 +57,7 @@ def channel_view(request, pk):
 
 
 def category_search(request, pk):
+    all_categories = models.Category.objects.all().order_by("created")
     category = models.Category.objects.get(pk=pk)
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(category__pk=pk).order_by("-created")
@@ -57,5 +66,9 @@ def category_search(request, pk):
     return render(
         request,
         "restaurants/search.html",
-        {"category": category, "restaurants": restaurants},
+        {
+            "category": category,
+            "restaurants": restaurants,
+            "all_categories": all_categories,
+        },
     )

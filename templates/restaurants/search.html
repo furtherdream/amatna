@@ -16,17 +16,52 @@ Search
 
     {% if restaurants.object_list.count > 0 %}
         <div class="container mx-auto">        
-            {% blocktrans with total_restaurants=restaurants.object_list.count %}We searched {{total_restaurants}} restaurant(s){% endblocktrans %}
             {% if tag %}
-                <h4>Searching by {{tag}}</h4>
+                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                    <span class="px-4 py-6 font-normal text-2xl block truncate"><span class="text-red-500 mr-3">"{{tag}}"</span>{% trans 'Search Results' %}</span>
+                </div>
+                <div class="bg-gray-100 rounded-lg px-6 py-8">
+                    <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                        <span class="px-4 pb-8 -ml-3 font-normal text-lg block truncate text-gray-700">{% trans 'Popular Keywords' %}</span>
+                    </div>
+                    {% for t in recommend_tag %}
+                    <form class="inline" mehtod="get" action="{% url 'restaurants:search' %}">
+                        <button class="tag" name="tag_set" type="submit" value="{{t.name}}">
+                            {{t.name}}
+                        </button>
+                    </form>
+                    {% endfor %}
+                </div>
+ 
             {% elif channel %}
-                <h1>{{channel}}</h1>
+                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                    <span class="px-4 py-6 -ml-3 font-normal text-2xl block truncate text-gray-700"><span class="text-red-500 mr-3">"{{channel}}"</span>{% trans 'Search Results with Channel' %}</span>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-4 mt-4">
+                    {% include 'mixins/channel_card.html' with channel=channel %}
+                </div>
+ 
             {% elif category %}
-                <h1>{{category}}</h1>
+                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                    <span class="px-4 py-6 -ml-3 font-normal text-2xl block truncate text-gray-700"><span class="text-red-500 mr-3">"{{category}}"</span>{% trans 'Search Results with Category' %}</span>
+                </div>
+                <div class="bg-gray-100 rounded-lg px-6 py-8">
+                    <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                        <span class="px-4 pb-8 -ml-3 font-normal text-lg block truncate text-gray-700">{% trans 'Search with another category' %}</span>
+                    </div>
+                    {% for c in all_categories %}
+                            {% include 'mixins/categories.html' %}
+                    {% endfor %}
+                </div>
             {% endif %}
         </div>
-
+        
         <div class="container mx-auto pb-10">
+            <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                <span class="px-4 py-10 font-normal text-xl block text-gray-700 mt-4">
+                    {% blocktrans with total_restaurants=restaurants.object_list.count %}We searched {{total_restaurants}} restaurant(s){% endblocktrans %}
+                </span>
+            </div>
             <div class="flex flex-wrap mx-0 mb-10">
                 {% for restaurant in restaurants.object_list %}
                     {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
@@ -64,9 +99,9 @@ Search
                         {% trans 'There is no restaurant for this keyword' %}
                     </span>
                     <span class="mb-2 text-lg">• {% trans 'Make sure you enter the word correctly.' %}</span>
-                    <span class="mb-2 text-lg">• {% trans 'Please search for the local name, (local name) restaurant, and menu you want to find.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please search for the local name and menu you want to find.' %}</span>
                     <span class="mb-2 text-lg">• {% trans 'We do not support searching in English.' %}</span>
-                    <span class="mb-2 text-lg">• {% trans 'Please click on the image below to recommend a creator who wants to make a list of restaurants.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
                     <span class="mb-2 text-lg">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
                 </div>
                 <div class="w-3/4 lg:w-1/3">
@@ -75,7 +110,7 @@ Search
                     </a>
                     <a href="mailto:furtherdream.ceo@gmail.com?subject=맛집 목록을 만들고 싶은 크리에이터를 추천합니다.">
                         <img src="{% static 'img/eating_show_ha.png' %}" class="rounded-t-lg w-full hover:opacity-75">
-                        <div class="bg-teal-500 py-5 rounded-b-lg text-white text-xl w-full text-center mb-20 hover:opacity-75 p-2">{% trans 'Please recommend a creator who wants to know the list of good restaurants.' %}</div>
+                        <div class="bg-teal-500 py-5 rounded-b-lg text-white text-xl w-full text-center mb-20 hover:opacity-75 p-2">{% trans 'Please recommend your favorite creator.' %}</div>
                     </a>
                 </div>
             </div>
@@ -87,9 +122,9 @@ Search
                         {% trans 'There are no search results for the category.' %}
                     </span>
                     <span class="mb-2 text-lg">• {% trans 'Use the search box to find a restaurant.' %}</span>
-                    <span class="mb-2 text-lg">• {% trans 'Please search for the local name, (local name) restaurant, and menu you want to find.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please search for the local name and menu you want to find.' %}</span>
                     <span class="mb-2 text-lg">• {% trans 'We do not support searching in English.' %}</span>
-                    <span class="mb-2 text-lg">• {% trans 'Please click on the image below to recommend a creator who wants to make a list of restaurants.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
                     <span class="mb-2 text-lg">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
                 </div>
                 <div class="w-3/4 lg:w-1/3">
@@ -98,7 +133,7 @@ Search
                     </a>
                     <a href="mailto:furtherdream.ceo@gmail.com?subject=맛집 목록을 만들고 싶은 크리에이터를 추천합니다.">
                         <img src="{% static 'img/eating_show_ha.png' %}" class="rounded-t-lg w-full hover:opacity-75">
-                        <div class="bg-teal-500 py-5 rounded-b-lg text-white text-xl w-full text-center mb-20 hover:opacity-75 p-2">{% trans 'Please recommend a creator who wants to know the list of good restaurants.' %}</div>
+                        <div class="bg-teal-500 py-5 rounded-b-lg text-white text-xl w-full text-center mb-20 hover:opacity-75 p-2">{% trans 'Please recommend your favorite creator.' %}</div>
                     </a>
                 </div>
             </div>

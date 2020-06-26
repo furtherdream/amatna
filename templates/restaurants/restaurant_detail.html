@@ -67,11 +67,9 @@
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Category' %}</td>
-                    <td class="table-description">                        
-                        {% for c in restaurant.category.all %}
-                            <a href="{% url 'restaurants:category' c.pk %}">
-                                <span class="bg-yellow-400 font-medium px-4 py-2 rounded-full hover:opacity-50">{{c}}</span>
-                            </a>   
+                    <td class="table-description"> 
+                        {% for c in restaurant.category.all %}                       
+                            {% include 'mixins/categories.html' %}
                         {% endfor %}
                     </td>
                   </tr>
