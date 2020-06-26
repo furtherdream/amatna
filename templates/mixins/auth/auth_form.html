@@ -1,0 +1,21 @@
+<form method="POST" class="w-full" enctype="multipart/form-data">
+    <!-- enctype="multipart/form-data"을 하지 않으면 아바타 이미지를 업데이트해도 백엔드까지
+         보내주지 않는다. -->
+        {% csrf_token %}
+        
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <span class="text-red-700 font-medium text-sm">{{error}}</span> 
+            {% endfor %}
+        {% endif %}
+    
+        
+        {% for field in form %}
+    
+            {% include 'mixins/auth/form_input.html' with field=field %}
+    
+        {% endfor %}
+                        
+        
+        <button class="btn bg-red-500 text-white font-medium">{{cta}}</button>
+    </form>

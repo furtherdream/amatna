@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% block page_title %}
     {% trans 'Login' %}    
 {% endblock page_title %}
@@ -9,13 +9,24 @@
 
 {% block content %}
 
-    {% include 'partials/social_login.html' %}
+    <div class="container xl:w-1/3 lg:w-5/12 md:w-8/12 w-11/12 min-h-75vh mx-auto my-10 flex flex-col items-center border p-6 b-20 border-gray-400">
 
-    <form method="POST" action={% url "users:login" %}>
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>Login</button>
-    </form>
+            <img src="{% static 'img/logo.png' %}" class="w-32 pt-8">
+            <div class="pt-10 pb-5 text-gray-700 font-normal text-lg">내가 즐겨보는 방송에 나오는 맛집</div>
+            <div class="pb-5 text-gray-700 font-normal text-lg">내가 좋아하는 크리에이터가 다녀온 맛집</div>
+            <div class="pb-10 text-gray-700 font-normal text-lg">아!맛나에서 모아보세요.</div>
+
+        {% include 'partials/social_login.html' %}
+
+
+        {% include 'mixins/auth/auth_form.html' with form=form cta="로그인" %}
+
+        <div class="mt-5">
+            <span class="mr-3">{% trans 'Do not have an account?' %}</span>
+            <a href="{% url 'users:signup' %}" class="font-medium text-teal-600">{% trans 'Sign up' %}</a>
+        </div>        
+
+    </div>
 
 
 {% endblock content %}
