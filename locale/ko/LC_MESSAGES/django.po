@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 23:11+0900\n"
+"POT-Creation-Date: 2020-06-27 00:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,11 +232,11 @@ msgstr "프로필"
 msgid "Log out"
 msgstr "로그아웃"
 
-#: templates/partials/nav.html:16 templates/users/signup.html:25
+#: templates/partials/nav.html:16 templates/users/signup.html:26
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:17 templates/users/login.html:26
+#: templates/partials/nav.html:17 templates/users/login.html:27
 msgid "Sign up"
 msgstr "회원가입"
 
@@ -414,7 +414,7 @@ msgstr "맛집 목록을 만들고 싶은 크리에이터를 추천해주세요.
 msgid "Login"
 msgstr "로그인"
 
-#: templates/users/login.html:25
+#: templates/users/login.html:26
 msgid "Do not have an account?"
 msgstr "아직 회원 가입 전이신가요?"
 
@@ -422,7 +422,7 @@ msgstr "아직 회원 가입 전이신가요?"
 msgid "Sign Up"
 msgstr "회원가입"
 
-#: templates/users/signup.html:24
+#: templates/users/signup.html:25
 msgid "Have an account?"
 msgstr "이미 아!맛나 계정이 있으신가요?"
 
@@ -466,11 +466,11 @@ msgstr "패스워드 확인"
 msgid "Please confirm your password."
 msgstr "패스워드를 확인해 주세요."
 
-#: users/forms.py:67
+#: users/forms.py:68
 msgid "User already exists with that email"
 msgstr "이미 가입된 이메일 입니다."
 
-#: users/forms.py:76
+#: users/forms.py:78
 msgid "Password comfirmation does not match"
 msgstr "패스워드가 일치하지 않습니다."
 
@@ -505,6 +505,18 @@ msgstr "이메일 인증키"
 #: users/models.py:29
 msgid "login method"
 msgstr "로그인 방식"
+
+#: users/views.py:31
+msgid "Bye bye :) See you soon."
+msgstr "이용해 주셔서 감사합니다. 다음에 다시 만나용 :)"
+
+#: users/views.py:74
+msgid "Kakao authenfication is not completed"
+msgstr "카카오 인증을 완료할 수 없습니다."
+
+#: users/views.py:89
+msgid "Please log in with another method"
+msgstr "이미 가입된 이메일 입니다. 다른 방식으로 로그인 해주세요."
 
 #~ msgid "Channels"
 #~ msgstr "채널"
