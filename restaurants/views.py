@@ -30,16 +30,13 @@ class RestaurantDetail(DetailView):
 
 
 def search(request):
-    recommend_tag = models.Tag.objects.all().order_by("")[0:11]
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(tag_set__name=tag).order_by("-created")
     paginator = Paginator(qs, 40)
     restaurants = paginator.get_page(page)
     return render(
-        request,
-        "restaurants/search.html",
-        {"tag": tag, "restaurants": restaurants, "recommend_tag": recommend_tag},
+        request, "restaurants/search.html", {"tag": tag, "restaurants": restaurants},
     )
 
 

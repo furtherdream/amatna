@@ -20,18 +20,7 @@ Search
                 <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
                     <span class="px-4 py-6 font-normal text-2xl block truncate"><span class="text-red-500 mr-3">"{{tag}}"</span>{% trans 'Search Results' %}</span>
                 </div>
-                <div class="bg-gray-100 rounded-lg px-6 py-8">
-                    <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
-                        <span class="px-4 pb-8 -ml-3 font-normal text-lg block truncate text-gray-700">{% trans 'Popular Keywords' %}</span>
-                    </div>
-                    {% for t in recommend_tag %}
-                    <form class="inline" mehtod="get" action="{% url 'restaurants:search' %}">
-                        <button class="tag" name="tag_set" type="submit" value="{{t.name}}">
-                            {{t.name}}
-                        </button>
-                    </form>
-                    {% endfor %}
-                </div>
+
  
             {% elif channel %}
                 <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
