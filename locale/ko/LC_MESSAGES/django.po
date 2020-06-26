@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-26 18:39+0900\n"
+"POT-Creation-Date: 2020-06-26 23:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,11 +232,11 @@ msgstr "프로필"
 msgid "Log out"
 msgstr "로그아웃"
 
-#: templates/partials/nav.html:35
+#: templates/partials/nav.html:16 templates/users/signup.html:25
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:36
+#: templates/partials/nav.html:17 templates/users/login.html:26
 msgid "Sign up"
 msgstr "회원가입"
 
@@ -375,60 +375,104 @@ msgstr "에 대한 검색 결과가 없습니다."
 msgid "Make sure you enter the word correctly."
 msgstr "단어를 정확하게 입력했는지 확인해 보세요."
 
-#: templates/restaurants/search.html:91 templates/restaurants/search.html:114
+#: templates/restaurants/search.html:91 templates/restaurants/search.html:103
 msgid "Please search for the local name and menu you want to find."
 msgstr "지역명, (지역명)맛집, 찾고 싶은 메뉴로 검색해주세요."
 
-#: templates/restaurants/search.html:92 templates/restaurants/search.html:115
+#: templates/restaurants/search.html:92 templates/restaurants/search.html:104
 msgid "We do not support searching in English."
 msgstr "영어 검색은 지원하지 않고 있습니다."
 
-#: templates/restaurants/search.html:93 templates/restaurants/search.html:116
+#: templates/restaurants/search.html:93 templates/restaurants/search.html:105
 msgid "Please click image to recommend your favorite creator."
 msgstr ""
 "아래 이미지를 클릭하여 맛집 목록을 작성하고 싶은 크리에이터를 추천해주세요"
 
-#: templates/restaurants/search.html:94 templates/restaurants/search.html:117
+#: templates/restaurants/search.html:94 templates/restaurants/search.html:106
 msgid "I will try harder so that everyone who visits can have a delicious day!"
 msgstr ""
 "방문하시는 모든 분들이 맛있는 하루를 보낼 수 있도록 더욱 노력하는 아!맛나가 "
 "되겠습니다."
 
-#: templates/restaurants/search.html:98 templates/restaurants/search.html:121
-msgid "Back to home"
-msgstr "홈으로 돌아가기"
-
-#: templates/restaurants/search.html:102 templates/restaurants/search.html:125
-msgid "Please recommend your favorite creator."
-msgstr "맛집 목록을 만들고 싶은 크리에이터를 추천해주세요."
-
-#: templates/restaurants/search.html:111
+#: templates/restaurants/search.html:100
 msgid "There are no search results for the category."
 msgstr "카테고리에 대한 검색 결과가 없습니다."
 
-#: templates/restaurants/search.html:113
+#: templates/restaurants/search.html:102
 msgid "Use the search box to find a restaurant."
 msgstr "검색창을 이용하여, 음식점을 찾아보세요."
+
+#: templates/restaurants/search.html:112
+msgid "Back to home"
+msgstr "홈으로 돌아가기"
+
+#: templates/restaurants/search.html:116
+msgid "Please recommend your favorite creator."
+msgstr "맛집 목록을 만들고 싶은 크리에이터를 추천해주세요."
 
 #: templates/users/login.html:4
 msgid "Login"
 msgstr "로그인"
 
-#: templates/users/login.html:26
-msgid "Don\\"
-msgstr ""
+#: templates/users/login.html:25
+msgid "Do not have an account?"
+msgstr "아직 회원 가입 전이신가요?"
 
 #: templates/users/signup.html:4
 msgid "Sign Up"
 msgstr "회원가입"
 
+#: templates/users/signup.html:24
+msgid "Have an account?"
+msgstr "이미 아!맛나 계정이 있으신가요?"
+
 #: users/admin.py:21
 msgid "Custom Profile"
 msgstr "사용자정보"
 
-#: users/models.py:16
+#: users/forms.py:9 users/models.py:16
 msgid "Email"
 msgstr "이메일"
+
+#: users/forms.py:10 users/forms.py:43
+msgid "Please enter your email."
+msgstr "이메일을 입력해 주세요."
+
+#: users/forms.py:13 users/forms.py:51
+msgid "Password"
+msgstr "패스워드"
+
+#: users/forms.py:15 users/forms.py:53
+msgid "Please enter your password."
+msgstr "비밀번호를 입력해 주세요."
+
+#: users/forms.py:31
+msgid "Password id wrong"
+msgstr "잘못된 패스워드 입니다."
+
+#: users/forms.py:34
+msgid "User does not exist"
+msgstr "사용자가 존재하지 않습니다."
+
+#: users/forms.py:46
+msgid "Please enter your nickname."
+msgstr "닉네임을 입력해 주세요."
+
+#: users/forms.py:57
+msgid "Confirm password"
+msgstr "패스워드 확인"
+
+#: users/forms.py:59
+msgid "Please confirm your password."
+msgstr "패스워드를 확인해 주세요."
+
+#: users/forms.py:67
+msgid "User already exists with that email"
+msgstr "이미 가입된 이메일 입니다."
+
+#: users/forms.py:76
+msgid "Password comfirmation does not match"
+msgstr "패스워드가 일치하지 않습니다."
 
 #: users/models.py:17
 msgid "Kakao"

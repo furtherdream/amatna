@@ -1,15 +1,19 @@
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from . import models
 
 
 class LoginForm(forms.Form):
 
     email = forms.EmailField(
-        label="이메일", widget=forms.EmailInput(attrs={"placeholder": "이메일을 입력해 주세요."})
+        label=_("Email"),
+        widget=forms.EmailInput(attrs={"placeholder": _("Please enter your email.")}),
     )
     password = forms.CharField(
-        label="패스워드",
-        widget=forms.PasswordInput(attrs={"placeholder": "비밀번호를 입력해 주세요."}),
+        label=_("Password"),
+        widget=forms.PasswordInput(
+            attrs={"placeholder": _("Please enter your password.")}
+        ),
     )
 
     def clean(self):
@@ -23,30 +27,44 @@ class LoginForm(forms.Form):
                 return self.cleaned_data
                 # clean()을 썼다면 무조건 cleaned_data를 리턴해줘야 함
             else:
-                self.add_error("password", forms.ValidationError("Password id wrong"))
+                self.add_error(
+                    "password", forms.ValidationError(_("Password id wrong"))
+                )
         except models.User.DoesNotExist:
-            self.add_error("email", forms.ValidationError("User does not exist"))
+            self.add_error("email", forms.ValidationError(_("User does not exist")))
 
 
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = models.User
         fields = ("email", "nickname")
+        widgets = {
+            "email": forms.TextInput(
+                attrs={"placeholder": _("Please enter your email.")}
+            ),
+            "nickname": forms.TextInput(
+                attrs={"placeholder": _("Please enter your nickname.")}
+            ),
+        }
 
     password = forms.CharField(
-        label="패스워드",
-        widget=forms.PasswordInput(attrs={"placeholder": "비밀번호를 입력해 주세요."}),
+        label=_("Password"),
+        widget=forms.PasswordInput(
+            attrs={"placeholder": _("Please enter your password.")}
+        ),
     )
     password1 = forms.CharField(
-        label="패스워드 확인",
-        widget=forms.PasswordInput(attrs={"placeholder": "비밀번호를 확인해 주세요."}),
+        label=_("Confirm password"),
+        widget=forms.PasswordInput(
+            attrs={"placeholder": _("Please confirm your password.")}
+        ),
     )
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
         try:
             models.User.objects.get(email=email)
-            raise forms.ValidationError("User already exists with that email")
+            raise forms.ValidationError(_("User already exists with that email"))
         except models.User.DoesNotExist:
             return email
 
@@ -55,7 +73,7 @@ class SignUpForm(forms.ModelForm):
         password1 = self.cleaned_data.get("password1")
 
         if password != password1:
-            raise forms.ValidationError("Password comfirmation does not match")
+            raise forms.ValidationError(_("Password comfirmation does not match"))
         else:
             return password
 
