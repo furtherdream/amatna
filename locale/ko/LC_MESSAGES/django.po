@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 23:38+0900\n"
+"POT-Creation-Date: 2020-06-29 07:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,10 +419,6 @@ msgid "Have an account?"
 msgstr "이미 아!맛나 계정이 있으신가요?"
 
 #: templates/users/user_detail.html:26
-msgid "Nickname"
-msgstr "닉네임"
-
-#: templates/users/user_detail.html:33
 msgid "Log out"
 msgstr "로그아웃"
 
@@ -506,17 +502,33 @@ msgstr "이메일 인증키"
 msgid "login method"
 msgstr "로그인 방식"
 
-#: users/views.py:31
+#: users/views.py:32
 msgid "Bye bye :) See you soon."
 msgstr "이용해 주셔서 감사합니다. 다음에 다시 만나용 :)"
 
-#: users/views.py:74
+#: users/views.py:75
 msgid "Kakao authenfication is not completed"
 msgstr "카카오 인증을 완료할 수 없습니다."
 
-#: users/views.py:89
+#: users/views.py:90
 msgid "Please log in with another method"
 msgstr "이미 가입된 이메일 입니다. 다른 방식으로 로그인 해주세요."
+
+#: users/views.py:127
+msgid "Nickname"
+msgstr "닉네임"
+
+#: users/views.py:142
+msgid "Enter current password"
+msgstr "현재 비밀번호를 입력해 주세요."
+
+#: users/views.py:145
+msgid "Enter new password"
+msgstr "변경할 비밀번호를 입력해 주세요."
+
+#: users/views.py:148
+msgid "Confirm new password"
+msgstr "변경할 비밀번호를 확인해 주세요."
 
 #~ msgid "Profile"
 #~ msgstr "프로필"
