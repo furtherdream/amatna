@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-27 00:38+0900\n"
+"POT-Creation-Date: 2020-06-28 23:38+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,19 +224,11 @@ msgstr "아!맛나  |  크리에이터의 맛집 정보를 수집하여 제공�
 msgid "Favorite"
 msgstr "관심목록"
 
-#: templates/partials/nav.html:12
-msgid "Profile"
-msgstr "프로필"
-
-#: templates/partials/nav.html:13
-msgid "Log out"
-msgstr "로그아웃"
-
-#: templates/partials/nav.html:16 templates/users/signup.html:26
+#: templates/partials/nav.html:23 templates/users/signup.html:26
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:17 templates/users/login.html:27
+#: templates/partials/nav.html:24 templates/users/login.html:27
 msgid "Sign up"
 msgstr "회원가입"
 
@@ -426,11 +418,19 @@ msgstr "회원가입"
 msgid "Have an account?"
 msgstr "이미 아!맛나 계정이 있으신가요?"
 
+#: templates/users/user_detail.html:26
+msgid "Nickname"
+msgstr "닉네임"
+
+#: templates/users/user_detail.html:33
+msgid "Log out"
+msgstr "로그아웃"
+
 #: users/admin.py:21
 msgid "Custom Profile"
 msgstr "사용자정보"
 
-#: users/forms.py:9 users/models.py:16
+#: users/forms.py:9 users/models.py:17
 msgid "Email"
 msgstr "이메일"
 
@@ -474,35 +474,35 @@ msgstr "이미 가입된 이메일 입니다."
 msgid "Password comfirmation does not match"
 msgstr "패스워드가 일치하지 않습니다."
 
-#: users/models.py:17
+#: users/models.py:18
 msgid "Kakao"
 msgstr "카카오"
 
-#: users/models.py:18
+#: users/models.py:19
 msgid "Naver"
 msgstr "네이버"
 
-#: users/models.py:19
+#: users/models.py:20
 msgid "Facebook"
 msgstr "페이스북"
 
-#: users/models.py:22
+#: users/models.py:23
 msgid "avatar"
 msgstr "프로필 이미지"
 
-#: users/models.py:23
+#: users/models.py:24
 msgid "nickname"
 msgstr "닉네임"
 
-#: users/models.py:24
+#: users/models.py:25
 msgid "email verified"
 msgstr "이메일 인증"
 
-#: users/models.py:26
+#: users/models.py:27
 msgid "email secret"
 msgstr "이메일 인증키"
 
-#: users/models.py:29
+#: users/models.py:30
 msgid "login method"
 msgstr "로그인 방식"
 
@@ -517,6 +517,9 @@ msgstr "카카오 인증을 완료할 수 없습니다."
 #: users/views.py:89
 msgid "Please log in with another method"
 msgstr "이미 가입된 이메일 입니다. 다른 방식으로 로그인 해주세요."
+
+#~ msgid "Profile"
+#~ msgstr "프로필"
 
 #~ msgid "Channels"
 #~ msgstr "채널"

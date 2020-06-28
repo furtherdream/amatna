@@ -9,8 +9,15 @@
                 {% endif %}
             </a>
         </li>
-        <li class="nav_link"><a href="{{user.get_absolute_url}}">{% trans 'Profile' %}</a></li>
-        <li class="nav_link"><a href="{% url "users:logout" %}">{% trans 'Log out' %}</a></li>
+        <li class="nav_link"><a href="{{user.get_absolute_url}}">            
+            {% if user.avatar %}
+                <div class="h-10 w-10 rounded-full bg-cover" style="background-image: url({{user.avatar.url}})">
+            {% else %}
+                <div class="h-10 w-10 bg-gray-700 rounded-full flex justify-center items-center">
+                    <span class="text-lg font-medium text-white">{{user.nickname|first}}</span>        
+            {% endif %}
+            </div>
+        </a></li>
         
     {% else %}
         <li class="nav_link"><a href="{% url "users:login" %}">{% trans 'Log in' %}</a></li>
