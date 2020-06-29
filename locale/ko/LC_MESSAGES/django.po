@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 07:52+0900\n"
+"POT-Creation-Date: 2020-06-29 17:57+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,6 +184,10 @@ msgstr "휴일"
 msgid "tag set"
 msgstr "태그모음"
 
+#: reviews/forms.py:18
+msgid "Please input review at this restaurant"
+msgstr "이 음식점에 대한 리뷰를 남겨 주세요."
+
 #: reviews/models.py:11 reviews/models.py:33
 msgid "review"
 msgstr "리뷰"
@@ -196,9 +200,17 @@ msgstr "평점"
 msgid "reviews"
 msgstr "리뷰"
 
+#: reviews/views.py:19
+msgid "Your review have been written"
+msgstr "리뷰가 작성되었습니다."
+
 #: templates/base.html:10
 msgid "Amatna : DO NOT pay your time for searching restaurant"
 msgstr "아!맛나 : 아무 맛집이나 가지 않는 나"
+
+#: templates/lists/list_detail.html:14
+msgid "Your Favorite Restaurants"
+msgstr "관심 가는 음식점 목록"
 
 #: templates/mixins/channel_card.html:13
 msgid "visit youtube"
@@ -276,59 +288,63 @@ msgstr "메뉴로 검색해 보세요."
 msgid "Search for the menu you want to eat."
 msgstr "오늘 땡기는 메뉴를 골라보세요."
 
-#: templates/restaurants/restaurant_detail.html:43
+#: templates/restaurants/restaurant_detail.html:24
+msgid "Add to favorite"
+msgstr "관심 목록 추가"
+
+#: templates/restaurants/restaurant_detail.html:51
 msgid "Information"
 msgstr "음식점 정보"
 
-#: templates/restaurants/restaurant_detail.html:48
+#: templates/restaurants/restaurant_detail.html:56
 msgid "Restaurant Name"
 msgstr "상호명"
 
-#: templates/restaurants/restaurant_detail.html:52
+#: templates/restaurants/restaurant_detail.html:60
 msgid "instagram"
 msgstr "인스타그램"
 
-#: templates/restaurants/restaurant_detail.html:61
+#: templates/restaurants/restaurant_detail.html:69
 msgid "Address"
 msgstr "주소"
 
-#: templates/restaurants/restaurant_detail.html:65
+#: templates/restaurants/restaurant_detail.html:73
 msgid "Phone number"
 msgstr "전화번호"
 
-#: templates/restaurants/restaurant_detail.html:69
+#: templates/restaurants/restaurant_detail.html:77
 msgid "Category"
 msgstr "카테고리"
 
-#: templates/restaurants/restaurant_detail.html:77
+#: templates/restaurants/restaurant_detail.html:85
 msgid "Price"
 msgstr "가격대"
 
-#: templates/restaurants/restaurant_detail.html:81
+#: templates/restaurants/restaurant_detail.html:89
 msgid "Menu"
 msgstr "메뉴"
 
-#: templates/restaurants/restaurant_detail.html:85
+#: templates/restaurants/restaurant_detail.html:93
 msgid "Business time"
 msgstr "영업시간"
 
-#: templates/restaurants/restaurant_detail.html:89
+#: templates/restaurants/restaurant_detail.html:97
 msgid "Break time"
 msgstr "휴식시간"
 
-#: templates/restaurants/restaurant_detail.html:93
+#: templates/restaurants/restaurant_detail.html:101
 msgid "Holiday"
 msgstr "휴일"
 
-#: templates/restaurants/restaurant_detail.html:101
+#: templates/restaurants/restaurant_detail.html:111
 msgid "The channel that visited this restaurant."
 msgstr "이 음식점을 방문한 채널"
 
-#: templates/restaurants/restaurant_detail.html:111
+#: templates/restaurants/restaurant_detail.html:121
 msgid "A video of a visit to this restaurant"
 msgstr "이 음식점을 방문한 영상"
 
-#: templates/restaurants/restaurant_detail.html:129
+#: templates/restaurants/restaurant_detail.html:139
 msgid "watch on youtube"
 msgstr "유튜브로 보러가기"
 
@@ -470,6 +486,10 @@ msgstr "이미 가입된 이메일 입니다."
 msgid "Password comfirmation does not match"
 msgstr "패스워드가 일치하지 않습니다."
 
+#: users/mixins.py:13 users/mixins.py:22
+msgid "It's a wrong approach."
+msgstr "잘못된 접근입니다."
+
 #: users/models.py:18
 msgid "Kakao"
 msgstr "카카오"
@@ -502,31 +522,39 @@ msgstr "이메일 인증키"
 msgid "login method"
 msgstr "로그인 방식"
 
-#: users/views.py:32
+#: users/views.py:39
 msgid "Bye bye :) See you soon."
 msgstr "이용해 주셔서 감사합니다. 다음에 다시 만나용 :)"
 
-#: users/views.py:75
+#: users/views.py:82
 msgid "Kakao authenfication is not completed"
 msgstr "카카오 인증을 완료할 수 없습니다."
 
-#: users/views.py:90
+#: users/views.py:97
 msgid "Please log in with another method"
 msgstr "이미 가입된 이메일 입니다. 다른 방식으로 로그인 해주세요."
 
-#: users/views.py:127
+#: users/views.py:130
+msgid "Your profile is edited"
+msgstr "프로필이 변경되었습니다."
+
+#: users/views.py:135
 msgid "Nickname"
 msgstr "닉네임"
 
-#: users/views.py:142
+#: users/views.py:151
+msgid "Your password is changed"
+msgstr "비밀번호가 변경되었습니다."
+
+#: users/views.py:156
 msgid "Enter current password"
 msgstr "현재 비밀번호를 입력해 주세요."
 
-#: users/views.py:145
+#: users/views.py:159
 msgid "Enter new password"
 msgstr "변경할 비밀번호를 입력해 주세요."
 
-#: users/views.py:148
+#: users/views.py:162
 msgid "Confirm new password"
 msgstr "변경할 비밀번호를 확인해 주세요."
 

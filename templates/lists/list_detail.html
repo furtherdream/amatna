@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block page_title %}
+
+    {{user_obj.nickname}}
+
+{% endblock page_title %}
+
+
+{% block content %}
+
+    <div class="min-h-75vh">    
+
+        <h3 class="mb-12 text-2xl text-center">{% trans 'Your Favorite Restaurants' %}</h3>    
+
+        <div class="container mx-auto pb-10">
+            <div class="flex flex-wrap -mx-24 mb-10">
+                {% for restaurant in user.list.restaurants.all %}
+                    {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+{% endblock content %} 

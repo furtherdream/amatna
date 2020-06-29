@@ -13,7 +13,12 @@
             ></iframe>
             <div class="text-base text-gray-800 w-5/6">{{youtube.name}}</div>
             
-            <span class="font-bold text-2xl text-gray-800 p-6 mb-4">{{restaurant.title}}</span> 
+            <span class="font-bold text-2xl text-gray-800 p-6 mb-4">{{restaurant.title}}
+                {% if restaurant.total_rating != 0 %}    
+                    <span class="text-red-400 font-normal text-2xl ">{{restaurant.total_rating}}</span>
+                {% endif %}
+            </span> 
+            
             <div class="w-11/12">
                 {% include 'mixins/tag.html' with restaurant=restaurant %}
             </div>

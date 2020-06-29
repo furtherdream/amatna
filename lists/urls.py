@@ -4,5 +4,8 @@ from . import views
 app_name = "lists"
 
 urlpatterns = [
-    path("add/<int:restaurant_pk>", views.save_restaurant, name="save-restaurant")
+    path(
+        "toggle/<int:restaurant_pk>/", views.toggle_restaurant, name="toggle-restaurant"
+    ),
+    path("favs/", views.SeeFavsView.as_view(), name="see-favs"),
 ]

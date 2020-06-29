@@ -3,9 +3,9 @@
 <ul class="flex items-center text-sm font-medium h-full align-baseline ">
     {% if user.is_authenticated %}
         <li class="nav_link">
-            <a href="#">{% trans 'Favorite' %}
+            <a href="{% url "lists:see-favs" %}">{% trans 'Favorite' %}
                 {% if user.list.restaurants.count > 0 %}
-                <span class="ml-2 px-2 py-1 rounded-xl bg-teal-500 text-white">1</span>
+                    <span class="ml-1 px-2 py-1 rounded-xl bg-teal-500 text-white">{{user.list.restaurants.count}}</span>
                 {% endif %}
             </a>
         </li>
