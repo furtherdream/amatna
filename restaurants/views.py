@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
+from django.views.generic.edit import FormMixin
+from reviews import forms as review_forms
 from . import models
 
 
@@ -22,11 +24,32 @@ def main_views(request):
     )
 
 
-class RestaurantDetail(DetailView):
+class RestaurantDetail(DetailView, FormMixin):
 
     """ Restaurant Detail Definition """
 
     model = models.Restaurant
+    form_class = review_forms.CreateReviewForm
+
+    def get_success_url(self):
+        return reverse("restaurants:detail", kwargs={"pk": self.object.id})
+
+    def get_context_data(self, **kwargs):
+        context = super(RestaurantDetail, self).get_context_data(**kwargs)
+        context["form"] = review_forms.CreateReviewForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.save()
+        return super(RestaurantDetail, self).form_valid(form)
 
 
 def search(request):
