@@ -7,7 +7,7 @@ from . import models
 
 
 def main_views(request):
-    all_channels = models.Channel.objects.all().order_by("rank")[0:8]
+    channel_ranked = models.Channel.objects.all().order_by("rank")[0:8]
     all_categories = models.Category.objects.all().order_by("created")
     page = request.GET.get("page")
     all_restaurant = models.Restaurant.objects.all().order_by("-created")
@@ -17,11 +17,19 @@ def main_views(request):
         request,
         "restaurants/main.html",
         context={
-            "channels": all_channels,
+            "channels": channel_ranked,
             "restaurants": restaurants,
             "all_categories": all_categories,
         },
     )
+
+
+def channel_view(request):
+    page = request.GET.get("page")
+    all_channel = models.Channel.objects.all().order_by("-created")
+    paginator = Paginator(all_channel, 100)
+    channels = paginator.get_page(page)
+    return render(request, "restaurants/channel_view.html", {"channels": channels},)
 
 
 class RestaurantDetail(DetailView, FormMixin):
@@ -63,7 +71,7 @@ def search(request):
     )
 
 
-def channel_view(request, pk):
+def channel_search(request, pk):
     channel = models.Channel.objects.get(pk=pk)
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(channel__pk=pk).order_by("-created")

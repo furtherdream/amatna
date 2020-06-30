@@ -6,6 +6,7 @@
 
 
 {% block content %}
+    
     <div class=" w-full mb-20 flex flex-col items-center justify-center">
         <div class="flex flex-row bg-gray-200 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
             <div class="text-3xl font-normal text-gray-700">{{restaurant.title}}
@@ -150,7 +151,18 @@
             {% endfor %}
         </div>
  
-      
+
+        <div class="py-10 px-5">
+
+            <span class="font-medium text-2xl text-center w-full block mb-5">리뷰를 등록해 주세요.</span>
+            <!-- 여기에 폼을 작성해줘야 한다. -->
+            <form action="{% url 'reviews:create' restaurant.pk %}" method="POST" class="w-full mx-auto">
+                {% csrf_token %}
+                {{form}}
+                <button class="btn-link mt-5">리뷰 등록</button>
+            </form>
+
+        </div>       
 
     </div>
 

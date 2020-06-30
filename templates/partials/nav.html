@@ -1,7 +1,7 @@
 {% load i18n %}
 <ul class="flex items-center text-sm font-medium h-full align-baseline ">
 
-    <li class="nav_link truncate"><a href="{% url "users:login" %}">{% trans 'Channel lists' %}</a></li>
+    <li class="nav_link truncate"><a href="{% url "restaurants:channels" %}">{% trans 'Channel lists' %}</a></li>
     {% if user.is_authenticated %}
         <li class="nav_link mr-2 truncate">
             <a href="{% url "lists:see-favs" %}">{% trans 'Favorite' %}
