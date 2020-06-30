@@ -21,3 +21,10 @@ class SeeFavsView(TemplateView):
 
     template_name = "lists/list_detail.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["all_categories"] = restaurant_models.Category.objects.all().order_by(
+            "created"
+        )
+        return context
+

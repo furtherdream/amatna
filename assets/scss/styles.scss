@@ -6,17 +6,12 @@
 }
 
 .nav_link {
-  @apply ml-0 border-b-2 border-white h-full flex items-center;
+  @apply ml-0 flex items-center text-black font-medium;
   a {
-    @apply py-10 px-3;
+    @apply py-3 px-4;
   }
   &:hover {
-    @apply border-gray-600;
-  }
-}
-@screen lg {
-  .nav_link {
-    @apply px-5;
+    @apply bg-gray-100 rounded-xl;
   }
 }
 

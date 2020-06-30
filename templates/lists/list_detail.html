@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% block page_title %}
 
-    {{user_obj.nickname}}
+    {{user.nickname}}님의 관심 목록
 
 {% endblock page_title %}
 
@@ -10,18 +10,42 @@
 {% block content %}
 
     <div class="min-h-75vh">    
-
-        <h3 class="mb-12 text-2xl text-center">{% trans 'Your Favorite Restaurants' %}</h3>    
-
         <div class="container mx-auto pb-10">
-            <div class="flex flex-wrap -mx-24 mb-10">
-                {% for restaurant in user.list.restaurants.all %}
-                    {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
-                {% endfor %}
+            <div class="bg-gray-100  w-full rounded-lg">
+                <div class=" py-12 mb-10 flex flex-col">
+                  <span class="font-bold text-2xl text-red-500 ml-8 mb-2">{% trans 'Your Favorite Restaurants' %}</span>
+                  <span class="text-xl text-gray-800 ml-8">{% trans 'Add and manage your list of favorite restaurants.' %}</span>
+                </div>      
             </div>
+            {% if user.list.restaurants.count > 0 %}
+                <div class="text-xl py-10 ml-5 font-normal">
+                    {% blocktrans with total_count=user.list.restaurants.count %}You have {{total_count}} restaurant(s) of favorite in total.{% endblocktrans %}
+                </div>
+                <div class="flex flex-wrap mb-10">
+                    {% for restaurant in user.list.restaurants.all %}
+                        {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="py-10 flex justify-center ">
+                    <div class="text-xl text-gray-700 flex flex-col my-10">
+                        <span class="text-red-500 mb-2 font-normal text-2xl">아직 저장해 놓은 음식점이 없으신가요?</span>
+                        <span class=" mb-2">가고 싶은 맛집을 더 많이 소개해드릴 수 있도록 노력하겠습니다.</span>
+                        <span class=" mb-2">내가 좋아하는 방송, 좋아하는 크리에이터의 맛집 목록</span>
+                        <div class="flex flex-row items-center"><img src="{% static 'img/logo.png' %}" class="h-12 mr-2">로 확인하세요.</div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg px-6 py-6 my-20">
+                    <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-10">
+                        <span class="px-4 pb-2 -ml-4 text-2xl block font-bold truncate text-red-500">{% trans 'Search with category' %}</span>
+                        <span class="text-lg text-gray-800">{% trans 'Search for the menu you want to eat.' %}</span>
+                    </div>
+                    {% for c in all_categories %}
+                        {% include 'mixins/categories.html' %}
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
-
-
     </div>
 
 
