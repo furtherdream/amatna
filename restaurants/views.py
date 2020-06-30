@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, reverse
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
 from django.views.generic.edit import FormMixin

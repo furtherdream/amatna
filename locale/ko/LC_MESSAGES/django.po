@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-29 19:37+0900\n"
+"POT-Creation-Date: 2020-06-30 13:20+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,6 +208,10 @@ msgstr "리뷰가 작성되었습니다."
 msgid "Amatna : DO NOT pay your time for searching restaurant"
 msgstr "아!맛나 : 아무 맛집이나 가지 않는 나"
 
+#: templates/lists/list_detail.html:5
+msgid " Favorite list"
+msgstr "관심목록"
+
 #: templates/lists/list_detail.html:16
 msgid "Your Favorite Restaurants"
 msgstr "관심 가는 음식점 목록"
@@ -220,6 +224,30 @@ msgstr "방송 맛집, 크리에이터의 맛집 목록을 만들어 보세요."
 #, python-format
 msgid "You have %(total_count)s restaurant(s) of favorite in total."
 msgstr "관심 목록에 총 %(total_count)s 곳의 음식점이 있습니다."
+
+#: templates/lists/list_detail.html:32
+msgid "Is not there restaurant on your list of favorite yet?"
+msgstr "아직 저장해 놓은 음식점이 없으신가요?"
+
+#: templates/lists/list_detail.html:33
+msgid "We will try to introduce more restaurants that you want to go to."
+msgstr "가고 싶은 맛집을 더 많이 소개해드릴 수 있도록 노력하겠습니다."
+
+#: templates/lists/list_detail.html:34
+msgid "Restaurant on my favorite Korea TV show"
+msgstr "내가 좋아하는 방송, 좋아하는 크리에이터의 맛집 목록"
+
+#: templates/lists/list_detail.html:35
+msgid "check it out in amatna."
+msgstr "에서 확인 하세요."
+
+#: templates/lists/list_detail.html:40 templates/restaurants/main.html:36
+msgid "Search with category"
+msgstr "메뉴로 검색해 보세요."
+
+#: templates/lists/list_detail.html:41 templates/restaurants/main.html:37
+msgid "Search for the menu you want to eat."
+msgstr "오늘 땡기는 메뉴를 골라보세요."
 
 #: templates/mixins/channel_card.html:15
 msgid "visit youtube"
@@ -241,15 +269,19 @@ msgstr "아무 맛집이나 가지 않는 나"
 msgid "Amatna : All rights reserved"
 msgstr "아!맛나  |  크리에이터의 맛집 정보를 수집하여 제공합니다."
 
-#: templates/partials/nav.html:6
+#: templates/partials/nav.html:4
+msgid "Channel lists"
+msgstr "채널목록"
+
+#: templates/partials/nav.html:7
 msgid "Favorite"
 msgstr "관심목록"
 
-#: templates/partials/nav.html:23 templates/users/signup.html:26
+#: templates/partials/nav.html:29 templates/users/signup.html:27
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:24 templates/users/login.html:27
+#: templates/partials/nav.html:30 templates/users/login.html:27
 msgid "Sign up"
 msgstr "회원가입"
 
@@ -289,14 +321,6 @@ msgstr "댓글 백개 읽어도 가고 싶은 맛집인지 아닌지 헷갈리�
 msgid "Watch mukbang in Korean Creators"
 msgstr "방송 혹은 크리에이터의 생생한 동영상으로 가고 싶은 맛집을 찾아보세요."
 
-#: templates/restaurants/main.html:36
-msgid "Search with category"
-msgstr "메뉴로 검색해 보세요."
-
-#: templates/restaurants/main.html:37
-msgid "Search for the menu you want to eat."
-msgstr "오늘 땡기는 메뉴를 골라보세요."
-
 #: templates/restaurants/restaurant_detail.html:25
 #: templates/restaurants/restaurant_detail.html:30
 msgid "Add to favorite"
@@ -313,6 +337,10 @@ msgstr "상호명"
 #: templates/restaurants/restaurant_detail.html:67
 msgid "instagram"
 msgstr "인스타그램"
+
+#: templates/restaurants/restaurant_detail.html:70
+msgid "View posts in instagram"
+msgstr "인스타그램으로 보기"
 
 #: templates/restaurants/restaurant_detail.html:76
 msgid "Address"
@@ -363,6 +391,10 @@ msgstr "유튜브로 보러가기"
 #, python-format
 msgid "Page %(current_page)s of %(total_pages)s"
 msgstr "%(current_page)s 페이지  /  %(total_pages)s 페이지"
+
+#: templates/restaurants/search.html:5
+msgid "Search results"
+msgstr "검색 결과"
 
 #: templates/restaurants/search.html:21
 msgid "Search Results"
@@ -432,6 +464,22 @@ msgstr "맛집 목록을 만들고 싶은 크리에이터를 추천해주세요.
 msgid "Login"
 msgstr "로그인"
 
+#: templates/users/login.html:15 templates/users/signup.html:15
+msgid "\"The restaurant on my favorite Korean TV show.\""
+msgstr "\"내가 즐겨보는 방송에 나오는 맛집\""
+
+#: templates/users/login.html:16 templates/users/signup.html:16
+msgid "\"The restaurant that my favorite Korean creator went to.\""
+msgstr "\"내가 좋아하는 크리에이터가 다녀온 맛집\""
+
+#: templates/users/login.html:17
+msgid "If you log in, you can save the restaurant you want to go to."
+msgstr "로그인을 하시면 내가 가고 싶은 맛집을 저장할 수 있어요."
+
+#: templates/users/login.html:18 templates/users/signup.html:18
+msgid "Gather the restaurants you want to go to on amatna"
+msgstr "아!맛나에서 가고 싶은 맛집을 모아보세요."
+
 #: templates/users/login.html:26
 msgid "Do not have an account?"
 msgstr "아직 회원 가입 전이신가요?"
@@ -440,9 +488,22 @@ msgstr "아직 회원 가입 전이신가요?"
 msgid "Sign Up"
 msgstr "회원가입"
 
-#: templates/users/signup.html:25
+#: templates/users/signup.html:17
+msgid "If you sign up, you can save the restaurant you want to go to."
+msgstr "회원가입을 하시면 내가 가고 싶은 맛집을 저장할 수 있어요."
+
+#: templates/users/signup.html:26
 msgid "Have an account?"
 msgstr "이미 아!맛나 계정이 있으신가요?"
+
+#: templates/users/update_password.html:5
+#: templates/users/update_profile.html:22
+msgid "Change password"
+msgstr "패스워드 변경"
+
+#: templates/users/update_profile.html:5
+msgid "Modify profile"
+msgstr "프로필 변경"
 
 #: templates/users/user_detail.html:26
 msgid "Log out"
@@ -568,11 +629,14 @@ msgstr "변경할 비밀번호를 입력해 주세요."
 msgid "Confirm new password"
 msgstr "변경할 비밀번호를 확인해 주세요."
 
+#~ msgid "\\"
+#~ msgstr "님의 관심 목록"
+
+#~ msgid "Don\\"
+#~ msgstr "아직 저장해 놓은 음식점이 없으신가요?"
+
 #~ msgid "Profile"
 #~ msgstr "프로필"
-
-#~ msgid "Channels"
-#~ msgstr "채널"
 
 #~ msgid "Tags"
 #~ msgstr "태그"

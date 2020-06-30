@@ -2,7 +2,7 @@
 {% load i18n static %}
 {% block page_title %}
 
-    {{user.nickname}}님의 관심 목록
+    {{user.nickname}}{% trans ' Favorite list' %}
 
 {% endblock page_title %}
 
@@ -29,10 +29,10 @@
             {% else %}
                 <div class="py-10 flex justify-center ">
                     <div class="text-xl text-gray-700 flex flex-col my-10">
-                        <span class="text-red-500 mb-2 font-normal text-2xl">아직 저장해 놓은 음식점이 없으신가요?</span>
-                        <span class=" mb-2">가고 싶은 맛집을 더 많이 소개해드릴 수 있도록 노력하겠습니다.</span>
-                        <span class=" mb-2">내가 좋아하는 방송, 좋아하는 크리에이터의 맛집 목록</span>
-                        <div class="flex flex-row items-center"><img src="{% static 'img/logo.png' %}" class="h-12 mr-2">로 확인하세요.</div>
+                        <span class="text-red-500 mb-2 font-normal text-2xl">{% trans 'Is not there restaurant on your list of favorite yet?' %}</span>
+                        <span class=" mb-2">{% trans 'We will try to introduce more restaurants that you want to go to.' %}</span>
+                        <span class=" mb-2">{% trans 'Restaurant on my favorite Korea TV show' %}</span>
+                        <div class="flex flex-row items-center"><img src="{% static 'img/logo.png' %}" class="h-12 mr-2">{% trans 'check it out in amatna.' %}</div>
                     </div>
                 </div>
                 <div class="bg-gray-100 rounded-lg px-6 py-6 my-20">
