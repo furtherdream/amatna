@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-01 14:08+0900\n"
+"POT-Creation-Date: 2020-07-01 16:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -309,6 +309,13 @@ msgstr "아무 맛집이나 가지 않는 나!"
 msgid "HOT PLACE in Korea assembled"
 msgstr "방송에 나온 맛집과 크리에이터, 셀럽들의 맛집을 모았어요!"
 
+#: templates/restaurants/channel_view.html:31
+#: templates/restaurants/restaurant_list.html:23
+#: templates/restaurants/search.html:70
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "%(current_page)s 페이지  /  %(total_pages)s 페이지"
+
 #: templates/restaurants/main.html:4
 msgid "ENJOY your meal in Korea with Amatna"
 msgstr "맛있는 하루 되세요"
@@ -410,12 +417,6 @@ msgstr "회원가입 혹은 로그인을 하시면 한줄평을 남기실 수 �
 #: templates/users/login.html:4
 msgid "Login"
 msgstr "로그인"
-
-#: templates/restaurants/restaurant_list.html:23
-#: templates/restaurants/search.html:70
-#, python-format
-msgid "Page %(current_page)s of %(total_pages)s"
-msgstr "%(current_page)s 페이지  /  %(total_pages)s 페이지"
 
 #: templates/restaurants/search.html:5
 msgid "Search results"
