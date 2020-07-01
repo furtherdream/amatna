@@ -95,16 +95,36 @@
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Business time' %}</td>
-                    <td class="table-description">{{restaurant.biztime}}</td>
-                  </tr>
-                  <tr>
-                    <td class="table-title">{% trans 'Break time' %}</td>
-                    <td class="table-description">{{restaurant.breaktime}}</td>
-                  </tr>
-                  <tr>
-                    <td class="table-title">{% trans 'Holiday' %}</td>
-                    <td class="table-description">{{restaurant.holiday}}</td>
-                  </tr>
+                    <td class="table-description">
+                        
+                        {% if restaurant.holiday %}                            
+                            {% if restaurant.biztime_24 %}
+                                24시간 영업
+                            {% else %}
+                                {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
+                            {% endif %}                                
+                        {% else %}
+                            {% if restaurant.biztime_24 %}
+                                매일 24시간 영업
+                            {% else %}
+                                매일 {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
+                            {% endif %}
+                        {% endif %}
+                            
+                    </td>
+                  </tr>                  
+                  {% if restaurant.breaktime %}
+                    <tr>
+                        <td class="table-title">{% trans 'Break time' %}</td>
+                        <td class="table-description">{{restaurant.breaktime}}</td>
+                    </tr>
+                  {% endif %}                      
+                  {% if restaurant.holiday %}
+                    <tr>
+                      <td class="table-title">{% trans 'Holiday' %}</td>
+                      <td class="table-description">{{restaurant.holiday}}</td>
+                    </tr>                       
+                  {% endif %}                          
             </tbody>
         </table>
 
@@ -190,14 +210,15 @@
     
             </div>
             
-            <div class="flex flex-row items-center py-10 ml-3">
-                <img src={% static "img/amatna_comment.png" %} class="w-56 py-1">
-                <span class="ml-5 text-xl font-normal">
-                    <span class="text-3xl font-light">"</span> {{restaurant.info}} <span class="text-3xl font-light">"</span>
-                </span>
-            </div>
-
-
+            {% if restaurant.info %}
+                <div class="flex flex-row items-center py-10 ml-3">
+                    <img src={% static "img/amatna_comment.png" %} class="w-56 py-1">
+                    <span class="ml-5 text-xl font-normal">
+                        <span class="text-3xl font-light">"</span> {{restaurant.info}} <span class="text-3xl font-light">"</span>
+                    </span>
+                </div>
+            {% endif %}
+                
             <div class="flex item-center px-3 mt-16">
                 <div>
                     <span class="font-bold text-xl">{{restaurant.reviews.count}}</span>

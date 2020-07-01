@@ -101,6 +101,24 @@ class Restaurant(core_models.TimeStampedModel):
 
     """ Restaurant Model Definition """
 
+    HOLIDAY_MON = "월요일"
+    HOLIDAY_TUE = "화요일"
+    HOLIDAY_WED = "수요일"
+    HOLIDAY_THU = "목요일"
+    HOLIDAY_FRI = "금요일"
+    HOLIDAY_SAT = "토요일"
+    HOLIDAY_SUN = "일요일"
+
+    HOLIDAY_CHOICES = (
+        (HOLIDAY_MON, _("Monday")),
+        (HOLIDAY_TUE, _("Tuesday")),
+        (HOLIDAY_WED, _("Wednesday")),
+        (HOLIDAY_THU, _("Thursday")),
+        (HOLIDAY_FRI, _("Friday")),
+        (HOLIDAY_SAT, _("Saturday")),
+        (HOLIDAY_SUN, _("Sunday")),
+    )
+
     class Meta:
         verbose_name = _("restaurant")
         verbose_name_plural = _("restaurants")
@@ -114,16 +132,22 @@ class Restaurant(core_models.TimeStampedModel):
         "Channel", related_name="restaurant", blank=True, verbose_name=_("channel"),
     )
     address = models.CharField(_("address"), max_length=30, default="")
-    phone_number = models.CharField(_("phone number"), max_length=13, default="")
+    phone_number = models.CharField(
+        _("phone number"), max_length=13, default="", unique=True
+    )
     category = models.ManyToManyField(
         "Category", related_name="restaurant", blank=True, verbose_name=_("category")
     )
     price = models.CharField(_("price"), blank=True, max_length=20)
-    biztime = models.TextField(_("biztime"), blank=True)
+    biztime_start = models.TimeField(_("biztime start"), blank=True, null=True)
+    biztime_end = models.TimeField(_("biztime end"), blank=True, null=True)
+    biztime_24 = models.BooleanField(_("biztime 24"), default=False)
     breaktime = models.TextField(_("breaktime"), blank=True)
+    holiday = models.CharField(
+        _("holiday"), choices=HOLIDAY_CHOICES, max_length=10, default=None, blank=True
+    )
     info = models.TextField(_("info"), blank=True)
     menu = models.TextField(_("menu"), blank=True)
-    holiday = models.CharField(_("holiday"), blank=True, max_length=3)
     tag_set = models.ManyToManyField(
         "Tag", related_name="restaurant", blank=True, verbose_name=_("tag set")
     )
