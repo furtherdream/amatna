@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 13:20+0900\n"
+"POT-Creation-Date: 2020-07-01 14:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,12 @@ msgstr "관심목록"
 msgid "lists"
 msgstr "관심목록"
 
-#: lists/models.py:18 reviews/models.py:19
+#: lists/models.py:18 reviews/models.py:17
 msgid "user"
 msgstr "사용자"
 
 #: lists/models.py:24 restaurants/models.py:64 restaurants/models.py:105
-#: reviews/models.py:25
+#: reviews/models.py:23
 msgid "restaurant"
 msgstr "음식점"
 
@@ -184,19 +184,19 @@ msgstr "휴일"
 msgid "tag set"
 msgstr "태그모음"
 
-#: reviews/forms.py:18
+#: reviews/forms.py:12
 msgid "Please input review at this restaurant"
-msgstr "이 음식점에 대한 리뷰를 남겨 주세요."
+msgstr "이 음식점 혹은 방송에 대한 한줄평을 남겨 주세요."
 
-#: reviews/models.py:11 reviews/models.py:33
+#: reviews/models.py:11 reviews/models.py:31
 msgid "review"
 msgstr "리뷰"
 
-#: reviews/models.py:13
+#: reviews/models.py:12
 msgid "rating"
 msgstr "평점"
 
-#: reviews/models.py:34
+#: reviews/models.py:32
 msgid "reviews"
 msgstr "리뷰"
 
@@ -281,7 +281,9 @@ msgstr "관심목록"
 msgid "Log in"
 msgstr "로그인"
 
-#: templates/partials/nav.html:30 templates/users/login.html:27
+#: templates/partials/nav.html:30
+#: templates/restaurants/restaurant_detail.html:187
+#: templates/users/login.html:27
 msgid "Sign up"
 msgstr "회원가입"
 
@@ -293,17 +295,23 @@ msgstr "메뉴나 지역으로 검색하세요."
 msgid "Continue with Kakao"
 msgstr "카카오 아이디로 시작하기"
 
-#: templates/restaurants/main.html:4
-msgid "ENJOY your meal in Korea with Amatna"
-msgstr "맛있는 하루 되세요"
+#: templates/restaurants/channel_view.html:5
+msgid "Channel list"
+msgstr "채널목록"
 
+#: templates/restaurants/channel_view.html:13
 #: templates/restaurants/main.html:12
 msgid "DO NOT pay your time for searching restaurant in Korea"
 msgstr "아무 맛집이나 가지 않는 나!"
 
+#: templates/restaurants/channel_view.html:14
 #: templates/restaurants/main.html:13
 msgid "HOT PLACE in Korea assembled"
 msgstr "방송에 나온 맛집과 크리에이터, 셀럽들의 맛집을 모았어요!"
+
+#: templates/restaurants/main.html:4
+msgid "ENJOY your meal in Korea with Amatna"
+msgstr "맛있는 하루 되세요"
 
 #: templates/restaurants/main.html:23
 msgid "Last Updated Restaurants"
@@ -321,70 +329,87 @@ msgstr "댓글 백개 읽어도 가고 싶은 맛집인지 아닌지 헷갈리�
 msgid "Watch mukbang in Korean Creators"
 msgstr "방송 혹은 크리에이터의 생생한 동영상으로 가고 싶은 맛집을 찾아보세요."
 
-#: templates/restaurants/restaurant_detail.html:25
-#: templates/restaurants/restaurant_detail.html:30
+#: templates/restaurants/restaurant_detail.html:22
+#: templates/restaurants/restaurant_detail.html:27
 msgid "Add to favorite"
 msgstr "관심 목록 추가"
 
-#: templates/restaurants/restaurant_detail.html:58
+#: templates/restaurants/restaurant_detail.html:55
 msgid "Information"
 msgstr "음식점 정보"
 
-#: templates/restaurants/restaurant_detail.html:63
+#: templates/restaurants/restaurant_detail.html:60
 msgid "Restaurant Name"
 msgstr "상호명"
 
-#: templates/restaurants/restaurant_detail.html:67
+#: templates/restaurants/restaurant_detail.html:64
 msgid "instagram"
 msgstr "인스타그램"
 
-#: templates/restaurants/restaurant_detail.html:70
+#: templates/restaurants/restaurant_detail.html:67
 msgid "View posts in instagram"
 msgstr "인스타그램으로 보기"
 
-#: templates/restaurants/restaurant_detail.html:76
+#: templates/restaurants/restaurant_detail.html:73
 msgid "Address"
 msgstr "주소"
 
-#: templates/restaurants/restaurant_detail.html:80
+#: templates/restaurants/restaurant_detail.html:77
 msgid "Phone number"
 msgstr "전화번호"
 
-#: templates/restaurants/restaurant_detail.html:84
+#: templates/restaurants/restaurant_detail.html:81
 msgid "Category"
 msgstr "카테고리"
 
-#: templates/restaurants/restaurant_detail.html:92
+#: templates/restaurants/restaurant_detail.html:89
 msgid "Price"
 msgstr "가격대"
 
-#: templates/restaurants/restaurant_detail.html:96
+#: templates/restaurants/restaurant_detail.html:93
 msgid "Menu"
 msgstr "메뉴"
 
-#: templates/restaurants/restaurant_detail.html:100
+#: templates/restaurants/restaurant_detail.html:97
 msgid "Business time"
 msgstr "영업시간"
 
-#: templates/restaurants/restaurant_detail.html:104
+#: templates/restaurants/restaurant_detail.html:101
 msgid "Break time"
 msgstr "휴식시간"
 
-#: templates/restaurants/restaurant_detail.html:108
+#: templates/restaurants/restaurant_detail.html:105
 msgid "Holiday"
 msgstr "휴일"
 
-#: templates/restaurants/restaurant_detail.html:118
+#: templates/restaurants/restaurant_detail.html:115
 msgid "The channel that visited this restaurant."
 msgstr "이 음식점을 방문한 채널"
 
-#: templates/restaurants/restaurant_detail.html:128
+#: templates/restaurants/restaurant_detail.html:125
 msgid "A video of a visit to this restaurant"
 msgstr "이 음식점을 방문한 영상"
 
-#: templates/restaurants/restaurant_detail.html:146
+#: templates/restaurants/restaurant_detail.html:143
 msgid "watch on youtube"
 msgstr "유튜브로 보러가기"
+
+#: templates/restaurants/restaurant_detail.html:155
+msgid "Please leave a comment."
+msgstr "한줄평을 작성해 주세요.."
+
+#: templates/restaurants/restaurant_detail.html:180
+msgid "Comment"
+msgstr "한줄평 작성"
+
+#: templates/restaurants/restaurant_detail.html:185
+msgid "If you sign up or log in, you can leave a comment."
+msgstr "회원가입 혹은 로그인을 하시면 한줄평을 남기실 수 있습니다."
+
+#: templates/restaurants/restaurant_detail.html:186
+#: templates/users/login.html:4
+msgid "Login"
+msgstr "로그인"
 
 #: templates/restaurants/restaurant_list.html:23
 #: templates/restaurants/search.html:70
@@ -459,10 +484,6 @@ msgstr "홈으로 돌아가기"
 #: templates/restaurants/search.html:116
 msgid "Please recommend your favorite creator."
 msgstr "맛집 목록을 만들고 싶은 크리에이터를 추천해주세요."
-
-#: templates/users/login.html:4
-msgid "Login"
-msgstr "로그인"
 
 #: templates/users/login.html:15 templates/users/signup.html:15
 msgid "\"The restaurant on my favorite Korean TV show.\""

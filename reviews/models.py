@@ -9,9 +9,7 @@ class Review(core_models.TimeStampedModel):
     """ Review models definition """
 
     review = models.TextField(_("review"))
-    rating = models.IntegerField(
-        _("rating"), validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
+    rating = models.IntegerField(_("rating"), null=True)
     user = models.ForeignKey(
         "users.User",
         related_name="reviews",

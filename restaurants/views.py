@@ -27,7 +27,7 @@ def main_views(request):
 def channel_view(request):
     page = request.GET.get("page")
     all_channel = models.Channel.objects.all().order_by("-created")
-    paginator = Paginator(all_channel, 100)
+    paginator = Paginator(all_channel, 16)
     channels = paginator.get_page(page)
     return render(request, "restaurants/channel_view.html", {"channels": channels},)
 

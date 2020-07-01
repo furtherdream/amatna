@@ -4,15 +4,9 @@ from . import models
 
 
 class CreateReviewForm(forms.ModelForm):
-
-    rating = forms.IntegerField(min_value=1, max_value=5)
-
     class Meta:
         model = models.Review
-        fields = (
-            "review",
-            "rating",
-        )
+        fields = ("review",)
         widgets = {
             "review": forms.TextInput(
                 attrs={"placeholder": _("Please input review at this restaurant")}

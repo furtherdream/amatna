@@ -27,7 +27,7 @@
         
     {% else %}
         <li class="nav_link mr-2 truncate"><a href="{% url "users:login" %}">{% trans 'Log in' %}</a></li>
-        <li class="nav_link  border shadow-lg rounded-xl truncate"><a href="{% url "users:signup" %}">{% trans 'Sign up' %}</a></li>
+        <li class="nav_link hover:bg-white border hover:shadow-lg shadow rounded-xl truncate"><a href="{% url "users:signup" %}">{% trans 'Sign up' %}</a></li>
 
     {% endif %}
 </ul>

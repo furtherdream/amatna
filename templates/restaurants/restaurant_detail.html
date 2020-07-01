@@ -9,11 +9,7 @@
     
     <div class=" w-full mb-20 flex flex-col items-center justify-center">
         <div class="flex flex-row bg-gray-200 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
-            <div class="text-3xl font-normal text-gray-700">{{restaurant.title}}
-                {% if restaurant.total_rating != 0 %}    
-                   <span class="ml-3 text-red-400 font-normal text-2xl ">{{restaurant.total_rating}}</span>
-                {% endif %}
-            </div>
+            <div class="text-3xl font-normal text-gray-700">{{restaurant.title}}</div>
 
             {% if user.is_authenticated %}
                 {% on_favs restaurant as on_favs_boolean %}            
@@ -152,18 +148,91 @@
         </div>
  
 
-        <div class="py-10 px-5">
+        
 
-            <span class="font-medium text-2xl text-center w-full block mb-5">리뷰를 등록해 주세요.</span>
-            <!-- 여기에 폼을 작성해줘야 한다. -->
-            <form action="{% url 'reviews:create' restaurant.pk %}" method="POST" class="w-full mx-auto">
-                {% csrf_token %}
-                {{form}}
-                <button class="btn-link mt-5">리뷰 등록</button>
-            </form>
+        <div class="mt-32 w-11/12 lg:w-3/5">
+            <div class="px-10 my-3 bg-gray-100 rounded-lg">    
+                <span class="font-medium text-2xl w-full block py-10 -mb-10">{% trans 'Please leave a comment.' %}</span>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'reviews:create' restaurant.pk %}" method="POST" enctype="multipart/form-data" class="items-center flex flex-row">
+                            {% csrf_token %}
+                            
+                            {% if form.non_field_errors %}
+                                {% for error in form.non_field_errors %}
+                                    <span class="text-red-700 font-medium text-sm">{{error}}</span> 
+                                {% endfor %}
+                            {% endif %}                    
+                            
+                            {% for field in form %}                    
+                                <div class="input py-6 mt-3 {% if field.errors %}has_error{% endif %}">
+                                    <div>
+                                        {{field}}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                                <span class="text-red-700 font-medium text-sm">{{error}}</span> 
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>       
+                            {% endfor %}
+                                            
+                            <div class=" w-1/5 ml-5">
+                                <button class="btn-link py-5 truncate">{% trans 'Comment' %}</button>
+                            </div>
+                    </form>
+                {% else %}
+                    <div class="flex flex-row justify-end pb-10 pt-5 items-center">
+                        <span>{% trans 'If you sign up or log in, you can leave a comment.' %}</span>
+                        <a href="{% url 'users:login' %}" class="text-black font-normal ml-3 px-4 py-3 rounded-xl border border-gray-200 shadow hover:shadow-xl" >{% trans 'Login' %}</a>
+                        <a href="{% url 'users:signup' %}" class="text-black font-normal ml-3 px-4 py-3 rounded-xl border border-gray-200 shadow hover:shadow-xl" >{% trans 'Sign up' %}</a>
+                    </div>
+                {% endif %}
+    
+            </div>
+            
+            <div class="flex flex-row items-center py-10 ml-3">
+                <img src={% static "img/amatna_comment.png" %} class="w-56 py-1">
+                <span class="ml-5 text-xl font-normal">
+                    <span class="text-3xl font-light">"</span> {{restaurant.info}} <span class="text-3xl font-light">"</span>
+                </span>
+            </div>
 
-        </div>       
 
+            <div class="flex item-center px-3 mt-16">
+                <div>
+                    <span class="font-bold text-xl">{{restaurant.reviews.count}}</span>
+                    <span>comment{{restaurant.reviews.count|pluralize}}</span>
+                </div>                   
+            </div>
+            <div class="mt-10 px-3">
+                
+                {% if restaurant.reviews.count > 0 %}
+                    {% for review in restaurant.reviews.all %}
+                        <div class="border-section">
+                            <div class="mb-3 flex">
+                                
+                                {% include 'mixins/user_avatar.html' with user=review.user h_and_w='w-10 h-10' text='text-xl' %}
+                                
+                                <div class="flex flex-col ml-5">
+                                    <span class="font-medium">{{review.user.nickname}}</span>
+                                    <span class="text-sm text-gray-500">{{review.created|date:'Y년 F j일'}}</span>
+                                </div>
+                            </div>
+                            <p>{{review.review}}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="border-section">
+                        <div class="mb-3 flex flex-col">                            
+                            <span class="">아직 작성된 한줄평이 없습니다.</span>
+                            <span class="font-normal">첫 한줄평을 남겨주세요. (1빠 말구요. 헤헷)</span>
+                        </div>
+                    </div>                
+                {% endif %}
+                    
+                    
+            </div>
+        </div>
     </div>
 
 {% endblock %}
