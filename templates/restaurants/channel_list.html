@@ -1,9 +1,75 @@
 {% load i18n %}
 {% block content %} 
-    <div class="flex flex-wrap mx-0 mb-10">
-        {% for channel in channels %}
-            {% include 'mixins/channel_card.html' with channel=channel %}
-        {% endfor %}
+
+
+<div class="bg-gray-100 -mt-4 w-full">
+    <div class="justify-between flex flex-row items-center">
+
+      <div class=" pt-12 mb-10 flex flex-col">
+        <span class="font-bold text-2xl text-red-500 ml-8 mb-2">{% trans 'DO NOT pay your time for searching restaurant in Korea' %}</span>
+        <span class="text-xl text-gray-800 ml-8">{% trans 'HOT PLACE in Korea assembled' %}</span>
+      </div> 
+
+      <button 
+        class="mr-5 text-base border border-gray-200 shadow hover:shadow-lg rounded-xl py-2 px-4 truncate"
+        onclick="document.getElementById('searchChannel').style.display='block'">
+        {% trans 'Search channel' %}
+      </button>
+
+      <div id="searchChannel" class="w3-modal">
+        <div class="w3-modal-content rounded">
+          <header class="w3-container bg-teal-300 rounded-t"> 
+            <span onclick="document.getElementById('searchChannel').style.display='none'" 
+            class="w3-button w3-display-topright rounded">&times;</span>
+            <h4 class="text-teal-900 ml-3">{% trans 'Search channel' %}</h4>
+          </header>
+          <div class="w3-container">
+            <form method="get" action="{% url 'restaurants:search-channels' %}" class="w-full py-6 flex flex-row">
+                <input 
+                    class="search-box border px-5 w-full text-gray-900 placeholder-gray-600 font-medium py-3 rounded-sm shadow-md hover:shadow-lg focus:outline-none" 
+                    name="search_channel" 
+                    placeholder="{% trans 'Search with channel' %}" 
+                >
+                <button class="ml-4 mr-1"><i class="fas fa-search fa-2x"></i></button>
+            </form> 
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <div class="flex flex-wrap mx-0 mb-10">
+        
+        {% if channels %}
+
+            {% for channel in channels %}
+                {% include 'mixins/channel_card.html' with channel=channel %}
+            {% endfor %}
+
+        {% else %}  
+        
+            <div class="container mx-auto min-h-75vh flex flex-col items-center border-t mt-3 px-4">
+    
+                <div class="flex flex-col">
+    
+                    <span class="font-normal text-2xl pt-20 pb-5">                
+                        <span class="font-bold text-red-600">"{{channel_name}}"</span>
+                        {% trans 'no results.' %}
+                    </span>           
+                    <span class="mb-2 text-lg">• {% trans 'Make sure you enter the word correctly.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Search with channel name.' %}</span>
+                    <span class="mb-2 text-lg">• {% trans 'Search results sometimes can be inaccurate when spacing.' %}</span>
+                </div>
+
+                {% include 'mixins/no_results.html' %}
+            </div>
+
+        {% endif %}
+            
+
+    </div>
+    
+  </div>
+ 
 
 {% endblock content %}

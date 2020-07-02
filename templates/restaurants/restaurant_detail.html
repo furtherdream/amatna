@@ -6,6 +6,7 @@
 
 
 {% block content %}
+
     
     <div class=" w-full mb-20 flex flex-col items-center justify-center">
         <div class="flex flex-row bg-gray-200 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
@@ -71,11 +72,11 @@
                   </tr>                  
                   <tr>
                     <td class="table-title">{% trans 'Address' %}</td>
-                    <td class="table-description">{{restaurant.address}}</td>
+                    <td class="table-description select-all">{{restaurant.address}}</td>
                   </tr>                  
                   <tr>
                     <td class="table-title">{% trans 'Phone number' %}</td>
-                    <td class="table-description">{{restaurant.phone_number}}</td>
+                    <td class="table-description select-all">{{restaurant.phone_number}}</td>
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Category' %}</td>
@@ -99,15 +100,15 @@
                         
                         {% if restaurant.holiday %}                            
                             {% if restaurant.biztime_24 %}
-                                24시간 영업
+                                {% trans 'Open 24 hours' %}
                             {% else %}
                                 {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
                             {% endif %}                                
                         {% else %}
                             {% if restaurant.biztime_24 %}
-                                매일 24시간 영업
+                                {% trans '24/7' %}
                             {% else %}
-                                매일 {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
+                                {% trans 'Everydays' %} {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
                             {% endif %}
                         {% endif %}
                             
@@ -245,8 +246,8 @@
                 {% else %}
                     <div class="border-section">
                         <div class="mb-3 flex flex-col">                            
-                            <span class="">아직 작성된 한줄평이 없습니다.</span>
-                            <span class="font-normal">첫 한줄평을 남겨주세요. (1빠 말구요. 헤헷)</span>
+                            <span class="">{% trans 'There is no comment' %}</span>
+                            <span class="font-normal">{% trans 'Please leave a comment :)' %}</span>
                         </div>
                     </div>                
                 {% endif %}
@@ -255,5 +256,7 @@
             </div>
         </div>
     </div>
+
+    
 
 {% endblock %}

@@ -60,6 +60,19 @@ class RestaurantDetail(DetailView, FormMixin):
         return super(RestaurantDetail, self).form_valid(form)
 
 
+def search_channels(request):
+    channel_name = request.GET.get("search_channel")
+    page = request.GET.get("page")
+    qs = models.Channel.objects.filter(name__contains=channel_name)
+    paginator = Paginator(qs, 40)
+    channels = paginator.get_page(page)
+    return render(
+        request,
+        "restaurants/channel_view.html",
+        {"channels": channels, "channel_name": channel_name},
+    )
+
+
 def search(request):
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
