@@ -214,9 +214,11 @@
             {% if restaurant.info %}
                 <div class="flex flex-row items-center py-10 ml-3">
                     <img src={% static "img/amatna_comment.png" %} class="w-56 py-1">
-                    <span class="ml-5 text-xl font-normal">
-                        <span class="text-3xl font-light">"</span> {{restaurant.info}} <span class="text-3xl font-light">"</span>
-                    </span>
+                    <div class="ml-5 text-xl font-normal">
+                        <i class="fa fa-quote-left text-sm align-text-top"></i>
+                            {{restaurant.info}} 
+                        <i class="fa fa-quote-right text-sm align-text-top"></i>
+                    </div>
                 </div>
             {% endif %}
                 
