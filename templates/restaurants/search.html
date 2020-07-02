@@ -14,8 +14,9 @@
 {% block content %}
 
 
-    {% if restaurants.object_list.count > 0 %}
-        <div class="container mx-auto">        
+{% if restaurants.object_list.count > 0 %}
+    <div class="container mx-auto">        
+
             {% if tag %}
                 <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
                     <span class="px-4 py-6 font-normal text-2xl block truncate"><span class="text-red-500 mr-3">"{{tag}}"</span>{% trans 'Search Results' %}</span>
@@ -73,13 +74,15 @@
             <a href="?page={{restaurants.number|add:1}}" class="text-teal-500">
                 <i class="fas fa-arrow-right fa-lg"></i>
             </a>
-            {% endif %}
+            {% endif %}            
             
         </div>
+        
+        {% include 'partials/adsense_horizontal.html' %}
 
     {% else %}
 
-        <div class="container w-10/12 lg:3/5 mx-auto min-h-75vh flex flex-col items-center ">
+        <div class="container w-10/12 lg:3/5 mx-auto min-h-75vh flex flex-col items-center">
             {% if tag %}
                 <div class="flex flex-col">
                     <span class="font-normal text-2xl pt-20 pb-5">
@@ -104,10 +107,20 @@
                     <span class="mb-2 text-lg">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
                     <span class="mb-2 text-lg">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
                 </div>
+
+                <div class="bg-gray-100 rounded-lg px-6 py-6 mt-20 w-5/6 lg:w-2/3">
+                    <div class="p-1 rounded-t-lg align-middle mb-10">
+                        <span class="px-4 pb-2 -ml-4 text-2xl block font-bold truncate text-red-500">{% trans 'Search with another category' %}</span>
+                        <span class="text-lg text-gray-800">{% trans 'Search for the menu you want to eat.' %}</span>
+                    </div>
+                    {% for c in all_categories %}
+                        {% include 'mixins/categories.html' %}
+                    {% endfor %}
+                </div>
             {% endif %}
             
-            {% include 'mixins/no_results.html' %}
-            
+            {% include 'mixins/no_results.html' %}      
+
         </div>
     
     {% endif %}     

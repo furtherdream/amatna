@@ -2,12 +2,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171519608-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-171519608-1');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
+    <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
     <title>{% block page_title %}{% endblock page_title %} | {% trans 'Amatna : DO NOT pay your time for searching restaurant' %}</title>
   </head>
   <body class="text-gray-800 mt-24 font-light">
@@ -27,6 +37,17 @@
 
     {% block content %}
     {% endblock content %} 
+
+    <div align="center" class="py-10">
+      <amp-ad width="100vw" height="320"
+          type="adsense"
+          data-ad-client="ca-pub-3931834768948104"
+          data-ad-slot="9354540521"
+          data-auto-format="rspv"
+          data-full-width="">
+        <div overflow=""></div>
+      </amp-ad>
+    </div>
 
     {% include "partials/footer.html" %}
 

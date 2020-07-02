@@ -9,6 +9,8 @@
 
     {% include 'restaurants/channel_list.html' %}
 
+    {% include 'partials/adsense_horizontal.html' %}
+
 
     
     <div class="w-full pt-10">
@@ -20,6 +22,7 @@
       </div> 
 
       {% include 'restaurants/restaurant_list.html' %}
+
       
     </div>      
 
@@ -32,7 +35,10 @@
       {% for c in all_categories %}
         {% include 'mixins/categories.html' %}
       {% endfor %}
+      
     </div>
+
+    {% include 'partials/adsense_horizontal.html' %}
 
   </div>
 {% endblock content %}

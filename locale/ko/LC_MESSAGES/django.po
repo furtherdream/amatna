@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 18:22+0900\n"
+"POT-Creation-Date: 2020-07-02 21:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -282,6 +282,7 @@ msgid "Search with category"
 msgstr "메뉴로 검색해 보세요."
 
 #: templates/lists/list_detail.html:41 templates/restaurants/main.html:30
+#: templates/restaurants/search.html:111
 msgid "Search for the menu you want to eat."
 msgstr "오늘 땡기는 메뉴를 골라보세요."
 
@@ -500,11 +501,11 @@ msgstr "회원가입 혹은 로그인을 하시면 한줄평을 남기실 수 �
 msgid "Login"
 msgstr "로그인"
 
-#: templates/restaurants/restaurant_detail.html:249
+#: templates/restaurants/restaurant_detail.html:251
 msgid "There is no comment"
 msgstr "작성된 한줄평이 없습니다."
 
-#: templates/restaurants/restaurant_detail.html:250
+#: templates/restaurants/restaurant_detail.html:252
 msgid "Please leave a comment :)"
 msgstr "첫 한줄평을 남겨주세요. (1빠 말구요. 헤헷)"
 
@@ -524,7 +525,7 @@ msgstr "채널 검색 결과"
 msgid "Search Results with Category"
 msgstr "메뉴 검색 결과"
 
-#: templates/restaurants/search.html:38
+#: templates/restaurants/search.html:38 templates/restaurants/search.html:110
 msgid "Search with another category"
 msgstr "다른 메뉴로도 검색해 보세요."
 

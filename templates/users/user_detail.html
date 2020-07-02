@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <div class="min-h-75vh">        
+    <div class="min-h-50vh">        
         <div class="container px-6 w-11/12 lg:w-1/3 md:w-2/5 container mx-auto my-10 flex flex-col rounded-xl shadow-xl items-center border p-10 b-20 border-gray-100">
             {% include 'mixins/user_avatar.html' with user=user_obj %}
             
@@ -25,6 +25,9 @@
             </div>
             <a href="{% url 'users:logout' %}" class="btn-link w-full">{% trans 'Log out' %}</a>
         </div>
+        
     </div>
+    
+    {% include 'partials/adsense_horizontal.html' %}
 
 {% endblock content %}

@@ -46,6 +46,10 @@
                 {% include 'mixins/channel_card.html' with channel=channel %}
             {% endfor %}
 
+            
+            {% include 'partials/adsense_horizontal.html' %}
+            
+
         {% else %}  
         
             <div class="container mx-auto min-h-75vh flex flex-col items-center border-t mt-3 px-4">
@@ -62,10 +66,12 @@
                 </div>
 
                 {% include 'mixins/no_results.html' %}
+
+                {% include 'partials/adsense_horizontal.html' %}
+
             </div>
 
         {% endif %}
-            
 
     </div>
     
