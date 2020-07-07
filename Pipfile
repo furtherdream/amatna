@@ -13,6 +13,7 @@ pillow = "*"
 django-dotenv = "*"
 requests = "*"
 django-seed = "*"
+sentry-sdk = "==0.16.0"
 
 [requires]
 python_version = "3.7"
