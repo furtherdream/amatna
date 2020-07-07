@@ -3,7 +3,8 @@ attrs==19.3.0
 awsebcli==3.18.1
 bcrypt==3.1.7
 blessed==1.17.8
-botocore==1.15.49
+boto3==1.14.17
+botocore==1.17.17
 cached-property==1.5.1
 cement==2.8.2
 certifi==2020.6.20
@@ -14,6 +15,7 @@ cryptography==2.9.2
 Django==3.1b1
 django-dotenv==1.4.2
 django-seed==0.2.2
+django-storages==1.9.1
 docker==4.2.2
 docker-compose==1.25.5
 dockerpty==0.4.1
@@ -39,7 +41,9 @@ python-dateutil==2.8.1
 pytz==2020.1
 PyYAML==5.3.1
 requests==2.24.0
+s3transfer==0.3.3
 semantic-version==2.5.0
+sentry-sdk==0.16.0
 six==1.15.0
 sqlparse==0.3.1
 termcolor==1.1.0
@@ -48,6 +52,5 @@ texttable==1.6.2
 urllib3==1.25.9
 wcwidth==0.1.9
 websocket-client==0.57.0
-psycopg2==2.8.4
-sentry-sdk==0.16.0
+yapf==0.30.0
 zipp==3.1.0
