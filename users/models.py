@@ -2,10 +2,10 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.shortcuts import reverse
+from core import managers as core_managers
 
 
 class User(AbstractUser):
-
     """ Custom User Model """
 
     LOGIN_EMAIL = "email"
@@ -29,7 +29,7 @@ class User(AbstractUser):
     login_method = models.CharField(
         _("login method"), choices=LOGIN_CHOICES, max_length=50, default=LOGIN_EMAIL
     )
+    objects = core_managers.CustomUserManager()
 
     def get_absolute_url(self):
         return reverse("users:profile", kwargs={"pk": self.pk})
-
