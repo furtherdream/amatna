@@ -52,7 +52,6 @@ class RestaurantAdmin(admin.ModelAdmin):
 
     list_display = (
         "title",
-        "total_rating",
         "address",
         "phone_number",
         "price",
