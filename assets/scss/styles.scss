@@ -27,6 +27,14 @@
   }
 }
 
+.table-title {
+  @apply border-b border-r w-1/5 py-2 text-center text-red-500 text-sm font-medium;
+}
+
+.table-description {
+  @apply border-b px-3 py-2 text-sm text-gray-700 font-normal;
+}
+
 @screen sm {
   .article_title {
     @apply text-2xl;
@@ -42,6 +50,13 @@
     button {
       @apply text-sm px-4;
     }
+  }
+  .table-title {
+    @apply w-1/4 py-4 text-lg;
+  }
+
+  .table-description {
+    @apply px-6 py-4 text-lg;
   }
 }
 
@@ -65,14 +80,6 @@
 
 .border-section {
   @apply border-b border-gray-400 pb-8 mt-8;
-}
-
-.table-title {
-  @apply border-b border-r w-1/4 py-4 text-center text-red-500 text-lg font-medium;
-}
-
-.table-description {
-  @apply border-b px-6 py-4 text-lg text-gray-700 font-normal;
 }
 
 input,

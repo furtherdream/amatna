@@ -9,39 +9,39 @@
 
     
     <div class=" w-full mb-20 flex flex-col items-center justify-center">
-        <div class="flex flex-row bg-gray-200 p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
-            <div class="text-3xl font-normal text-gray-700">{{restaurant.title}}</div>
+        <div class="flex flex-row bg-gray-200 p-3 sm:p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
+            <div class="text-xl sm:text-3xl font-normal text-gray-700">{{restaurant.title}}</div>
 
             {% if user.is_authenticated %}
                 {% on_favs restaurant as on_favs_boolean %}            
                 {% if on_favs_boolean %}
                     <a href="{% url 'lists:toggle-restaurant' restaurant.pk %}?action=remove">
-                        <img class="w-8 hover:opacity-75" src="{% static 'img/heart_filled.png'%}">
+                        <img class="sm:w-8 w-6 hover:opacity-75" src="{% static 'img/heart_filled.png'%}">
                     </a>
                 {% else %}
                     <a href="{% url 'lists:toggle-restaurant' restaurant.pk %}?action=add" class="flex flex-row">
-                        <span class="py-1 mr-2 text-blue-400 font-normal hover:opacity-75">{% trans 'Add to favorite' %}</span><img class="w-8 hover:opacity-75" src="{% static 'img/heart_unfilled.png'%}">
+                        <span class="py-1 mr-2 text-blue-400 text-sm sm:text-basefont-normal hover:opacity-75">{% trans 'Add to favorite' %}</span><img class="sm:w-8 w-6 hover:opacity-75" src="{% static 'img/heart_unfilled.png'%}">
                     </a>
                 {% endif %}
             {% else %}
                 <a href="{% url 'users:login' %}" class="flex flex-row" onclick="return confirm('로그인을 하시면 관심목록을 관리할 수 있습니다. 로그인 하시겠습니까?')">
-                    <span class="py-1 mr-2 text-blue-400 font-normal hover:opacity-75">{% trans 'Add to favorite' %}</span><img class="w-8 hover:opacity-75" src="{% static 'img/heart_unfilled.png'%}">
+                    <span class="py-1 mr-2 text-blue-400 text-sm sm:text-basefont-normal hover:opacity-75">{% trans 'Add to favorite' %}</span><img class="sm:w-8 w-6 hover:opacity-75" src="{% static 'img/heart_unfilled.png'%}">
                 </a>
             {% endif %}
 
         </div>
         
-        <div class="bg-gray-100 w-11/12 lg:w-3/5 justify-start mb-12 px-3 pt-5 pb-3 rounded-b-lg">
+        <div class="bg-gray-100 w-11/12 lg:w-3/5 justify-start mb-12 px-3 pt-3 sm:pt-5 pb-1 sm:pb-3 rounded-b-lg">
             {% include 'mixins/tag.html' with restaurant=restaurant %}
         </div>
 
 
         {% for y in restaurant.youtube.all %}
-            <div class="flex flex-row  p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
-                <img src="{% static 'img/youtube_logo.png' %}" class=" w-16">
-                <span class="p-4 -ml-3 font-normal text-xl block truncate">{{y.name}}</span>
+            <div class="flex flex-row  p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle items-center">
+                <img src="{% static 'img/youtube_logo.png' %}" class="h-10 sm:h-16">
+                <span class="p-4 -ml-3 font-normal text-sm sm:text-xl block truncate">{{y.name}}</span>
             </div>
-            <div class="bg-red-200 p-5 rounded-lg w-11/12 lg:w-3/5 mb-12">
+            <div class="bg-red-200 p-3 sm:p-5 rounded-lg w-11/12 lg:w-3/5 mb-12">
                 <iframe 
                 id="ytplayer" 
                 type="text/html"
@@ -53,20 +53,20 @@
         {% endfor %}
 
         <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-3">
-            <span class="p-4 font-normal text-xl block truncate">{% trans 'Information' %}</span>
+            <span class="p-4 font-normal text-base sm:text-xl block truncate">{% trans 'Information' %}</span>
         </div>     
         <table class="table-fixed w-11/12 lg:w-3/5 mb-20">
             <tbody>
                 <tr>
                     <td class="table-title border-t">{% trans 'Restaurant Name' %}</td>
-                    <td class="table-description border-t">{{restaurant.title}}</td>
+                    <td class="table-description border-t font-bold">{{restaurant.title}}</td>
                   </tr>              
                   <tr>
                     <td class="table-title">{% trans 'instagram' %}</td>
                     <td class="table-description text-blue-500">
                         <a href="https://www.instagram.com/explore/{{restaurant.instagram_url}}" target="_blank" class="flex flex-row hover:opacity-50">
                             <span class="py-2 mr-2">{% trans 'View posts in instagram' %}</span>
-                            <img src="{% static 'img/instagram_logo.png' %}" class="w-10" />
+                            <img src="{% static 'img/instagram_logo.png' %}" class="sm:w-10 w-8" />
                         </a>                        
                     </td>
                   </tr>                  
@@ -92,7 +92,7 @@
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Menu' %}</td>
-                    <td class="table-description text-xl">{{restaurant.menu|linebreaks}}</td>
+                    <td class="table-description">{{restaurant.menu|linebreaks}}</td>
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Business time' %}</td>
@@ -133,7 +133,7 @@
 
 
         <div class="bg-gray-200 p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
-            <span class="p-4 font-normal text-xl block truncate">{% trans 'The channel that visited this restaurant.' %}</span>
+            <span class="p-3 sm:p-4 font-normal text-base sm:text-xl block truncate">{% trans 'The channel that visited this restaurant.' %}</span>
         </div>        
         <div class="bg-gray-100 p-1 rounded-b-lg flex flex-wrap mx-0 mb-10 w-11/12 lg:w-3/5">
                 {% for channel in restaurant.channel.all %}                    
@@ -143,7 +143,7 @@
 
 
         <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
-            <span class="p-4 font-normal text-xl block truncate">{% trans 'A video of a visit to this restaurant' %}</span>
+            <span class="p-4 font-normal text-base sm:text-xl block truncate">{% trans 'A video of a visit to this restaurant' %}</span>
         </div>                
         <div class="w-11/12 lg:w-3/5 flex-wrap flex">           
             {% for y in restaurant.youtube.all %}                   
@@ -155,13 +155,13 @@
                         height="200"
                         src="https://www.youtube.com/embed/{{y.video_id}}?autoplay=1?modestbranding=1"
                         frameborder="0"
-                        class=" rounded-t-xl w-full bg-whitel shadow-xl"
+                        class=" rounded-t-xl w-full bg-white shadow-xl h-32 sm:h-25vh"
                     ></iframe>
-                    <a href="https://www.youtube.com/watch?v={{y.video_id}}" target="_blank" class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-8 px-3 hover:opacity-75">
-                        <span>{{y.name}}</span>
-                        <div class="flex flex-row mt-3">                                
-                            <img src="{% static 'img/youtube_logo.png' %}" class="-ml-2 w-12">
-                            <span class="p-3 -ml-2 text-red-600 font-medium">{% trans 'watch on youtube' %}</span>
+                    <a href="https://www.youtube.com/watch?v={{y.video_id}}" target="_blank" class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-3 sm:py-8 px-3 hover:opacity-75">
+                        <span class="text-xs sm:text-base">{{y.name}}</span>
+                        <div class="flex flex-row mt-1 sm:mt-3 items-center">                                
+                            <img src="{% static 'img/youtube_logo.png' %}" class="-ml-1 h-8 sm:h-12">
+                            <span class="p-3 -ml-2 text-red-600 font-medium text-xs sm:text-base">{% trans 'watch on youtube' %}</span>
                         </div>
                     </a>                        
                 </div>
@@ -173,10 +173,10 @@
 
 
         <div class="mt-32 w-11/12 lg:w-3/5">
-            <div class="px-10 my-3 bg-gray-100 rounded-lg">    
-                <span class="font-medium text-2xl w-full block py-10 -mb-10">{% trans 'Please leave a comment.' %}</span>
+            <div class="px-5 sm:px-10 my-3 bg-gray-100 rounded-lg">    
+                <span class="font-medium text-base sm:text-2xl w-full block py-10 -mb-10">{% trans 'Please leave a comment.' %}</span>
                 {% if user.is_authenticated %}
-                    <form action="{% url 'reviews:create' restaurant.pk %}" method="POST" enctype="multipart/form-data" class="items-center flex flex-row">
+                    <form action="{% url 'reviews:create' restaurant.pk %}" method="POST" enctype="multipart/form-data" class="items-center flex flex-col sm:flex-row">
                             {% csrf_token %}
                             
                             {% if form.non_field_errors %}
@@ -186,7 +186,7 @@
                             {% endif %}                    
                             
                             {% for field in form %}                    
-                                <div class="input py-6 mt-3 {% if field.errors %}has_error{% endif %}">
+                                <div class="input sm:text-lg text-sm py-6 mt-3 {% if field.errors %}has_error{% endif %}">
                                     <div>
                                         {{field}}
                                         {% if field.errors %}
@@ -198,24 +198,26 @@
                                 </div>       
                             {% endfor %}
                                             
-                            <div class=" w-1/5 ml-5">
-                                <button class="btn-link py-5 truncate">{% trans 'Comment' %}</button>
+                            <div class="w-full sm:w-1/5 ml-0 sm:ml-5 pb-5 sm:pb-0 -mt-5 sm:mt-0">
+                                <button class="btn-link py-3 sm:py-5 truncate">{% trans 'Comment' %}</button>
                             </div>
                     </form>
                 {% else %}
-                    <div class="flex flex-row justify-end pb-10 pt-5 items-center">
+                    <div class="flex flex-col sm:flex-row justify-end pb-10 pt-5 items-center">
                         <span>{% trans 'If you sign up or log in, you can leave a comment.' %}</span>
-                        <a href="{% url 'users:login' %}" class="text-black font-normal ml-3 px-4 py-3 rounded-xl border border-gray-200 shadow hover:shadow-xl" >{% trans 'Login' %}</a>
-                        <a href="{% url 'users:signup' %}" class="text-black font-normal ml-3 px-4 py-3 rounded-xl border border-gray-200 shadow hover:shadow-xl" >{% trans 'Sign up' %}</a>
+                        <div class="flex flex-row pt-6 sm:pt-0">
+                            <a href="{% url 'users:login' %}" class="text-black font-normal ml-3 px-4 py-3 rounded-xl border border-gray-200 shadow hover:shadow-xl" >{% trans 'Login' %}</a>
+                            <a href="{% url 'users:signup' %}" class="text-black font-normal ml-3 px-4 py-3 rounded-xl border border-gray-200 shadow hover:shadow-xl" >{% trans 'Sign up' %}</a>
+                        </div>
                     </div>
                 {% endif %}
     
             </div>
             
             {% if restaurant.info %}
-                <div class="flex flex-row items-center py-10 ml-3">
-                    <img src={% static "img/amatna_comment.png" %} class="w-56 py-1">
-                    <div class="ml-5 text-xl font-normal">
+                <div class="flex flex-col sm:flex-row items-center py-10 ml-3">
+                    <img src={% static "img/amatna_comment.png" %} class="w-48 sm:w-56 py-8 sm:py-1">
+                    <div class="ml-5 text-lg sm:text-xl font-normal">
                         <i class="fa fa-quote-left text-sm align-text-top"></i>
                             {{restaurant.info}} 
                         <i class="fa fa-quote-right text-sm align-text-top"></i>
@@ -225,8 +227,8 @@
                 
             <div class="flex item-center px-3 mt-16">
                 <div>
-                    <span class="font-bold text-xl">{{restaurant.reviews.count}}</span>
-                    <span>comment{{restaurant.reviews.count|pluralize}}</span>
+                    <span class="font-bold text-lg sm:text-xl">{{restaurant.reviews.count}}</span>
+                    <span class="sm:text-base text-sm">comment{{restaurant.reviews.count|pluralize}}</span>
                 </div>                   
             </div>
             <div class="mt-10 px-3">
@@ -234,16 +236,16 @@
                 {% if restaurant.reviews.count > 0 %}
                     {% for review in restaurant.reviews.all %}
                         <div class="border-section">
-                            <div class="mb-3 flex">
+                            <div class="mb-3 flex items-center">
                                 
-                                {% include 'mixins/user_avatar.html' with user=review.user h_and_w='w-10 h-10' text='text-xl' %}
+                                {% include 'mixins/user_avatar.html' with user=review.user h_and_w='sm:w-10 w-8 sm:h-10 h-8' text='text-xl' %}
                                 
                                 <div class="flex flex-col ml-5">
-                                    <span class="font-medium">{{review.user.nickname}}</span>
-                                    <span class="text-sm text-gray-500">{{review.created|date:'Y년 F j일'}}</span>
+                                    <span class="font-medium sm:text-base text-sm">{{review.user.nickname}}</span>
+                                    <span class="text-xs sm:text-sm text-gray-500">{{review.created|date:'Y년 F j일'}}</span>
                                 </div>
                             </div>
-                            <p>{{review.review}}</p>
+                            <p class="sm:text-base text-sm">{{review.review}}</p>
                         </div>
                     {% endfor %}
                 {% else %}
