@@ -11,7 +11,7 @@
       </div> 
 
       <button 
-        class="mr-5 text-base border border-gray-200 shadow hover:shadow-lg rounded-xl py-2 px-4"
+        class="mr-6 text-base border border-gray-200 shadow hover:shadow-lg rounded-xl py-2 px-4"
         onclick="document.getElementById('searchChannel').style.display='block'">
         {% trans 'Search channel' %}
       </button>
@@ -54,15 +54,15 @@
         
             <div class="container mx-auto min-h-75vh flex flex-col items-center border-t mt-3 px-4">
     
-                <div class="flex flex-col">
+                <div class="flex flex-col w-11/12 pt-16">
     
-                    <span class="font-normal text-2xl pt-20 pb-5">                
+                    <span class="article_title ml-0 text-gray-600">                
                         <span class="font-bold text-red-600">"{{channel_name}}"</span>
                         {% trans 'no results.' %}
                     </span>           
-                    <span class="mb-2 text-lg">• {% trans 'Make sure you enter the word correctly.' %}</span>
-                    <span class="mb-2 text-lg">• {% trans 'Search with channel name.' %}</span>
-                    <span class="mb-2 text-lg">• {% trans 'Search results sometimes can be inaccurate when spacing.' %}</span>
+                    <span class="article_description ml-0">• {% trans 'Make sure you enter the word correctly.' %}</span>
+                    <span class="article_description ml-0">• {% trans 'Search with channel name.' %}</span>
+                    <span class="article_description ml-0">• {% trans 'Search results sometimes can be inaccurate when spacing.' %}</span>
                 </div>
 
                 {% include 'mixins/no_results.html' %}
