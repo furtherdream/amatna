@@ -8,7 +8,7 @@
 {% block content %}
 
     
-    <div class=" w-full mb-20 flex flex-col items-center justify-center">
+    <div class=" w-full mb-20 flex flex-col items-center justify-center -mt-4 sm:mt-0">
         <div class="flex flex-row bg-gray-200 p-3 sm:p-5 rounded-t-lg items-center w-11/12 lg:w-3/5 justify-between">
             <div class="text-xl sm:text-3xl font-normal text-gray-700">{{restaurant.title}}</div>
 
@@ -52,8 +52,8 @@
             </div>
         {% endfor %}
 
-        <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-3">
-            <span class="p-4 font-normal text-base sm:text-xl block truncate">{% trans 'Information' %}</span>
+        <div class="rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-2 mt-6">
+            <span class="p-4 bg-orange-100 rounded-lg font-normal text-base sm:text-xl block truncate">{% trans 'Information' %}</span>
         </div>     
         <table class="table-fixed w-11/12 lg:w-3/5 mb-20">
             <tbody>

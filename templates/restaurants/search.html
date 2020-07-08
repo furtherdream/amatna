@@ -15,115 +15,115 @@
 
 
 {% if restaurants.object_list.count > 0 %}
-    <div class="container mx-auto">        
+    <div class="container mx-auto -mt-4 sm:mt-0">        
 
-            {% if tag %}
-                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle py-5">
-                    <span class="article_title text-gray-800 ml-3"><span class="text-red-500 mr-3">"{{tag}}"</span>{% trans 'Search Results' %}</span>
-                </div>
- 
-            {% elif channel %}
-                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle py-5">
-                    <span class="article_title text-gray-800 ml-3"><span class="text-red-500 mr-3">"{{channel}}"</span>{% trans 'Search Results with Channel' %}</span>
-                </div>
-                <div class="bg-gray-200 rounded-lg p-4 mt-4">
-                    {% include 'mixins/channel_card.html' with channel=channel %}
-                </div>
- 
-            {% elif category %}
-                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle py-5">
-                    <span class="article_title text-gray-800 ml-3"><span class="text-red-500 mr-3">"{{category}}"</span>{% trans 'Search Results with Category' %}</span>
-                </div>
-                <div class="bg-gray-100 rounded-lg px-6 py-8">
-                    <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
-                        <span class="px-4 pb-8 -ml-3 font-normal text-lg block truncate text-gray-700">{% trans 'Search with another category' %}</span>
-                    </div>
-                    {% for c in all_categories %}
-                            {% include 'mixins/categories.html' %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-        
-        <div class="container mx-auto pb-10">
-            <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
-                <span class="px-4 py-10 font-normal text-xl block text-gray-700 mt-4">
-                    {% blocktrans with total_restaurants=restaurants.object_list.count %}We searched {{total_restaurants}} restaurant(s){% endblocktrans %}
-                </span>
+        {% if tag %}
+            <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle py-5">
+                <span class="article_title text-gray-800 ml-3"><span class="text-red-500 mr-3">"{{tag}}"</span>{% trans 'Search Results' %}</span>
             </div>
-            <div class="flex flex-wrap mx-0 mb-10">
-                {% for restaurant in restaurants.object_list %}
-                    {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
-                {% endfor %}
-            </div>         
-        </div>
-        
-        <div class="flex item-center justify-center font-medium text-base sm:text-lg mb-10"> 
-        
-            {% if restaurants.has_previous %}
-            <a href="?page={{restaurants.number|add:-1}}" class="text-teal-500">
-                <i class="fas fa-arrow-left fa-lg"></i>
-            </a>
-            {% endif %}
-            
-            <span class="mx-3">
-            {% blocktrans with current_page=restaurants.number total_pages=restaurants.paginator.num_pages %}Page {{current_page}} of {{total_pages}}{% endblocktrans %}
-            </span>
-        
-            {% if restaurants.has_next %}
-            <a href="?page={{restaurants.number|add:1}}" class="text-teal-500">
-                <i class="fas fa-arrow-right fa-lg"></i>
-            </a>
-            {% endif %}            
-            
-        </div>
-        
-        {% include 'partials/adsense_horizontal.html' %}
 
-    {% else %}
+        {% elif channel %}
+            <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle py-5">
+                <span class="article_title text-gray-800 ml-3"><span class="text-red-500 mr-3">"{{channel}}"</span>{% trans 'Search Results with Channel' %}</span>
+            </div>
+            <div class="bg-gray-200 rounded-lg p-4 mt-4">
+                {% include 'mixins/channel_card.html' with channel=channel %}
+            </div>
 
-        <div class="container w-10/12 lg:3/5 mx-auto min-h-75vh flex flex-col items-center">
-            {% if tag %}
-                <div class="flex flex-col mt-12">
-                    <span class="article_title ml-0 text-gray-600">
-                        <span class="font-bold text-red-600">"{{tag}}"</span>
-                        {% trans 'There is no restaurant for this keyword' %}
-                    </span>
-                    <span class="article_description ml-0">• {% trans 'Make sure you enter the word correctly.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'Please search for the local name and menu you want to find.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'We do not support searching in English.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
+        {% elif category %}
+            <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle py-5">
+                <span class="article_title text-gray-800 ml-3"><span class="text-red-500 mr-3">"{{category}}"</span>{% trans 'Search Results with Category' %}</span>
+            </div>
+            <div class="bg-gray-100 rounded-lg px-6 py-8 mt-4 sm:mt-0">
+                <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+                    <span class="px-4 pb-8 -ml-3 font-normal text-lg block truncate text-gray-700">{% trans 'Search with another category' %}</span>
                 </div>
-            {% elif category %}
-                <div class="flex flex-col mt-12">
-                    <span class="article_title ml-0 text-gray-600">
-                        <span class="font-bold text-red-600">"{{category}}"</span>
-                        {% trans 'There are no search results for the category.' %}
-                    </span>
-                    <span class="article_description ml-0">• {% trans 'Use the search box to find a restaurant.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'Please search for the local name and menu you want to find.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'We do not support searching in English.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
-                    <span class="article_description ml-0">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
-                </div>
-
-                <div class="bg-gray-100 rounded-lg px-6 py-6 mt-20">
-                    <div class="p-1 rounded-t-lg align-middle mb-10">
-                        <span class="article_title ml-0">{% trans 'Search with another category' %}<br></span>
-                        <span class="article_description ml-0">{% trans 'Search for the menu you want to eat.' %}</span>
-                    </div>
-                    {% for c in all_categories %}
+                {% for c in all_categories %}
                         {% include 'mixins/categories.html' %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-            
-            {% include 'mixins/no_results.html' %}      
-
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+        
+    <div class="container mx-auto pb-10">
+        <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
+            <span class="px-4 py-10 font-normal text-xl block text-gray-700 mt-4">
+                {% blocktrans with total_restaurants=restaurants.object_list.count %}We searched {{total_restaurants}} restaurant(s){% endblocktrans %}
+            </span>
         </div>
+        <div class="flex flex-wrap mx-0 mb-10">
+            {% for restaurant in restaurants.object_list %}
+                {% include 'mixins/restaurant_card.html' with restaurant=restaurant youtube=restaurant.youtube.all|first %}
+            {% endfor %}
+        </div>         
+    </div>
+        
+    <div class="flex item-center justify-center font-medium text-base sm:text-lg mb-10"> 
     
-    {% endif %}     
+        {% if restaurants.has_previous %}
+        <a href="?page={{restaurants.number|add:-1}}" class="text-teal-500">
+            <i class="fas fa-arrow-left fa-lg"></i>
+        </a>
+        {% endif %}
+        
+        <span class="mx-3">
+        {% blocktrans with current_page=restaurants.number total_pages=restaurants.paginator.num_pages %}Page {{current_page}} of {{total_pages}}{% endblocktrans %}
+        </span>
+    
+        {% if restaurants.has_next %}
+        <a href="?page={{restaurants.number|add:1}}" class="text-teal-500">
+            <i class="fas fa-arrow-right fa-lg"></i>
+        </a>
+        {% endif %}            
+        
+    </div>
+        
+    {% include 'partials/adsense_horizontal.html' %}
+
+{% else %}
+
+    <div class="container w-10/12 lg:3/5 mx-auto min-h-75vh flex flex-col items-center">
+        {% if tag %}
+            <div class="flex flex-col mt-12">
+                <span class="article_title ml-0 text-gray-600">
+                    <span class="font-bold text-red-600">"{{tag}}"</span>
+                    {% trans 'There is no restaurant for this keyword' %}
+                </span>
+                <span class="article_description ml-0">• {% trans 'Make sure you enter the word correctly.' %}</span>
+                <span class="article_description ml-0">• {% trans 'Please search for the local name and menu you want to find.' %}</span>
+                <span class="article_description ml-0">• {% trans 'We do not support searching in English.' %}</span>
+                <span class="article_description ml-0">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
+                <span class="article_description ml-0">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
+            </div>
+        {% elif category %}
+            <div class="flex flex-col mt-12">
+                <span class="article_title ml-0 text-gray-600">
+                    <span class="font-bold text-red-600">"{{category}}"</span>
+                    {% trans 'There are no search results for the category.' %}
+                </span>
+                <span class="article_description ml-0">• {% trans 'Use the search box to find a restaurant.' %}</span>
+                <span class="article_description ml-0">• {% trans 'Please search for the local name and menu you want to find.' %}</span>
+                <span class="article_description ml-0">• {% trans 'We do not support searching in English.' %}</span>
+                <span class="article_description ml-0">• {% trans 'Please click image to recommend your favorite creator.' %}</span>
+                <span class="article_description ml-0">• {% trans 'I will try harder so that everyone who visits can have a delicious day!' %}</span>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg px-6 py-6 mt-20">
+                <div class="p-1 rounded-t-lg align-middle mb-10">
+                    <span class="article_title ml-0">{% trans 'Search with another category' %}<br></span>
+                    <span class="article_description ml-0">{% trans 'Search for the menu you want to eat.' %}</span>
+                </div>
+                {% for c in all_categories %}
+                    {% include 'mixins/categories.html' %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        {% include 'mixins/no_results.html' %}      
+
+    </div>
+    
+{% endif %}     
     
 
 

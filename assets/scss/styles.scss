@@ -38,7 +38,7 @@
 .nav_link {
   @apply ml-0 flex items-center text-black font-medium;
   a {
-    @apply py-3 px-4;
+    @apply py-3 px-2;
   }
   &:hover {
     @apply bg-gray-100 rounded-xl;
@@ -66,6 +66,11 @@
   }
   .table-description {
     @apply px-6 py-4 text-lg;
+  }
+  .nav_link {
+    a {
+      @apply py-3 px-4;
+    }
   }
 }
 
