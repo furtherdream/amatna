@@ -346,7 +346,7 @@ msgstr "아무 맛집이나 가지 않는 나!"
 
 #: templates/restaurants/channel_list.html:10
 msgid "HOT PLACE in Korea assembled"
-msgstr "방송에 나온 맛집과 크리에이터, 셀럽들의 맛집을 모았어요!"
+msgstr "방송에 나온 맛집과 크리에이터,<br>셀럽들의 맛집을 모았어요!"
 
 #: templates/restaurants/channel_list.html:16
 #: templates/restaurants/channel_list.html:24
@@ -401,7 +401,7 @@ msgstr "백댓이 불여일동!"
 
 #: templates/restaurants/main.html:18
 msgid "Do not search reviews"
-msgstr "댓글 백개 읽어도 가고 싶은 맛집인지 아닌지 헷갈리다구요?"
+msgstr "댓글을 백개 읽어도 맛있을지 아닐지 헷갈리죠?"
 
 #: templates/restaurants/main.html:19
 msgid "Watch mukbang in Korean Creators"
@@ -486,7 +486,7 @@ msgstr "유튜브로 보러가기"
 
 #: templates/restaurants/restaurant_detail.html:176
 msgid "Please leave a comment."
-msgstr "한줄평을 작성해 주세요.."
+msgstr "한줄평을 작성해 주세요."
 
 #: templates/restaurants/restaurant_detail.html:201
 msgid "Comment"

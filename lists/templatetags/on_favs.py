@@ -8,4 +8,7 @@ register = template.Library()
 def on_favs(context, restaurant):
     user = context.request.user
     the_list = list_models.List.objects.get_or_none(user=user)
-    return restaurant in the_list.restaurants.all()
+    if the_list is None:
+        return False
+    else:
+        return restaurant in the_list.restaurants.all()

@@ -5,6 +5,30 @@
   transition: box-shadow 0.2s linear;
 }
 
+.article_title {
+  @apply font-bold text-lg text-red-500 ml-8 mb-2;
+}
+
+.article_sub {
+  @apply font-normal text-base text-teal-500 ml-8 mb-1;
+}
+
+.article_description {
+  @apply text-base text-gray-800 ml-8;
+}
+
+@screen sm {
+  .article_title {
+    @apply text-2xl;
+  }
+  .article_sub {
+    @apply text-xl;
+  }
+  .article_description {
+    @apply text-xl;
+  }
+}
+
 .nav_link {
   @apply ml-0 flex items-center text-black font-medium;
   a {

@@ -14,11 +14,11 @@
 
     
     <div class="w-full pt-10">
-      <div class=" pt-12 mb-10 flex flex-col">
-        <span class="font-bold text-2xl text-red-500 ml-8 mb-2">{% trans 'Last Updated Restaurants' %}</span>
-        <span class="font-normal text-xl text-teal-500 ml-8 mb-1">{% trans 'Videos is better than reviews' %}</span>
-        <span class="text-lg text-gray-800 ml-8">{% trans 'Do not search reviews' %}</span>
-        <span class="text-lg text-gray-800 ml-8">{% trans 'Watch mukbang in Korean Creators' %}</span>
+      <div class=" pt-12 mb-10 flex flex-col w-11/12">
+        <span class="article_title">{% trans 'Last Updated Restaurants' %}</span>
+        <span class="article_sub">{% trans 'Videos is better than reviews' %}</span>
+        <span class="article_description">{% trans 'Do not search reviews' %}</span>
+        <span class="article_description">{% trans 'Watch mukbang in Korean Creators' %}</span>
       </div> 
 
       {% include 'restaurants/restaurant_list.html' %}
@@ -27,14 +27,16 @@
     </div>      
 
 
-    <div class="bg-gray-100 rounded-lg px-6 py-6 my-20">
-      <div class="p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-10">
-          <span class="px-4 pb-2 -ml-4 text-2xl block font-bold truncate text-red-500">{% trans 'Search with category' %}</span>
-          <span class="text-lg text-gray-800">{% trans 'Search for the menu you want to eat.' %}</span>
+    <div class="bg-gray-100 rounded-lg py-6 my-20">
+      <div class="py-1 sm:w-3/5 align-middle mb-10">
+          <span class="article_title">{% trans 'Search with category' %}<br></span>
+          <span class="article_description">{% trans 'Search for the menu you want to eat.' %}</span>
       </div>
-      {% for c in all_categories %}
-        {% include 'mixins/categories.html' %}
-      {% endfor %}
+      <div class="px-6">
+        {% for c in all_categories %}
+          {% include 'mixins/categories.html' %}
+        {% endfor %}
+      </div>
       
     </div>
 
