@@ -35,6 +35,16 @@
   @apply border-b px-3 py-2 text-sm text-gray-700 font-normal;
 }
 
+.nav_link {
+  @apply ml-0 flex items-center text-black font-medium;
+  a {
+    @apply py-3 px-4;
+  }
+  &:hover {
+    @apply bg-gray-100 rounded-xl;
+  }
+}
+
 @screen sm {
   .article_title {
     @apply text-2xl;
@@ -54,19 +64,8 @@
   .table-title {
     @apply w-1/4 py-4 text-lg;
   }
-
   .table-description {
     @apply px-6 py-4 text-lg;
-  }
-}
-
-.nav_link {
-  @apply ml-0 flex items-center text-black font-medium;
-  a {
-    @apply py-3 px-4;
-  }
-  &:hover {
-    @apply bg-gray-100 rounded-xl;
   }
 }
 

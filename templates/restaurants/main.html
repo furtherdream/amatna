@@ -7,6 +7,12 @@
 {% block content %} 
   <div class="container mx-auto pb-10">
 
+    <div class="flex sm:hidden w-full justify-center">
+      <div class="w-11/12 mb-8">
+        {% include 'partials/search_bar.html' %}
+      </div>
+    </div>
+
     {% include 'restaurants/channel_list.html' %}
 
     {% include 'partials/adsense_horizontal.html' %}
