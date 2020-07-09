@@ -58,7 +58,7 @@ class SignUpView(mixins.LoggedOutOnlyView, FormView):
 
 def kakao_login(request):
     cilent_id = os.environ.get("KAKAO_KEY")
-    redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+    redirect_uri = "https://amatna.net/users/login/kakao/callback"
     return redirect(
         f"https://kauth.kakao.com/oauth/authorize?client_id={cilent_id}&redirect_uri={redirect_uri}&response_type=code"
     )
@@ -72,7 +72,7 @@ def kakao_callback(request):
     try:
         code = request.GET.get("code")
         client_id = os.environ.get("KAKAO_KEY")
-        redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
+        redirect_uri = "https://amatna.net/users/login/kakao/callback"
         token_request = requests.get(
             f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={client_id}&redirect_uri={redirect_uri}&code={code}"
         )
@@ -107,9 +107,8 @@ def kakao_callback(request):
             user.save()
             if profile_image is not None:
                 photo_request = requests.get(profile_image)
-                user.avatar.save(
-                    f"{nickname}-avatar", ContentFile(photo_request.content)
-                )
+                user.avatar.save(f"{nickname}-avatar",
+                                 ContentFile(photo_request.content))
         login(request, user)
         return redirect(reverse("core:home"))
     except KakaoException as e:
@@ -123,7 +122,8 @@ class UserProfileView(DetailView):
     context_object_name = "user_obj"
 
 
-class UpdateProfileView(mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateView):
+class UpdateProfileView(mixins.LoggedInOnlyView, SuccessMessageMixin,
+                        UpdateView):
     model = models.User
     template_name = "users/update_profile.html"
     fields = ("nickname",)
@@ -141,10 +141,10 @@ class UpdateProfileView(mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateView
 
 
 class UpdatePasswordView(
-    PasswordChangeView,
-    mixins.LoggedInOnlyView,
-    mixins.EmailLoginOnlyView,
-    SuccessMessageMixin,
+        PasswordChangeView,
+        mixins.LoggedInOnlyView,
+        mixins.EmailLoginOnlyView,
+        SuccessMessageMixin,
 ):
 
     template_name = "users/update_password.html"
