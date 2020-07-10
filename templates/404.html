@@ -2,13 +2,34 @@
 
 {% block page_title %}
 
-    Not found
+    {% trans 'Page not found' %}
 
 {% endblock page_title %}
 
 
 {% block content %}
 
-    <h1>Not found baby</h1>
+    <div class="container w-10/12 lg:3/5 mx-auto min-h-75vh flex flex-col items-center">
 
+            <div class="flex flex-col mt-12">
+                <span class="article_title ml-0 text-gray-600">
+                    <span class="font-bold text-red-600">"{{category}}"</span>
+                    {% trans 'There is no page! Please return home :)' %}
+                </span>
+                <span class="article_description ml-0">{% trans 'Search with hot place in Korea' %}</span>
+            </div>
+
+            <div class="bg-gray-100 rounded-lg px-6 py-6 mt-20">
+                <div class="p-1 rounded-t-lg align-middle mb-10">
+                    <span class="article_title ml-0">{% trans 'Search with category' %}<br></span>
+                    <span class="article_description ml-0">{% trans 'Search for the menu you want to eat.' %}</span>
+                </div>
+                {% for c in all_categories %}
+                    {% include 'mixins/categories.html' %}
+                {% endfor %}
+            </div>
+        
+        {% include 'mixins/no_results.html' %}      
+
+    </div>
 {% endblock content %} 
