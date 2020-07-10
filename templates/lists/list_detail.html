@@ -18,7 +18,7 @@
                 </div>      
             </div>
             {% if user.list.restaurants.count > 0 %}
-                <div class="text-xl py-10 ml-5 font-normal">
+                <div class="text-base sm:text-xl py-10 ml-5 font-normal">
                     {% blocktrans with total_count=user.list.restaurants.count %}You have {{total_count}} restaurant(s) of favorite in total.{% endblocktrans %}
                 </div>
                 <div class="flex flex-wrap mb-10">
