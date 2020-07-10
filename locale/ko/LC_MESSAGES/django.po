@@ -268,7 +268,7 @@ msgstr "아!맛나 : 아무 맛집이나 가지 않는 나"
 
 #: templates/lists/list_detail.html:5
 msgid " Favorite list"
-msgstr "관심목록"
+msgstr "님의 관심목록"
 
 #: templates/lists/list_detail.html:16
 msgid "Your Favorite Restaurants"
