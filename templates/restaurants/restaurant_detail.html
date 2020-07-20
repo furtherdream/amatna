@@ -120,6 +120,10 @@
                                 {% trans 'Everydays' %} {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
                             {% endif %}
                         {% endif %}
+                        {% if restaurant.biztime_desc %}
+                            <div class="text-gray-500">{{restaurant.biztime_desc}}</div>
+                        {% endif %}
+                            
                             
                     </td>
                   </tr>                  
