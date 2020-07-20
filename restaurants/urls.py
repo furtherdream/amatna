@@ -10,5 +10,8 @@ urlpatterns = [
     path("channel/", views.channel_view, name="channels"),
     path("channel/<int:pk>/", views.channel_search, name="channel"),
     path("category/<int:pk>/", views.category_search, name="category"),
-    path('upload-with-csv/', views.restaurant_upload, name="restaurant-upload"),
+    path(
+        'r_upload-with-csv/', views.restaurant_upload,
+        name="restaurant-upload"),
+    path('y_upload-with-csv/', views.youtube_upload, name="youtube-upload"),
 ]
