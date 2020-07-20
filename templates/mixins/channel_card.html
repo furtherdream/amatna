@@ -1,12 +1,12 @@
 {% load i18n static %}
 <div class="w-1/2 md:w-1/4 mb-8 p-2 md:p-3">
     <a href="{% url 'restaurants:channel' channel.pk %}">
-        <div class="w-full h-48 lg:h-25vh bg-cover bg-center rounded-lg mb-2 hover:opacity-75 flex  justify-end" style="background-image: url({{channel.image.url}});">
+        <div class="w-full h-48 lg:h-25vh bg-cover bg-center rounded-lg mb-2 flex  justify-end" style="background-image: url({{channel.image.url}});">
         </div>
     </a>
 
     <a href="{% if channel.youtube_link %}https://www.youtube.com/channel/{{channel.youtube_link}}{% elif channel.instagram_link %}https://www.instagram.com/{{channel.instagram_link}}{% else %}{% url 'restaurants:channel' channel.pk %}{% endif %}" target="_blank">        
-        <div class="w-full flex justify-between mb-2 items-center hover:opacity-50">
+        <div class="w-full flex justify-between mb-2 items-center">
             <img src="{% if channel.youtube_link %}{% static 'img/youtube_logo.png' %}{% elif channel.instagram_link %}{% static 'img/instagram_logo.png' %}{% else %}{{channel.thumbnail.url}}{% endif %}" class="h-8 w-8 md:h-16 md:w-16 border-gray-200 border rounded-lg"/>
             <div class="flex justify-between ml-1 md:ml-3 w-4/5 items-center">
                 <span class="text-sm md:text-base text-black font-medium">{{channel.name}}</span>             
@@ -21,7 +21,7 @@
         </div>    
     </a>
     <a href="{% url 'restaurants:channel' channel.pk %}">
-        <div class="hover:opacity-50">
+        <div>
             <div class="text-xs md:text-sm m-2">
                {{channel.description}}
             </div>

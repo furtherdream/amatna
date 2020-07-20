@@ -1,8 +1,11 @@
+import io
+import csv
 from django.shortcuts import render, reverse
 from django.views.generic import DetailView
 from django.core.paginator import Paginator
 from django.views.generic.edit import FormMixin
 from reviews import forms as review_forms
+from django.contrib import messages
 from . import models
 
 
@@ -29,11 +32,14 @@ def channel_view(request):
     all_channel = models.Channel.objects.all().order_by("-created")
     paginator = Paginator(all_channel, 16)
     channels = paginator.get_page(page)
-    return render(request, "restaurants/channel_view.html", {"channels": channels},)
+    return render(
+        request,
+        "restaurants/channel_view.html",
+        {"channels": channels},
+    )
 
 
 class RestaurantDetail(DetailView, FormMixin):
-
     """ Restaurant Detail Definition """
 
     model = models.Restaurant
@@ -69,18 +75,27 @@ def search_channels(request):
     return render(
         request,
         "restaurants/channel_view.html",
-        {"channels": channels, "channel_name": channel_name},
+        {
+            "channels": channels,
+            "channel_name": channel_name
+        },
     )
 
 
 def search(request):
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
-    qs = models.Restaurant.objects.filter(tag_set__name=tag).order_by("-created")
+    qs = models.Restaurant.objects.filter(
+        tag_set__name=tag).order_by("-created")
     paginator = Paginator(qs, 40)
     restaurants = paginator.get_page(page)
     return render(
-        request, "restaurants/search.html", {"tag": tag, "restaurants": restaurants},
+        request,
+        "restaurants/search.html",
+        {
+            "tag": tag,
+            "restaurants": restaurants
+        },
     )
 
 
@@ -93,7 +108,10 @@ def channel_search(request, pk):
     return render(
         request,
         "restaurants/search.html",
-        {"channel": channel, "restaurants": restaurants},
+        {
+            "channel": channel,
+            "restaurants": restaurants
+        },
     )
 
 
@@ -113,3 +131,43 @@ def category_search(request, pk):
             "all_categories": all_categories,
         },
     )
+
+
+def restaurant_upload(request):
+    # declaring template
+    template = "restaurants/restaurant_upload.html"
+    # prompt is a context variable that can have different values      depending on their context
+    prompt = {
+        "order":
+            "Order of the CSV should be name, blog_count, biztel, address, menu_list, tv_list, video_id"
+    }
+    # GET request returns the value of the data with the specified key.
+    if request.method == "GET":
+        return render(request, template, prompt)
+    csv_file = request.FILES['file']
+    # let's check if it is a csv file
+    if not csv_file.name.endswith('.csv'):
+        messages.error(request, 'THIS IS NOT A CSV FILE')
+    data_set = csv_file.read().decode('UTF-8')
+    # setup a stream which is when we loop through each line we are able to handle a data in a stream
+    io_string = io.StringIO(data_set)
+    next(io_string)
+    for column in csv.reader(io_string, delimiter='|', quotechar='"'):
+        restaurant, created = models.Restaurant.objects.update_or_create(
+            title=column[0],
+            blog_count=column[1],
+            phone_number=column[2],
+            address=column[3],
+            menu=column[4],
+            tv_list=column[5],
+            naver_place_id=column[8],
+        )
+        restaurant.save()
+        channel = models.Channel.objects.filter(name=column[6])
+        for id in channel:
+            restaurant.channel.add(id)
+        youtube = models.Youtube.objects.filter(video_id=column[7])
+        for id in youtube:
+            restaurant.youtube.add(id)
+
+    return render(request, template)

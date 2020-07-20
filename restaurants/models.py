@@ -4,7 +4,6 @@ from core import models as core_models
 
 
 class AbstractItem(core_models.TimeStampedModel):
-
     """ Abstract Item """
 
     name = models.CharField(_("name"), max_length=80)
@@ -17,7 +16,6 @@ class AbstractItem(core_models.TimeStampedModel):
 
 
 class Channel(core_models.TimeStampedModel):
-
     """ Channel Model Definition """
 
     class Meta:
@@ -39,7 +37,6 @@ class Channel(core_models.TimeStampedModel):
 
 
 class Category(AbstractItem):
-
     """ Category Model Definitioin """
 
     class Meta:
@@ -48,7 +45,6 @@ class Category(AbstractItem):
 
 
 class Photo(core_models.TimeStampedModel):
-
     """ Photo Model Definition """
 
     class Meta:
@@ -69,7 +65,6 @@ class Photo(core_models.TimeStampedModel):
 
 
 class Youtube(core_models.TimeStampedModel):
-
     """ Youtube Model Definition """
 
     class Meta:
@@ -84,7 +79,6 @@ class Youtube(core_models.TimeStampedModel):
 
 
 class Tag(core_models.TimeStampedModel):
-
     """ Tag Model Definition """
 
     class Meta:
@@ -98,7 +92,6 @@ class Tag(core_models.TimeStampedModel):
 
 
 class Restaurant(core_models.TimeStampedModel):
-
     """ Restaurant Model Definition """
 
     HOLIDAY_MON = "월요일"
@@ -142,15 +135,20 @@ class Restaurant(core_models.TimeStampedModel):
     biztime_start = models.TimeField(_("biztime start"), blank=True, null=True)
     biztime_end = models.TimeField(_("biztime end"), blank=True, null=True)
     biztime_24 = models.BooleanField(_("biztime 24"), default=False)
+    biztime_desc = models.CharField(_("biztime_desc"), max_length=30, blank=True)
     breaktime = models.TextField(_("breaktime"), blank=True)
     holiday = models.CharField(
-        _("holiday"), choices=HOLIDAY_CHOICES, max_length=10, default=None, blank=True
+        _("holiday"), choices=HOLIDAY_CHOICES, max_length=10, blank=True
     )
     info = models.TextField(_("info"), blank=True)
     menu = models.TextField(_("menu"), blank=True)
     tag_set = models.ManyToManyField(
         "Tag", related_name="restaurant", blank=True, verbose_name=_("tag set")
     )
+    naver_place_id = models.CharField(_("naver_place_id"), max_length=15, blank=True)
+    blog_count = models.CharField(_("blog_count"), max_length=15, blank=True)
+    tv_list = models.TextField(_("tv_list"), blank=True)
+    comment = models.TextField(_("comment"), blank=True)
 
     def __str__(self):
         return self.title

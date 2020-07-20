@@ -55,7 +55,7 @@
         <div class="rounded-t-lg w-11/12 lg:w-3/5 align-middle mb-2 mt-6">
             <span class="p-4 bg-orange-100 rounded-lg font-normal text-base sm:text-xl block truncate">{% trans 'Information' %}</span>
         </div>     
-        <table class="table-fixed w-11/12 lg:w-3/5 mb-20">
+        <table class="table-fixed w-11/12 lg:w-3/5">
             <tbody>
                 <tr>
                     <td class="table-title border-t">{% trans 'Restaurant Name' %}</td>
@@ -64,12 +64,21 @@
                   <tr>
                     <td class="table-title">{% trans 'instagram' %}</td>
                     <td class="table-description text-blue-500">
-                        <a href="https://www.instagram.com/explore/{{restaurant.instagram_url}}" target="_blank" class="flex flex-row hover:opacity-50">
-                            <span class="py-2 mr-2">{% trans 'View posts in instagram' %}</span>
-                            <img src="{% static 'img/instagram_logo.png' %}" class="sm:w-10 w-8" />
+                        <a href="https://www.instagram.com/explore/{{restaurant.instagram_url}}" target="_blank" class="flex flex-row">
+                            <img src="{% static 'img/instagram_logo.png' %}" class="sm:w-10 w-8 mr-2 sm:h-10 h-8" />
+                            <span class="py-2">{% trans 'View posts in instagram' %}</span>
                         </a>                        
                     </td>
-                  </tr>                  
+                  </tr>             
+                  <tr>
+                    <td class="table-title">{% trans 'naver' %}</td>
+                    <td class="table-description text-blue-500">
+                        <a href="https://store.naver.com/restaurants/detail?id={{restaurant.naver_place_id}}&tab=fsasReview" target="_blank" class="items-center flex flex-row">
+                            <img src="{% static 'img/naver_logo.png' %}" class="sm:w-10 w-8 mr-2 sm:h-10 h-8" />
+                            <span class="py-2">{{restaurant.blog_count}}</span>
+                        </a>                        
+                    </td>
+                  </tr>             
                   <tr>
                     <td class="table-title">{% trans 'Address' %}</td>
                     <td class="table-description select-all">{{restaurant.address}}</td>
@@ -125,9 +134,19 @@
                       <td class="table-title">{% trans 'Holiday' %}</td>
                       <td class="table-description">{{restaurant.holiday}}</td>
                     </tr>                       
-                  {% endif %}                          
+                  {% endif %}                      
+                  {% if restaurant.tv_list %}
+                  <tr>
+                    <td class="table-title">{% trans 'Broadcasting' %}</td>
+                    <td class="table-description">{{restaurant.tv_list|linebreaks}}</td>
+                  </tr>                       
+                {% endif %}      
             </tbody>
         </table>
+        <div class="w-11/12 lg:w-3/5 text-right text-gray-400 font-normal mb-20 mt-3 px-2 lg:text-base text-xs">
+            {% trans 'Last Updated : ' %}{{restaurant.created|date:'Y년 F j일'}}
+        </div>
+
 
         {% include 'partials/adsense_horizontal.html' %}
 
@@ -157,7 +176,7 @@
                         frameborder="0"
                         class=" rounded-t-xl w-full bg-white shadow-xl h-32 sm:h-25vh"
                     ></iframe>
-                    <a href="https://www.youtube.com/watch?v={{y.video_id}}" target="_blank" class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-3 sm:py-8 px-3 hover:opacity-75">
+                    <a href="https://www.youtube.com/watch?v={{y.video_id}}" target="_blank" class="text-gray-800 w-full bg-white rounded-b-xl shadow-2xl py-3 sm:py-8 px-3">
                         <span class="text-xs sm:text-base">{{y.name}}</span>
                         <div class="flex flex-row mt-1 sm:mt-3 items-center">                                
                             <img src="{% static 'img/youtube_logo.png' %}" class="-ml-1 h-8 sm:h-12">
@@ -214,12 +233,12 @@
     
             </div>
             
-            {% if restaurant.info %}
+            {% if restaurant.comment %}
                 <div class="flex flex-col sm:flex-row items-center py-10 ml-0 sm:ml-3">
                     <img src={% static "img/amatna_comment.png" %} class="w-48 sm:w-56 py-8 sm:py-1">
                     <div class="ml-0 sm:ml-5 text-lg sm:text-xl font-normal sm:w-full w-11/12">
                         <i class="fa fa-quote-left text-sm align-text-top"></i>
-                            {{restaurant.info}} 
+                            {{restaurant.comment}} 
                         <i class="fa fa-quote-right text-sm align-text-top"></i>
                     </div>
                 </div>

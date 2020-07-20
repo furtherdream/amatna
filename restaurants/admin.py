@@ -6,7 +6,6 @@ from . import models
 
 @admin.register(models.Channel, models.Category, models.Tag, models.Youtube)
 class ItemAdmin(admin.ModelAdmin):
-
     """ Item Admin Definition """
 
     list_display = ("name", "used_by")
@@ -22,7 +21,6 @@ class PhotoInline(admin.TabularInline):
 
 @admin.register(models.Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
-
     """ Restaurant Admin Definition """
 
     inlines = (PhotoInline,)
@@ -35,19 +33,28 @@ class RestaurantAdmin(admin.ModelAdmin):
                     "title",
                     "address",
                     "phone_number",
-                    "price",
-                    "biztime_start",
-                    "biztime_end",
-                    "biztime_24",
-                    "breaktime",
                     "menu",
-                    "holiday",
-                    "info",
+                    "naver_place_id",
+                    "blog_count",
+                    "tv_list",
                 )
             },
         ),
-        (_("Media"), {"fields": ("youtube", "instagram_url",)}),
-        (_("SortOfRestaurant"), {"fields": ("channel", "category", "tag_set",)},),
+        (_("ByTyping"), {"fields": (
+            "price",
+            "biztime_start",
+            "biztime_end",
+            "biztime_24",
+            "biztime_desc",
+            "breaktime",
+            "holiday",
+            "info",
+            "comment",
+            "category",
+            "tag_set",
+            "instagram_url",
+        )}),
+        (_("Media"), {"fields": ("channel", "youtube",)}),
     )
 
     list_display = (
@@ -76,7 +83,6 @@ class RestaurantAdmin(admin.ModelAdmin):
 
 @admin.register(models.Photo)
 class PhotoAdmin(admin.ModelAdmin):
-
     """ Photo Admin Definition """
 
     list_display = ("__str__", "get_thumbnail")
