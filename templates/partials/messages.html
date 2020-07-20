@@ -1,7 +1,7 @@
 {% if messages %}
 <ul class="absolute mx-auto top-0 left-0 right-0 flex justify-center">
     {% for message in messages %}
-        <li class="message font-medium w-5/6 bg-gray-700 z-10 rounded-lg text-sm sm:text-base text-white py-4 px-6 text-center {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+        <li class="message font-medium sm:w-1/4 w-5/6 bg-gray-700 z-10 rounded-lg text-sm sm:text-base text-white py-4 px-6 text-center {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
         <!-- css를 위해서 이렇게 수정 -->
     {% endfor %}
 </ul>
