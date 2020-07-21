@@ -150,7 +150,10 @@
         <div class="w-11/12 lg:w-3/5 text-right text-gray-400 font-normal mb-20 mt-3 px-2 lg:text-base text-xs">
             {% trans 'Last Updated : ' %}{{restaurant.updated|date:'Y년 F j일'}}
         </div>
-            
+
+        <div class="w-11/12 lg:w-3/5 align-middle">
+            <span class="p-4 bg-orange-100 rounded-t-lg font-normal text-base sm:text-xl block truncate">{% trans '지도로 보기' %}</span>
+        </div>     
         <iframe
             width=100%
             height="300"
@@ -158,7 +161,7 @@
             style="border:0"
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCMtGIi0z-RzyH__K5DmlU4sx3hUvYpr-4&q={{restaurant.title}},{{restaurant.address}}"
             allowfullscreen
-            class="rounded-lg w-11/12 lg:w-3/5">
+            class="rounded-b-lg w-11/12 lg:w-3/5 mb-12">
         </iframe>            
 
         {% include 'partials/adsense_horizontal.html' %}
