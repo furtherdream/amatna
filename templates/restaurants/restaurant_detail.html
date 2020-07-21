@@ -151,6 +151,16 @@
             {% trans 'Last Updated : ' %}{{restaurant.updated|date:'Y년 F j일'}}
         </div>
 
+        <iframe
+            width=100%
+            height="300"
+            frameborder="0" 
+            style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDm-fb6gGYd3NY3z_mkKZRtWwjToGs_7u4
+                &q={{restaurant.title}}" 
+            allowfullscreen
+            class="rounded-lg w-11/12 lg:w-3/5">
+        </iframe>            
 
         {% include 'partials/adsense_horizontal.html' %}
 
