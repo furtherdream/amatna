@@ -106,7 +106,6 @@
                   <tr>
                     <td class="table-title">{% trans 'Business time' %}</td>
                     <td class="table-description">
-                        
                         {% if restaurant.holiday %}                            
                             {% if restaurant.biztime_24 %}
                                 {% trans 'Open 24 hours' %}
@@ -123,8 +122,6 @@
                         {% if restaurant.biztime_desc %}
                             <div class="text-gray-500">{{restaurant.biztime_desc}}</div>
                         {% endif %}
-                            
-                            
                     </td>
                   </tr>                  
                   {% if restaurant.breaktime %}
@@ -152,7 +149,7 @@
         </div>
 
         <div class="w-11/12 lg:w-3/5 align-middle">
-            <span class="p-4 bg-orange-100 rounded-t-lg font-normal text-base sm:text-xl block truncate">{% trans '지도로 보기' %}</span>
+            <span class="p-4 bg-orange-100 rounded-t-lg font-normal text-base sm:text-xl block truncate">{% trans 'Location' %}</span>
         </div>     
         <iframe
             width=100%
