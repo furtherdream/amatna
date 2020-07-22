@@ -241,12 +241,13 @@ class Restaurant(core_models.TimeStampedModel):
             print("Error Code:" + rescode)
 
     def save(self, *args, **kwargs):
-        self.title = self.scrap_restaurant_info().get("name")
-        self.address = self.scrap_restaurant_info().get("address")
-        self.blog_count = self.scrap_restaurant_info().get("blog_count")
-        self.phone_number = self.scrap_restaurant_info().get("biztel")
-        self.menu = self.scrap_restaurant_info().get("menu_list")
-        self.tv_list = self.scrap_restaurant_info().get("tv_list")
+        restaurant_info = self.scrap_restaurant_info()
+        self.title = restaurant_info.get("name")
+        self.address = restaurant_info.get("address")
+        self.blog_count = restaurant_info.get("blog_count")
+        self.phone_number = restaurant_info.get("biztel")
+        self.menu = restaurant_info.get("menu_list")
+        self.tv_list = restaurant_info.get("tv_list")
         self.x = self.get_latlng()[0]
         self.y = self.get_latlng()[1]
         super().save(*args, **kwargs)
