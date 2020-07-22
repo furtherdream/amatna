@@ -154,19 +154,12 @@ def restaurant_upload(request):
     next(io_string)
     for column in csv.reader(io_string, delimiter='|', quotechar='"'):
         restaurant, created = models.Restaurant.objects.update_or_create(
-            title=column[0],
-            blog_count=column[1],
-            phone_number=column[2],
-            address=column[3],
-            menu=column[4],
-            tv_list=column[5],
-            naver_place_id=column[8],
-        )
+            naver_place_id=column[1])
         restaurant.save()
-        channel = models.Channel.objects.filter(name=column[6])
+        channel = models.Channel.objects.filter(name=column[0])
         for id in channel:
             restaurant.channel.add(id)
-        youtube = models.Youtube.objects.filter(video_id=column[7])
+        youtube = models.Youtube.objects.filter(video_id=column[2])
         for id in youtube:
             restaurant.youtube.add(id)
 
@@ -177,7 +170,7 @@ def youtube_upload(request):
     # declaring template
     template = "restaurants/youtube_upload.html"
     # prompt is a context variable that can have different values      depending on their context
-    prompt = {"order": "Order of the CSV should be name, video_id"}
+    prompt = {"order": "Order of the CSV should be name, title, video_id"}
     # GET request returns the value of the data with the specified key.
     if request.method == "GET":
         return render(request, template, prompt)
