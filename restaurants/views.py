@@ -87,7 +87,7 @@ def search(request):
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(
         tag_set__name__contains=tag).order_by("-created")
-    paginator = Paginator(qs, 40)
+    paginator = Paginator(qs, 100)
     restaurants = paginator.get_page(page)
     return render(
         request,
@@ -120,7 +120,7 @@ def category_search(request, pk):
     category = models.Category.objects.get(pk=pk)
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(category__pk=pk).order_by("-created")
-    paginator = Paginator(qs, 40)
+    paginator = Paginator(qs, 100)
     restaurants = paginator.get_page(page)
     return render(
         request,

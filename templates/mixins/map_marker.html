@@ -1,0 +1,63 @@
+{% load static %}
+<script>
+    var restaurants_string = `{% for restaurant in restaurants.object_list %}` 
+                           + `{"id":{{restaurant.id}},"title":"{{restaurant.title}}","x":{{restaurant.x}},"y":{{restaurant.y}},"address":"{{restaurant.address}}","phone_number":"{{restaurant.phone_number}}","category":"{% for category in restaurant.category.all %}{{category}},{% endfor %}"},`
+                           + `{% endfor %}`
+    var restaurants_json = `[` + restaurants_string.slice(0,-1) + ']'
+    restaurants = JSON.parse(restaurants_json)
+    var icon_src = `{% static "img/marker.png" %}`
+    var markerImage = new kakao.maps.MarkerImage(icon_src,new kakao.maps.Size(31, 35))
+
+    var mapContainer = document.getElementById('map'),
+        mapOption = { 
+            center: new kakao.maps.LatLng(restaurants[0].y, restaurants[0].x),
+            level: 7
+        };
+    
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다             
+
+    
+    for (var i = 0; i < restaurants.length; i ++) {
+        // 마커를 생성합니다
+        var id = restaurants[i].id
+        var title = restaurants[i].title
+        var address = restaurants[i].address
+        var phone_number = restaurants[i].phone_number
+        var category = restaurants[i].category.slice(0,-1)
+        
+        var latlng = new kakao.maps.LatLng(restaurants[i].y, restaurants[i].x)
+        var content = `<div class="h-20 w-48 bg-red-100 rounded">`
+                    + `     <a href="http://127.0.0.1:8000/restaurants/${id}">`
+                    + `         <div class="flex flex-col px-2 py-2">`
+                    + `             <div class="text-sm border-b border-gray-600 pb-1 text-red-500 font-normal rounded-sm w-full mb-1 truncate">${i+1}. ${title} <span class="text-xs font-normal text-gray-600 text-center "> | ${category} </div>`
+                    + `             <span class="text-xs">${address}</span>`
+                    + `             <span class="text-xs">${phone_number}</span>`
+                    + `         </div>`
+                    + `     </a>`
+                    + `</div>`
+        var marker = new kakao.maps.Marker({
+            map: map,
+            position: latlng,
+            image : markerImage,
+            clickable: true 
+        });
+
+        kakao.maps.event.addListener(marker, 'mouseover', makeMouseOverListener(map, marker, content, latlng));
+    }
+
+    var customOverlay = new kakao.maps.CustomOverlay({
+        content: content,
+        position: latlng,
+        xAnchor: 0.5,
+        yAnchor: 1.7
+    });
+
+    function makeMouseOverListener(map, marker, content=content, position=latlng) {
+        return function() {
+            customOverlay.setPosition(position)
+            customOverlay.setContent(content)
+            customOverlay.setMap(map, marker);
+        };
+    }    
+
+</script>
