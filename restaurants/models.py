@@ -223,9 +223,8 @@ class Restaurant(core_models.TimeStampedModel):
         }
 
     def get_latlng(self):
-        client_id = os.environ.get("l65sa0m2fv")
-        client_secret = os.environ.get(
-            "fABKMq9QDh19lb74IrSiKb1q09m4i1GFDvTw8ysn")
+        client_id = "l65sa0m2fv"
+        client_secret = "fABKMq9QDh19lb74IrSiKb1q09m4i1GFDvTw8ysn"
         encText = urllib.parse.quote(self.address)
         url = f"https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query={encText}"  # json결과
         request = urllib.request.Request(url)
