@@ -173,12 +173,9 @@ class Restaurant(core_models.TimeStampedModel):
         return self.title
 
     def scrap_restaurant_info(self):
-        headers = {
-            "User-Agent":
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
-        }
+
         url = f"https://store.naver.com/restaurants/detail?id={self.naver_place_id}"
-        result = requests.get(url, headers=headers)
+        result = requests.get(url)
         soup = BeautifulSoup(result.text, 'html.parser')
 
         biz_name = soup.find("div", {"class", "biz_name_area"})
