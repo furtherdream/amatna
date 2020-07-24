@@ -37,8 +37,8 @@ class RestaurantAdmin(admin.ModelAdmin):
                     "naver_place_id",
                     "blog_count",
                     "tv_list",
-                    "x",
                     "y",
+                    "x",
                 )
             },
         ),
