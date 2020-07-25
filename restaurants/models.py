@@ -183,27 +183,27 @@ class Restaurant(core_models.TimeStampedModel):
 
         biz_name = soup.find("div", {"class", "biz_name_area"})
         try:
-            name = biz_name.find("strong").text
+            n_name = biz_name.find("strong").text
         except Exception:
             pass
 
         try:
-            blog_count = biz_name.find("a").text
+            n_blog_count = biz_name.find("a").text
         except Exception:
             pass
 
         try:
             biz_info = soup.find("div", {"class": "list_bizinfo"})
-            biztel = biz_info.find("div", {
+            n_biztel = biz_info.find("div", {
                 "class": "list_item_biztel"
             }).find("div").string
-            address = biz_info.find("div", {
+            n_address = biz_info.find("div", {
                 "class": "list_item_address"
             }).find("div").find("li").find("span").string
         except Exception:
             pass
 
-        menu_list = ""
+        n_menu_list = ""
         try:
             menu = soup.find("div", {
                 "class": "list_bizinfo"
@@ -211,28 +211,28 @@ class Restaurant(core_models.TimeStampedModel):
             for i in menu[0:-1]:
                 menu_name = i.find("span").string
                 price = i.find("em").string
-                menu_list += str(f"{menu_name} - {price}\n")
+                n_menu_list += str(f"{menu_name} - {price}\n")
         except Exception:
             pass
 
-        tv_list = ""
+        n_tv_list = ""
         try:
             tv = soup.find("div", {
                 "class": "list_item_tv"
             }).find_all("div", {"class": "tv"})
             for t in tv:
                 tv_name = t.find("span", {"class": "item"}).text
-                tv_list += (f"{tv_name}\n")
+                n_tv_list += (f"{tv_name}\n")
         except Exception:
             pass
 
         return {
-            "name": self.title,
-            "blog_count": self.blog_count,
-            "biztel": self.phone_number,
-            "address": self.address,
-            "menu_list": self.menu,
-            "tv_list": self.tv_list,
+            "name": n_name,
+            "blog_count": n_blog_count,
+            "biztel": n_biztel,
+            "address": n_address,
+            "menu_list": n_menu_list,
+            "tv_list": n_tv_list,
         }
 
     def get_latlng(self):
