@@ -28,7 +28,7 @@
         var latlng = new kakao.maps.LatLng(restaurants[i].y, restaurants[i].x)
         var content = `<div class="h-20 w-48 bg-red-100 rounded-lg">`
                     + `     <a href="https://amatna.net/restaurants/${id}">`
-                    + `         <div class="arrow_box flex flex-col px-2 py-2">`
+                    + `         <div class="arrow_box arrow_box:after flex flex-col px-2 py-2">`
                     + `             <div class="text-sm border-b border-gray-600 pb-1 text-red-500 font-normal rounded-sm w-full mb-1 truncate">${i+1}. ${title} <span class="text-xs font-normal text-gray-600 text-center "> | ${category} </div>`
                     + `             <span class="text-xs">${address}</span>`
                     + `             <span class="text-xs">${phone_number}</span>`
