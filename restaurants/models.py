@@ -227,11 +227,11 @@ class Restaurant(core_models.TimeStampedModel):
             pass
 
         return {
-            "name": self.name,
+            "name": self.title,
             "blog_count": self.blog_count,
-            "biztel": self.biztel,
+            "biztel": self.phone_number,
             "address": self.address,
-            "menu_list": self.menu_list,
+            "menu_list": self.menu,
             "tv_list": self.tv_list,
         }
 
