@@ -136,10 +136,9 @@ def category_search(request, pk):
 def restaurant_upload(request):
     # declaring template
     template = "restaurants/restaurant_upload.html"
-    # prompt is a context variable that can have different values      depending on their context
     prompt = {
         "order":
-            "Order of the CSV should be name, blog_count, biztel, address, menu_list, tv_list, video_id"
+            "Order of the CSV should be name, blog_count, biztel, address, menu_list"
     }
     # GET request returns the value of the data with the specified key.
     if request.method == "GET":
@@ -149,7 +148,8 @@ def restaurant_upload(request):
     if not csv_file.name.endswith('.csv'):
         messages.error(request, 'THIS IS NOT A CSV FILE')
     data_set = csv_file.read().decode('UTF-8')
-    # setup a stream which is when we loop through each line we are able to handle a data in a stream
+    # setup a stream which is when we loop through each line
+    # we are able to handle a data in a stream
     io_string = io.StringIO(data_set)
     next(io_string)
     for column in csv.reader(io_string, delimiter='|', quotechar='"'):
@@ -169,7 +169,8 @@ def restaurant_upload(request):
 def youtube_upload(request):
     # declaring template
     template = "restaurants/youtube_upload.html"
-    # prompt is a context variable that can have different values      depending on their context
+    # prompt is a context variable that can have different values
+    # depending on their context
     prompt = {"order": "Order of the CSV should be name, title, video_id"}
     # GET request returns the value of the data with the specified key.
     if request.method == "GET":
@@ -179,7 +180,8 @@ def youtube_upload(request):
     if not csv_file.name.endswith('.csv'):
         messages.error(request, 'THIS IS NOT A CSV FILE')
     data_set = csv_file.read().decode('UTF-8')
-    # setup a stream which is when we loop through each line we are able to handle a data in a stream
+    # setup a stream which is when we loop through each line
+    # we are able to handle a data in a stream
     io_string = io.StringIO(data_set)
     next(io_string)
     for column in csv.reader(io_string, delimiter='|', quotechar='"'):

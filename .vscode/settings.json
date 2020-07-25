@@ -5,5 +5,5 @@
   "python.pythonPath": "/Users/hanseungho/.local/share/virtualenvs/amatna-nfpBgHdF/bin/python",
   "python.formatting.provider": "yapf",
   "python.formatting.yapfArgs": ["--style", "{based_on_style: yapf, indent_width: 4}"],
-  "python.linting.flake8Args": ["--max-line-length=92"]
+  "python.linting.flake8Args": ["--max-line-length=150"]
 }

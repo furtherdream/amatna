@@ -1,4 +1,4 @@
-import os
+# import os
 import requests
 import urllib.request
 from django.db import models
@@ -210,8 +210,8 @@ class Restaurant(core_models.TimeStampedModel):
             for t in tv:
                 tv_name = t.find("span", {"class": "item"}).text
                 tv_list += (f"{tv_name}\n")
-        except:
-            tv = ""
+        except Exception:
+            pass
 
         return {
             "name": name,
@@ -226,7 +226,7 @@ class Restaurant(core_models.TimeStampedModel):
         client_id = "l65sa0m2fv"
         client_secret = "fABKMq9QDh19lb74IrSiKb1q09m4i1GFDvTw8ysn"
         encText = urllib.parse.quote(self.address)
-        url = f"https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query={encText}"  # json결과
+        url = f"https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query={encText}"
         request = urllib.request.Request(url)
         request.add_header("X-NCP-APIGW-API-KEY-ID", client_id)
         request.add_header("X-NCP-APIGW-API-KEY", client_secret)
