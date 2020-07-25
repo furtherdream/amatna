@@ -115,6 +115,26 @@ form {
   }
 }
 
+.arrow_box {
+  position: relative;
+  border-radius: 5px;
+  background: #fff5f5;
+}
+.arrow_box:after {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 245, 245, 0);
+  border-top-color: #fff5f5;
+  border-width: 15px;
+  margin-left: -15px;
+}
+
 @keyframes messageFadeIn {
   0% {
     opacity: 0;
