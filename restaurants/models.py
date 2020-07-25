@@ -227,12 +227,12 @@ class Restaurant(core_models.TimeStampedModel):
             pass
 
         return {
-            "name": name,
-            "blog_count": blog_count,
-            "biztel": biztel,
-            "address": address,
-            "menu_list": menu_list,
-            "tv_list": tv_list,
+            "name": self.name,
+            "blog_count": self.blog_count,
+            "biztel": self.biztel,
+            "address": self.address,
+            "menu_list": self.menu_list,
+            "tv_list": self.tv_list,
         }
 
     def get_latlng(self):
