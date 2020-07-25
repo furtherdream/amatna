@@ -86,7 +86,7 @@ def search(request):
     tag = request.GET.get("tag_set")
     page = request.GET.get("page")
     qs = models.Restaurant.objects.filter(
-        tag_set__name__contains=tag).order_by("-created")
+        tag_set__name=tag).order_by("-created")
     paginator = Paginator(qs, 100)
     restaurants = paginator.get_page(page)
     return render(
