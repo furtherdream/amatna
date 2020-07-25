@@ -150,7 +150,7 @@ MEDIA_URL = "/media/"
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, "locale"),)
 
-if not DEBUG:
+if DEBUG:
 
     DEFAULT_FILE_STORAGE = "config.custom_storages.UploadStorage"
     STATICFILES_STORAGE = "config.custom_storages.StaticStorage"
