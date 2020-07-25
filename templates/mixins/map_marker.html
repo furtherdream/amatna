@@ -41,7 +41,7 @@
             image : markerImage,
             clickable: true 
         });
-
+        kakao.maps.event.addListener(marker, 'click', makeClickListener(map, marker, content, latlng));
         kakao.maps.event.addListener(marker, 'mouseover', makeMouseOverListener(map, marker, content, latlng));
     }
 
@@ -53,6 +53,14 @@
     });
 
     function makeMouseOverListener(map, marker, content=content, position=latlng) {
+        return function() {
+            customOverlay.setPosition(position)
+            customOverlay.setContent(content)
+            customOverlay.setMap(map, marker);
+        };
+    }    
+
+    function makeClickListener(map, marker, content=content, position=latlng) {
         return function() {
             customOverlay.setPosition(position)
             customOverlay.setContent(content)
