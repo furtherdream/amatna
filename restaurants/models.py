@@ -181,6 +181,13 @@ class Restaurant(core_models.TimeStampedModel):
         result = requests.get(url, headers=headers)
         soup = BeautifulSoup(result.text, 'html.parser')
 
+        global n_name
+        global n_address
+        global n_biztel
+        global n_blog_count
+        global n_menu_list
+        global n_tv_list
+
         biz_name = soup.find("div", {"class", "biz_name_area"})
         try:
             n_name = biz_name.find("strong").text
