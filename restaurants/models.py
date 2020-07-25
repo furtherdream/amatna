@@ -182,38 +182,25 @@ class Restaurant(core_models.TimeStampedModel):
         soup = BeautifulSoup(result.text, 'html.parser')
 
         biz_name = soup.find("div", {"class", "biz_name_area"})
-        try:
-            n_name = biz_name.find("strong").text
-        except Exception:
-            pass
+        n_name = biz_name.find("strong").text
+        n_blog_count = biz_name.find("a").text
 
-        try:
-            n_blog_count = biz_name.find("a").text
-        except Exception:
-            pass
-
-        try:
-            biz_info = soup.find("div", {"class": "list_bizinfo"})
-            n_biztel = biz_info.find("div", {
-                "class": "list_item_biztel"
-            }).find("div").string
-            n_address = biz_info.find("div", {
-                "class": "list_item_address"
-            }).find("div").find("li").find("span").string
-        except Exception:
-            pass
+        biz_info = soup.find("div", {"class": "list_bizinfo"})
+        n_biztel = biz_info.find("div", {
+            "class": "list_item_biztel"
+        }).find("div").string
+        n_address = biz_info.find("div", {
+            "class": "list_item_address"
+        }).find("div").find("li").find("span").string
 
         n_menu_list = ""
-        try:
-            menu = soup.find("div", {
-                "class": "list_bizinfo"
-            }).find_all("div", {"class": "list_menu_inner"})
-            for i in menu[0:-1]:
-                menu_name = i.find("span").string
-                price = i.find("em").string
-                n_menu_list += str(f"{menu_name} - {price}\n")
-        except Exception:
-            pass
+        menu = soup.find("div", {
+            "class": "list_bizinfo"
+        }).find_all("div", {"class": "list_menu_inner"})
+        for i in menu[0:-1]:
+            menu_name = i.find("span").string
+            price = i.find("em").string
+            n_menu_list += str(f"{menu_name} - {price}\n")
 
         n_tv_list = ""
         try:
