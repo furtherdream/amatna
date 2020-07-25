@@ -172,55 +172,55 @@ class Restaurant(core_models.TimeStampedModel):
     def __str__(self):
         return self.title
 
-    def scrap_restaurant_info(self):
-        headers = {
-            "User-Agent":
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
-        }
-        url = f"https://store.naver.com/restaurants/detail?id={self.naver_place_id}"
-        result = requests.get(url, headers=headers)
-        soup = BeautifulSoup(result.text, 'html.parser')
+    # def scrap_restaurant_info(self):
+    #     headers = {
+    #         "User-Agent":
+    #             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"
+    #     }
+    #     url = f"https://store.naver.com/restaurants/detail?id={self.naver_place_id}"
+    #     result = requests.get(url, headers=headers)
+    #     soup = BeautifulSoup(result.text, 'html.parser')
 
-        biz_name = soup.find("div", {"class", "biz_name_area"})
-        name = biz_name.find("strong").text
-        blog_count = biz_name.find("a").text
+    #     biz_name = soup.find("div", {"class", "biz_name_area"})
+    #     name = biz_name.find("strong").text
+    #     blog_count = biz_name.find("a").text
 
-        biz_info = soup.find("div", {"class": "list_bizinfo"})
-        biztel = biz_info.find("div", {
-            "class": "list_item_biztel"
-        }).find("div").string
-        address = biz_info.find("div", {
-            "class": "list_item_address"
-        }).find("div").find("li").find("span").string
+    #     biz_info = soup.find("div", {"class": "list_bizinfo"})
+    #     biztel = biz_info.find("div", {
+    #         "class": "list_item_biztel"
+    #     }).find("div").string
+    #     address = biz_info.find("div", {
+    #         "class": "list_item_address"
+    #     }).find("div").find("li").find("span").string
 
-        menu_list = ""
-        menu = soup.find("div", {
-            "class": "list_bizinfo"
-        }).find_all("div", {"class": "list_menu_inner"})
-        for i in menu[0:-1]:
-            menu_name = i.find("span").string
-            price = i.find("em").string
-            menu_list += str(f"{menu_name} - {price}\n")
+    #     menu_list = ""
+    #     menu = soup.find("div", {
+    #         "class": "list_bizinfo"
+    #     }).find_all("div", {"class": "list_menu_inner"})
+    #     for i in menu[0:-1]:
+    #         menu_name = i.find("span").string
+    #         price = i.find("em").string
+    #         menu_list += str(f"{menu_name} - {price}\n")
 
-        tv_list = ""
-        try:
-            tv = soup.find("div", {
-                "class": "list_item_tv"
-            }).find_all("div", {"class": "tv"})
-            for t in tv:
-                tv_name = t.find("span", {"class": "item"}).text
-                tv_list += (f"{tv_name}\n")
-        except Exception:
-            pass
+    #     tv_list = ""
+    #     try:
+    #         tv = soup.find("div", {
+    #             "class": "list_item_tv"
+    #         }).find_all("div", {"class": "tv"})
+    #         for t in tv:
+    #             tv_name = t.find("span", {"class": "item"}).text
+    #             tv_list += (f"{tv_name}\n")
+    #     except Exception:
+    #         pass
 
-        return {
-            "name": name,
-            "blog_count": blog_count,
-            "biztel": biztel,
-            "address": address,
-            "menu_list": menu_list,
-            "tv_list": tv_list,
-        }
+    #     return {
+    #         "name": name,
+    #         "blog_count": blog_count,
+    #         "biztel": biztel,
+    #         "address": address,
+    #         "menu_list": menu_list,
+    #         "tv_list": tv_list,
+    #     }
 
     def get_latlng(self):
         client_id = "l65sa0m2fv"
@@ -250,13 +250,13 @@ class Restaurant(core_models.TimeStampedModel):
             print("Error Code:" + rescode)
 
     def save(self, *args, **kwargs):
-        restaurant_info = self.scrap_restaurant_info()
-        self.title = restaurant_info.get("name")
-        self.address = restaurant_info.get("address")
-        self.blog_count = restaurant_info.get("blog_count")
-        self.phone_number = restaurant_info.get("biztel")
-        self.menu = restaurant_info.get("menu_list")
-        self.tv_list = restaurant_info.get("tv_list")
+        # restaurant_info = self.scrap_restaurant_info()
+        # self.title = restaurant_info.get("name")
+        # self.address = restaurant_info.get("address")
+        # self.blog_count = restaurant_info.get("blog_count")
+        # self.phone_number = restaurant_info.get("biztel")
+        # self.menu = restaurant_info.get("menu_list")
+        # self.tv_list = restaurant_info.get("tv_list")
         self.x = self.get_latlng()[0]
         self.y = self.get_latlng()[1]
         super().save(*args, **kwargs)
