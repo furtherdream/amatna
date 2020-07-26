@@ -182,8 +182,8 @@ class Restaurant(core_models.TimeStampedModel):
         soup = BeautifulSoup(result.text, 'html.parser')
 
         biz_name = soup.find("div", {"class", "biz_name_area"})
-        n_name = biz_name.find("strong").text
-        n_blog_count = biz_name.find("a").text
+        n_name = biz_name.find("strong").string
+        n_blog_count = biz_name.find("a").string
 
         biz_info = soup.find("div", {"class": "list_bizinfo"})
         n_biztel = biz_info.find("div", {
