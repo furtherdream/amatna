@@ -152,14 +152,20 @@ def restaurant_upload(request):
     # we are able to handle a data in a stream
     io_string = io.StringIO(data_set)
     next(io_string)
-    for column in csv.reader(io_string, delimiter='|', quotechar='"'):
+    for column in csv.reader(io_string, delimiter=',', quotechar='"'):
         restaurant, created = models.Restaurant.objects.update_or_create(
-            naver_place_id=column[1])
+            title=column[0],
+            blog_count=column[1],
+            phone_number=column[2],
+            address=column[3],
+            menu=column[4],
+            tv_list=column[5],
+            naver_place_id=column[6])
         restaurant.save()
-        channel = models.Channel.objects.filter(name=column[0])
+        channel = models.Channel.objects.filter(name=column[7])
         for id in channel:
             restaurant.channel.add(id)
-        youtube = models.Youtube.objects.filter(video_id=column[2])
+        youtube = models.Youtube.objects.filter(video_id=column[8])
         for id in youtube:
             restaurant.youtube.add(id)
 

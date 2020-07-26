@@ -172,6 +172,8 @@ class Restaurant(core_models.TimeStampedModel):
     def __str__(self):
         return self.title
 
+    # <-- 네이버 플레이스 아이디 입력하면 업체 정보 스크랩 -->
+    # > 로컬에서는 잘 돌아가는데 본 서버(?)에서는 Nonetype 에러 발생
     # def scrap_restaurant_info(self):
     #     headers = {
     #         "User-Agent":
@@ -221,6 +223,7 @@ class Restaurant(core_models.TimeStampedModel):
     #         "menu_list": n_menu_list,
     #         "tv_list": n_tv_list,
     #     }
+    # <-- 업체 정보 스크랩 마무리 -->
 
     def get_latlng(self):
         client_id = "l65sa0m2fv"
@@ -250,6 +253,7 @@ class Restaurant(core_models.TimeStampedModel):
             print("Error Code:" + rescode)
 
     def save(self, *args, **kwargs):
+        # <-- 네이버 업체 정보 스크랩 후 정보 저장 : 로컬일 때만 구동됨 (Nonetype 에러발생) -->
         # restaurant_info = self.scrap_restaurant_info()
         # self.title = restaurant_info.get("name")
         # self.address = restaurant_info.get("address")
