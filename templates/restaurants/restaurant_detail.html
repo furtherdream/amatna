@@ -64,7 +64,7 @@
                   <tr>
                     <td class="table-title">{% trans 'instagram' %}</td>
                     <td class="table-description text-blue-500">
-                        <a href="https://www.instagram.com/explore/tags/{{restaurant.title}}" target="_blank" class="items-center flex flex-row">
+                        <a href="https://www.instagram.com/explore/tags/{{restaurant.title|cut:" " }}" target="_blank" class="items-center flex flex-row">
                             <img src="{% static 'img/instagram_logo.png' %}" class="sm:w-10 w-8 mr-2 sm:h-10 h-8" />
                             <span class="py-2">{% trans 'View posts in instagram' %}</span>
                         </a>                        
