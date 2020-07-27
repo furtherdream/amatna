@@ -85,7 +85,11 @@
                   </tr>                  
                   <tr>
                     <td class="table-title">{% trans 'Phone number' %}</td>
-                    <td class="table-description select-all">{{restaurant.phone_number}}</td>
+                    <td class="flex flex-row table-description">{{restaurant.phone_number}}
+                        <a href="tel:{{restaurant.phone_number}}" class="ml-3 px-2 font-gray-400 border-gray-400 border rounded-sm text-sm sm:text-lg">
+                            <i class="fas fa-phone-alt mr-1"></i>전화하기
+                        </a>
+                    </td>
                   </tr>
                   <tr>
                     <td class="table-title">{% trans 'Category' %}</td>
