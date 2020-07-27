@@ -1,7 +1,7 @@
 <div class="table-row">                  
     {% for t in restaurant.tag_set.all %}
     <form class="inline" mehtod="get" action="{% url 'restaurants:search' %}">
-        <button class="tag" name="tag_set" type="submit" value="{{t.name}}">
+        <button class="tag outline-none" name="tag_set" type="submit" value="{{t.name}}">
             {{t.name}}
         </button>
     </form>
