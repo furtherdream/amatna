@@ -50,7 +50,10 @@
             </span>
         </div>
         <div class="w-full align-middle sm:rounded-t-lg flex flex-col sm:px-0 px-3">
-            <span class="p-4 bg-orange-100 rounded-t-lg font-normal text-base sm:text-xl block truncate">{% trans 'View List with Map' %}</span>
+            <span class="flex flex-row p-4 bg-orange-100 rounded-t-lg font-normal justify-between text-base sm:text-xl truncate">
+                <span>{% trans 'View List with Map' %}</span>
+                <button onclick="setBounds()" class="bg-red-300 px-4 rounded-sm py-1 text-white sm:text-base text-sm">{% trans 'ALL' %}</button>
+            </span>
             <div id="map" style="width:100%;height:400px;" class="rounded-b-lg mb-16"></div>
             {% include 'mixins/map_marker.html' %}
         </div>               
