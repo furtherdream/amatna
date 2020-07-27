@@ -64,7 +64,7 @@
                   <tr>
                     <td class="table-title">{% trans 'instagram' %}</td>
                     <td class="table-description text-blue-500">
-                        <a href="https://www.instagram.com/explore/tags/{{restaurant.title|cut:" " }}" target="_blank" class="items-center flex flex-row">
+                        <a href="https://www.instagram.com/explore/tags/{{restaurant.title|cut:' '}}" target="_blank" class="items-center flex flex-row">
                             <img src="{% static 'img/instagram_logo.png' %}" class="sm:w-10 w-8 mr-2 sm:h-10 h-8" />
                             <span class="py-2">{% trans 'View posts in instagram' %}</span>
                         </a>                        
@@ -160,7 +160,7 @@
             height="300"
             frameborder="0" 
             style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCMtGIi0z-RzyH__K5DmlU4sx3hUvYpr-4&q={{restaurant.title}},{{restaurant.address}}"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCMtGIi0z-RzyH__K5DmlU4sx3hUvYpr-4&q={{restaurant.title|cut:'&'}},{{restaurant.address}}"
             allowfullscreen
             class="rounded-b-lg w-11/12 lg:w-3/5 mb-12">
         </iframe>            
