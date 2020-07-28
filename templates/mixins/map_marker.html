@@ -94,7 +94,7 @@
 
     function getLocationMarker(locPosition){
         var map_pin_src = `{% static "img/map_pin.png" %}`
-        var content = `<div class="font-normal px-2 py-1 bg-gray-100 rounded-lg">{% trans 'My Location' %}`
+        var content = `<div class="font-normal text-sm px-2 py-1 bg-gray-100 rounded-lg">{% trans 'My Location' %}`
                     + `</div>`        
         var mapPinImage = new kakao.maps.MarkerImage(map_pin_src, new kakao.maps.Size(30, 30))
         var marker = new kakao.maps.Marker({
