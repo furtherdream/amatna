@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-27 17:29+0900\n"
+"POT-Creation-Date: 2020-07-28 17:47+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -286,7 +286,7 @@ msgid "Search with category"
 msgstr "메뉴로 검색해 보세요."
 
 #: templates/404.html:25 templates/lists/list_detail.html:41
-#: templates/restaurants/main.html:39 templates/restaurants/search.html:125
+#: templates/restaurants/main.html:39 templates/restaurants/search.html:128
 msgid "Search for the menu you want to eat."
 msgstr "오늘 땡기는 메뉴를 골라보세요."
 
@@ -339,6 +339,10 @@ msgstr "방문하기"
 msgid "view more >"
 msgstr "채널 맛집 모아보기 >"
 
+#: templates/mixins/map_marker.html:97
+msgid "My Location"
+msgstr "내 위치"
+
 #: templates/mixins/no_results.html:5
 msgid "Please recommend your favorite creator."
 msgstr "맛집 목록을 만들고 싶은 크리에이터를 추천해주세요."
@@ -368,7 +372,7 @@ msgid "Log in"
 msgstr "로그인"
 
 #: templates/partials/nav.html:30
-#: templates/restaurants/restaurant_detail.html:246
+#: templates/restaurants/restaurant_detail.html:248
 #: templates/users/login.html:27
 msgid "Sign up"
 msgstr "회원가입"
@@ -403,7 +407,7 @@ msgid "no results."
 msgstr "에 대한 채널 검색 결과가 없습니다."
 
 #: templates/restaurants/channel_list.html:63
-#: templates/restaurants/search.html:103
+#: templates/restaurants/search.html:106
 msgid "Make sure you enter the word correctly."
 msgstr "오타가 없는지 확인해 주세요."
 
@@ -423,7 +427,7 @@ msgstr "채널목록"
 
 #: templates/restaurants/channel_view.html:24
 #: templates/restaurants/restaurant_list.html:23
-#: templates/restaurants/search.html:81
+#: templates/restaurants/search.html:84
 #, python-format
 msgid "Page %(current_page)s of %(total_pages)s"
 msgstr "%(current_page)s 페이지  /  %(total_pages)s 페이지"
@@ -477,96 +481,96 @@ msgstr "네이버"
 msgid "Address"
 msgstr "주소"
 
-#: templates/restaurants/restaurant_detail.html:87
+#: templates/restaurants/restaurant_detail.html:88
 msgid "Phone number"
 msgstr "전화번호"
 
-#: templates/restaurants/restaurant_detail.html:90
+#: templates/restaurants/restaurant_detail.html:91
 msgid "Call"
 msgstr "전화걸기"
 
-#: templates/restaurants/restaurant_detail.html:95
+#: templates/restaurants/restaurant_detail.html:97
 msgid "Category"
 msgstr "카테고리"
 
-#: templates/restaurants/restaurant_detail.html:103
+#: templates/restaurants/restaurant_detail.html:105
 msgid "Price"
 msgstr "가격대"
 
-#: templates/restaurants/restaurant_detail.html:107
+#: templates/restaurants/restaurant_detail.html:109
 msgid "Menu"
 msgstr "메뉴"
 
-#: templates/restaurants/restaurant_detail.html:111
+#: templates/restaurants/restaurant_detail.html:113
 msgid "Business time"
 msgstr "영업시간"
 
-#: templates/restaurants/restaurant_detail.html:115
+#: templates/restaurants/restaurant_detail.html:117
 msgid "Open 24 hours"
 msgstr "24시간 영업"
 
-#: templates/restaurants/restaurant_detail.html:121
+#: templates/restaurants/restaurant_detail.html:123
 msgid "24/7"
 msgstr "매일 24시간 영업"
 
-#: templates/restaurants/restaurant_detail.html:123
+#: templates/restaurants/restaurant_detail.html:125
 msgid "Everydays"
 msgstr "매일"
 
-#: templates/restaurants/restaurant_detail.html:133
+#: templates/restaurants/restaurant_detail.html:135
 msgid "Break time"
 msgstr "휴식시간"
 
-#: templates/restaurants/restaurant_detail.html:139
+#: templates/restaurants/restaurant_detail.html:141
 msgid "Holiday"
 msgstr "휴일"
 
-#: templates/restaurants/restaurant_detail.html:145
+#: templates/restaurants/restaurant_detail.html:147
 msgid "Broadcasting"
 msgstr "방송"
 
-#: templates/restaurants/restaurant_detail.html:152
+#: templates/restaurants/restaurant_detail.html:154
 msgid "Last Updated : "
 msgstr "마지막 업데이트 : "
 
-#: templates/restaurants/restaurant_detail.html:156
+#: templates/restaurants/restaurant_detail.html:158
 msgid "Location"
 msgstr "위치"
 
-#: templates/restaurants/restaurant_detail.html:172
+#: templates/restaurants/restaurant_detail.html:174
 msgid "The channel that visited this restaurant."
 msgstr "이 음식점을 방문한 채널"
 
-#: templates/restaurants/restaurant_detail.html:182
+#: templates/restaurants/restaurant_detail.html:184
 msgid "A video of a visit to this restaurant"
 msgstr "이 음식점을 방문한 영상"
 
-#: templates/restaurants/restaurant_detail.html:200
+#: templates/restaurants/restaurant_detail.html:202
 msgid "watch on youtube"
 msgstr "유튜브로 보러가기"
 
-#: templates/restaurants/restaurant_detail.html:213
+#: templates/restaurants/restaurant_detail.html:215
 msgid "Please leave a comment."
 msgstr "한줄평을 작성해 주세요."
 
-#: templates/restaurants/restaurant_detail.html:238
+#: templates/restaurants/restaurant_detail.html:240
 msgid "Comment"
 msgstr "한줄평 작성"
 
-#: templates/restaurants/restaurant_detail.html:243
+#: templates/restaurants/restaurant_detail.html:245
 msgid "If you sign up or log in, you can leave a comment."
 msgstr "회원가입 혹은 로그인을 하시면 한줄평을 남기실 수 있습니다."
 
-#: templates/restaurants/restaurant_detail.html:245
+#: templates/restaurants/restaurant_detail.html:247
 #: templates/users/login.html:4
 msgid "Login"
 msgstr "로그인"
 
-#: templates/restaurants/restaurant_detail.html:290
+#: templates/restaurants/restaurant_detail.html:292
 msgid "There is no comment"
 msgstr "작성된 한줄평이 없습니다."
 
-#: templates/restaurants/restaurant_detail.html:291
+#: templates/restaurants/restaurant_detail.html:293
 msgid "Please leave a comment :)"
 msgstr "첫 한줄평을 남겨주세요. (1빠 말구요. 헤헷)"
 
@@ -586,7 +590,7 @@ msgstr "채널 검색 결과"
 msgid "Search Results with Category"
 msgstr "메뉴 검색 결과"
 
-#: templates/restaurants/search.html:37 templates/restaurants/search.html:124
+#: templates/restaurants/search.html:37 templates/restaurants/search.html:127
 msgid "Search with another category"
 msgstr "다른 메뉴로도 검색해 보세요."
 
@@ -599,42 +603,42 @@ msgstr "총 %(total_restaurants)s 곳의 음식점을 찾았습니다."
 msgid "View List with Map"
 msgstr "지도로 보기"
 
-#: templates/restaurants/search.html:55
+#: templates/restaurants/search.html:57
 msgid "ALL"
 msgstr "전체보기"
 
-#: templates/restaurants/search.html:62
+#: templates/restaurants/search.html:65
 msgid "List of Restaurants"
 msgstr "음식점 리스트"
 
-#: templates/restaurants/search.html:101
+#: templates/restaurants/search.html:104
 msgid "There is no restaurant for this keyword"
 msgstr "에 대한 검색 결과가 없습니다."
 
-#: templates/restaurants/search.html:104 templates/restaurants/search.html:116
+#: templates/restaurants/search.html:107 templates/restaurants/search.html:119
 msgid "Please search for the local name and menu you want to find."
 msgstr "지역명, (지역명)맛집, 찾고 싶은 메뉴로 검색해주세요."
 
-#: templates/restaurants/search.html:105 templates/restaurants/search.html:117
+#: templates/restaurants/search.html:108 templates/restaurants/search.html:120
 msgid "We do not support searching in English."
 msgstr "영어 검색은 지원하지 않고 있습니다."
 
-#: templates/restaurants/search.html:106 templates/restaurants/search.html:118
+#: templates/restaurants/search.html:109 templates/restaurants/search.html:121
 msgid "Please click image to recommend your favorite creator."
 msgstr ""
 "아래 이미지를 클릭하여 맛집 목록을 작성하고 싶은 크리에이터를 추천해주세요"
 
-#: templates/restaurants/search.html:107 templates/restaurants/search.html:119
+#: templates/restaurants/search.html:110 templates/restaurants/search.html:122
 msgid "I will try harder so that everyone who visits can have a delicious day!"
 msgstr ""
 "방문하시는 모든 분들이 맛있는 하루를 보낼 수 있도록 더욱 노력하는 아!맛나가 "
 "되겠습니다."
 
-#: templates/restaurants/search.html:113
+#: templates/restaurants/search.html:116
 msgid "There are no search results for the category."
 msgstr "카테고리에 대한 검색 결과가 없습니다."
 
-#: templates/restaurants/search.html:115
+#: templates/restaurants/search.html:118
 msgid "Use the search box to find a restaurant."
 msgstr "검색창을 이용하여, 음식점을 찾아보세요."
 
