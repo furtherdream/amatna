@@ -1,6 +1,6 @@
 <div class="w-1/2 md:w-1/4 mb-0 p-3 md:p-4">
     
-    <div class="bg-white rounded-xl shadow-2xl">
+    <div class="bg-white rounded-lg shadow-2xl">
         <a href="{% url "restaurants:detail" restaurant.pk %}" class="flex flex-col pb-6 md:pb-12 justify-center items-center">   
             <iframe 
                 id="ytplayer" 
@@ -9,7 +9,7 @@
                 height="200"
                 src="https://www.youtube.com/embed/{{youtube.video_id}}?autoplay=1?modestbranding=1"
                 frameborder="0"
-                class=" rounded-t-xl w-full mb-4 md:mb-8 h-32 lg:h-25vh"
+                class=" rounded-t-lg w-full mb-4 md:mb-8 h-32 lg:h-25vh"
             ></iframe>
             <div class="text-sm md:text-base text-gray-800 w-5/6">{{youtube.name}}</div>
             
