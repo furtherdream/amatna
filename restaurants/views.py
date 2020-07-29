@@ -160,7 +160,16 @@ def restaurant_upload(request):
             address=column[3],
             menu=column[4],
             tv_list=column[5],
-            naver_place_id=column[6])
+            naver_place_id=column[6],
+            price=column[9],
+            biztime_start=column[10],
+            biztime_end=column[11],
+            biztime_desc=column[12],
+            breaktime=column[13],
+            holiday=column[14],
+            info=column[15],
+            comment=column[16],
+        )
         restaurant.save()
         channel = models.Channel.objects.filter(name=column[7])
         for id in channel:
@@ -168,6 +177,9 @@ def restaurant_upload(request):
         youtube = models.Youtube.objects.filter(video_id=column[8])
         for id in youtube:
             restaurant.youtube.add(id)
+        category = models.Category.objects.filter(name=column[17])
+        for id in category:
+            restaurant.category.add(id)
 
     return render(request, template)
 

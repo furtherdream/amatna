@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /search
 Sitemap: https://amatna.net/static/sitemap.xml
