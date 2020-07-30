@@ -166,18 +166,7 @@
     </iframe>            
 
 
-    <div align="center" class="py-10">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="ca-pub-3931834768948104"
-             data-ad-slot="2443560930"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-   </div>
+    {% include 'partials/adsense_content.html' %}
 
 
     <div class="bg-gray-200 p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
@@ -193,7 +182,7 @@
     <div class=" p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle">
         <span class="p-4 font-normal text-base sm:text-xl block truncate">{% trans 'A video of a visit to this restaurant' %}</span>
     </div>                
-    <div class="w-11/12 lg:w-3/5 flex-wrap flex">           
+    <div class="w-11/12 lg:w-3/5 flex-wrap flex mb-20">           
         {% for y in restaurant.youtube.all %}                   
             <div class="flex p-2 flex-wrap w-1/2 lg:w-1/4 justify-center items-center">        
                 <iframe 
@@ -217,20 +206,10 @@
     </div>
 
 
-    <div align="center" class="py-10">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="ca-pub-3931834768948104"
-             data-ad-slot="2443560930"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-   </div>
+    {% include 'partials/adsense_content.html' %}
 
-    <div class="mt-32 w-11/12 lg:w-3/5">
+
+    <div class="mt-16 mb-24 w-11/12 lg:w-3/5">
         <div class="px-5 sm:px-10 my-3 bg-gray-100 rounded-lg">    
             <span class="font-medium text-base sm:text-2xl w-full block py-10 -mb-10">{% trans 'Please leave a comment.' %}</span>
             {% if user.is_authenticated %}
@@ -319,18 +298,8 @@
         </div>
     </div>
     
-    <div align="center" class="py-10">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <ins class="adsbygoogle"
-             style="display:block; text-align:center;"
-             data-ad-layout="in-article"
-             data-ad-format="fluid"
-             data-ad-client="ca-pub-3931834768948104"
-             data-ad-slot="2443560930"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-   </div>
-   
+    {% include 'partials/adsense_content.html' %}
+
+
 </div>
 {% endblock %}
