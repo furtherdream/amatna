@@ -16,15 +16,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="google-site-verification" content="R1fGQ3KcyQVEz19Go1Yq69gCAKcmDwi1ed69NqNhqm0" />
     <meta name="naver-site-verification" content="eb9b5570e080cb2d82d296af8487451b5255c9f0" />
+    <!-- meta tags -->
+    <meta name="subject" content="{% block page_subject %}{% endblock page_subject %}">
+    <meta name="description" content="{% block page_description %}{% endblock page_description %}">
+    <meta name="keywords" content="{% block page_keywords %}{% endblock page_keywords %}" />
+    <!-- open graph tags -->
+    <meta property="og:url" content="https://amatna.net/{% block page_og_url %}{% endblock page_og_url %}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{% block page_og_title %}{% endblock page_og_title %}| {% trans 'Amatna : DO NOT pay your time for searching restaurant' %}">
+    <meta property="og:description" content="{% block page_og_description %}{% endblock page_og_description %}">
+    <meta property="og:image" content="https://amatna-storages.s3.amazonaws.com/{% block page_og_image %}{% endblock page_og_image %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
     <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
     <script data-ad-client="ca-pub-3931834768948104" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c001f17070137e4c906ca0e5f71f88b5"></script>
-    <title>{% block page_title %}{% endblock page_title %} | {% trans 'Amatna : DO NOT pay your time for searching restaurant' %}</title>
+    <title>{% block page_title %}{% endblock page_title %}| {% trans 'Amatna : DO NOT pay your time for searching restaurant' %}</title>
   </head>
   <body class="text-gray-800 mt-24 font-light">
     <amp-auto-ads type="adsense"

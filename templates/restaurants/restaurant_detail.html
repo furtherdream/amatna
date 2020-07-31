@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load i18n static on_favs %}
-{% block page_title %}
-    {{restaurant.title}}
-{% endblock page_title %}
-
+{% block page_title %}{{restaurant.title}}: {% for c in restaurant.channel.all %}{{c}} 맛집 {% endfor %}{% endblock page_title %}
+{% block page_subject %}{% for c in restaurant.channel.all %}{{c}} {% endfor %}채널에서 방문한 맛집 입니다.{% endblock page_subject %}
+{% block page_description %}{% for c in restaurant.channel.all %}{{c}} {% endfor %}채널에서 방문한 맛집 {{restaurant.title}}! 맛있는 영상으로 방문해 보세요. {% for y in restaurant.youtube.all %}'{{y}}'{% endfor %}{% endblock page_description %}
+{% block page_keywords %}{% for c in restaurant.channel.all %}{{c}},{{c}} 맛집지도,{% endfor %}{% for t in restaurant.tag_set.all %}{{t}},{% endfor %}{% for c in restaurant.category.all %}{{c}},{% endfor %}맛집,맛집지도,TV맛집,먹방,맛집탐방{% endblock page_keywords %}    
+{% block page_og_url %}restaurants/{{restaurant.id}}/{% endblock page_og_url %}
+{% block page_og_title %}{{restaurant.title}}: {% for c in restaurant.channel.all %}{{c}} 맛집 {% endfor %}{% endblock page_og_title %}
+{% block page_og_description %}{% for c in restaurant.channel.all %}{{c}} {% endfor %}채널에서 방문한 맛집 {{restaurant.title}}! 맛있는 영상으로 방문해 보세요. {% for y in restaurant.youtube.all %}'{{y}}'{% endfor %}{% endblock page_og_description %}
+{% block page_og_image %}static/img/logo_square.png{% endblock page_og_image %}
 
 {% block content %}    
 <div class=" w-full mb-20 flex flex-col items-center justify-center -mt-4 sm:mt-0">

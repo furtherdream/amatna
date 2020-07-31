@@ -67,7 +67,7 @@ class RestaurantDetail(DetailView, FormMixin):
 
 
 def search_channels(request):
-    channel_name = request.GET.get("search_channel")
+    channel_name = request.GET.get("keyword")
     page = request.GET.get("page")
     qs = models.Channel.objects.filter(name__contains=channel_name)
     paginator = Paginator(qs, 40)
@@ -99,10 +99,11 @@ def search(request):
     )
 
 
-def channel_search(request, pk):
-    channel = models.Channel.objects.get(pk=pk)
+def channel_search(request, verb):
+    channel = models.Channel.objects.get(name=verb)
     page = request.GET.get("page")
-    qs = models.Restaurant.objects.filter(channel__pk=pk).order_by("-created")
+    qs = models.Restaurant.objects.filter(
+        channel__name=verb).order_by("-created")
     paginator = Paginator(qs, 100)
     restaurants = paginator.get_page(page)
     return render(
@@ -115,11 +116,12 @@ def channel_search(request, pk):
     )
 
 
-def category_search(request, pk):
+def category_search(request, verb):
     all_categories = models.Category.objects.all().order_by("created")
-    category = models.Category.objects.get(pk=pk)
+    category = models.Category.objects.get(name=verb)
     page = request.GET.get("page")
-    qs = models.Restaurant.objects.filter(category__pk=pk).order_by("-created")
+    qs = models.Restaurant.objects.filter(
+        category__name=verb).order_by("-created")
     paginator = Paginator(qs, 100)
     restaurants = paginator.get_page(page)
     return render(

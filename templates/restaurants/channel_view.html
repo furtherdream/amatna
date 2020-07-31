@@ -1,9 +1,15 @@
 
 {% extends 'base.html' %} 
 {% load i18n %} 
-{% block page_title %} 
-  {% trans 'Channel list' %}
-{% endblock page_title %} 
+{% block page_title %}{% trans 'Channel list' %} {% endblock page_title %} 
+{% block page_subject %}{% for c in channels.object_list %}{{c}} {% endfor %}| 방문한 맛집을 모아서 아!맛나에서 지도를 제공하는 채널입니다. {% endblock page_subject %}
+{% block page_description %}아!맛나에서 맛집 지도를 제공하기 위한 채널들 입니다. ({% for c in channels.object_list %}{{c}} {% endfor %}){% endblock page_description %}
+{% block page_keywords %}{% for c in channels.object_list %}{{c}},{{c}} 맛집지도,{% endfor %}맛집,TV맛집,먹방,맛집탐방{% endblock page_keywords %}    
+{% block page_og_url %}restaurants/channel{% endblock page_og_url %}
+{% block page_og_title %}{% trans 'Channel list' %} {% endblock page_og_title %}
+{% block page_og_description %}아!맛나에서 맛집 지도를 제공하기 위한 채널들 입니다. ({% for c in channels.object_list %}{{c}} {% endfor %}){% endblock page_og_description %}
+{% block page_og_image %}static/img/logo_square.png{% endblock page_og_image %}
+    
 
 {% block content %} 
     <div class="container mx-auto">

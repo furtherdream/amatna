@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
 {% load i18n static %}
-{% block page_title %}
+{% block page_title %}{% if tag %}{{tag}} {% trans 'Search results' %} {% elif channel%}{{channel}} {% trans 'Search results' %} {% elif category%}{{category}} {% trans 'Search results' %} {% endif %}{% endblock page_title %}
+{% block page_description %}{% if tag %}{{tag}} {% trans 'Search results' %} - {% for r in restaurants.object_list %}{{r}}: {% for t in r.tag_set.all %}{{t}}, {% endfor %}{% endfor %}TV방영, 크리에이터 맛집 아!맛나{% elif channel%}{{channel}} {% trans 'Search results' %} - {% for r in restaurants.object_list %}{{r}}: {% for t in r.tag_set.all %}{{t}}, {% endfor %}{% endfor %}TV방영, 크리에이터 맛집 아!맛나{% elif category%}{{category}} {% trans 'Search results' %} - {% for r in restaurants.object_list %}{{r}}: {% for t in r.tag_set.all %}{{t}}, {% endfor %}{% endfor %}{% endif %}TV방영, 크리에이터 맛집 아!맛나{% endblock page_description %}
+{% block page_subject %}아!맛나 검색결과 | TV에 방영된 맛집의 맛집 지도, 크리에이터의 맛집 지도를 확인해 보세요.{% endblock page_subject %}
+{% block page_keywords %}{% for r in restaurants.object_list %}{{r}},{% for t in r.tag_set.all %}{{t}},{% endfor %}{% endfor %}{% endblock page_keywords %}    
+{% block page_og_url %}{% if tag %}restaurants/search/?tag_set={{tag}}{% elif channel%}restaurants/channel/{{channel}}/{% elif category%}restaurants/category/{{category}}/{% endif %}{% endblock page_og_url %}
+{% block page_og_title %}{% if tag %}{{tag}} {% trans 'Search results' %} {% elif channel%}{{channel}} {% trans 'Search results' %} {% elif category%}{{category}} {% trans 'Search results' %} {% endif %}{% endblock page_og_title %}
+{% block page_og_description %}{% if tag %}TV에 방영 맛집, 크리에이터 맛집 지도 아!맛나 : '{{tag}}' {% trans 'Search results' %}{% elif channel %}TV에 방영 맛집, 크리에이터 맛집 검색 아!맛나 : '{{channel}}' {% trans 'Search results' %} - 맛집지도를 확인하세요.{% elif category %}TV에 방영 맛집, 크리에이터 맛집 지도 아!맛나 : '{{category}}' {% trans 'Search results' %}{% endif %}{% endblock page_og_description %}
+{% block page_og_image %}{% if tag %}static/img/logo_square.png{% elif channel%}uploads/{{channel.image}}{% elif category%}static/img/logo_square.png{% endif %}{% endblock page_og_image %}
 
-    {% trans 'Search results' %}
-
-{% endblock page_title %}
 
 {% block search-bar %}    
 {% endblock search-bar %}
 
 {% block content %}
 
+
+    
 
 {% if restaurants.object_list.count > 0 %}
     <div class="container mx-auto -mt-4 sm:mt-0">        
