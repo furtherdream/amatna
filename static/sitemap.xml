@@ -4,339 +4,65 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
 <url>
   <loc>https://amatna.net/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://amatna.net/restaurants/channel/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://amatna.net/restaurants/channel/하트시그널%20시즌3/</loc>
+  <loc>https://amatna.net/restaurants/channel/상해기/</loc>
+  <loc>https://amatna.net/restaurants/channel/하얀트리/</loc>
+  <loc>https://amatna.net/restaurants/channel/유%20퀴즈%20온%20더%20블럭/</loc>
 </url>
 <url>
   <loc>https://amatna.net/users/login/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://amatna.net/users/signup/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://amatna.net/restaurants/channel/2/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
+  <loc>https://amatna.net/restaurants/category/</loc>
 </url>
 <url>
-  <loc>https://amatna.net/restaurants/channel/1/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/29/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/28/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/27/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/26/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/25/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/24/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/23/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/22/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/21/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/20/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/19/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/18/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/16/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/15/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/14/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/13/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/?page=2</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/1/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/2/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/3/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/4/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/5/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/6/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/7/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/8/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/9/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/10/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/11/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/12/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/13/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/14/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/15/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/16/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/17/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/18/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/category/19/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/12/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/11/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/10/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/9/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/8/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/7/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/6/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/5/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/4/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/3/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/2/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://amatna.net/restaurants/1/</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
+  <loc>https://amatna.net/restaurants/category/한식/</loc>
+  <loc>https://amatna.net/restaurants/category/중식/</loc>
+  <loc>https://amatna.net/restaurants/category/일식/</loc>
+  <loc>https://amatna.net/restaurants/category/카페/</loc>
+  <loc>https://amatna.net/restaurants/category/술집/</loc>
+  <loc>https://amatna.net/restaurants/category/고기집/</loc>
+  <loc>https://amatna.net/restaurants/category/횟집/</loc>
+  <loc>https://amatna.net/restaurants/category/해산물/</loc>
+  <loc>https://amatna.net/restaurants/category/분식/</loc>
+  <loc>https://amatna.net/restaurants/category/백반집/</loc>
+  <loc>https://amatna.net/restaurants/category/패스트푸드/</loc>
+  <loc>https://amatna.net/restaurants/category/양식/</loc>
+  <loc>https://amatna.net/restaurants/category/뷔페/</loc>
+  <loc>https://amatna.net/restaurants/category/국물요리/</loc>
+  <loc>https://amatna.net/restaurants/category/면요리/</loc>
+  <loc>https://amatna.net/restaurants/category/아시안/</loc>
+  <loc>https://amatna.net/restaurants/category/세계음식/</loc>
+  <loc>https://amatna.net/restaurants/category/이색요리/</loc>
+  <loc>https://amatna.net/restaurants/category/도전먹방/</loc>
+  <loc>https://amatna.net/restaurants/category/무한리필/</loc>
 </url>
 <url>
   <loc>https://amatna.net/?page=1</loc>
-  <lastmod>2020-07-10T06:36:19+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.64</priority>
 </url>
-
-
+<url>
+  <loc>https://amatna.net/?page=2</loc>
+</url>
+<url>
+  <loc>https://amatna.net/?page=3</loc>
+</url>
+<url>
+  <loc>https://amatna.net/?page=4</loc>
+</url>
+<url>
+  <loc>https://amatna.net/?page=5</loc>
+</url>
+<url>
+  <loc>https://amatna.net/restaurants/</loc>
+</url>
 </urlset>
