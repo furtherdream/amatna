@@ -38,7 +38,7 @@
     </div>
 
 
-    {% for y in restaurant.youtube.all %}
+    {% for y in restaurant.youtube.all|dictsort:"created" reversed %}
         <div class="flex flex-row  p-1 rounded-t-lg w-11/12 lg:w-3/5 align-middle items-center">
             <img src="{% static 'img/youtube_logo.png' %}" class="h-10 sm:h-16">
             <span class="p-4 -ml-3 font-normal text-sm sm:text-xl block truncate">{{y.name}}</span>
@@ -127,7 +127,7 @@
                             {% trans 'Everydays' %} {{restaurant.biztime_start}} ~ {{restaurant.biztime_end}}
                         {% endif %}
                     {% endif %}
-                    {% if restaurant.biztime_desc %}
+                    {% if restaurant.biztime_desc|linebreaks %}
                         <div class="text-gray-500">{{restaurant.biztime_desc}}</div>
                     {% endif %}
                 </td>
