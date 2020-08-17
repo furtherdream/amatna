@@ -59,11 +59,11 @@
     </div>     
     <table class="table-fixed w-11/12 lg:w-3/5">
         <tbody>
-            <tr>
+            <tr class="table-border">
                 <td class="table-title border-t">{% trans 'Restaurant Name' %}</td>
                 <td class="table-description border-t font-bold">{{restaurant.title}}</td>
-                </tr>              
-                <tr>
+            </tr>              
+            <tr class="table-border">
                 <td class="table-title">{% trans 'instagram' %}</td>
                 <td class="table-description text-blue-500">
                     <a href="https://www.instagram.com/explore/tags/{{restaurant.title|cut:' '}}" target="_blank" class="items-center flex flex-row">
@@ -71,8 +71,8 @@
                         <span class="py-2">{% trans 'View posts in instagram' %}</span>
                     </a>                        
                 </td>
-                </tr>             
-                <tr>
+            </tr>             
+            <tr class="table-border">
                 <td class="table-title">{% trans 'naver' %}</td>
                 <td class="table-description text-blue-500">
                     <a href="https://store.naver.com/restaurants/detail?id={{restaurant.naver_place_id}}&tab=fsasReview" target="_blank" class="items-center flex flex-row">
@@ -80,13 +80,13 @@
                         <span class="py-2">{{restaurant.blog_count}}</span>
                     </a>                        
                 </td>
-                </tr>             
-                <tr>
+            </tr>             
+            <tr class="table-border">
                 <td class="table-title">{% trans 'Address' %}</td>
                 <td class="table-description select-all">{{restaurant.address}}</td>
-                </tr>       
-                {% if restaurant.phone_number %}
-                <tr>
+            </tr>       
+            {% if restaurant.phone_number %}
+                <tr class="table-border">
                     <td class="table-title">{% trans 'Phone number' %}</td>
                     <td class="flex flex-row table-description">{{restaurant.phone_number}}
                         <a href="tel:{{restaurant.phone_number}}" class="ml-3 px-2 font-gray-200 border-gray-400 border rounded-sm text-sm sm:text-lg">
@@ -94,24 +94,24 @@
                         </a>
                     </td>
                 </tr>
-                {% endif %}                                 
-                <tr>
+            {% endif %}                                 
+            <tr class="table-border">
                 <td class="table-title">{% trans 'Category' %}</td>
                 <td class="table-description"> 
                     {% for c in restaurant.category.all %}                       
                         {% include 'mixins/categories.html' %}
                     {% endfor %}
                 </td>
-                </tr>
-                <tr>
+            </tr>
+            <tr class="table-border">
                 <td class="table-title">{% trans 'Price' %}</td>
                 <td class="table-description">{{restaurant.price}}</td>
-                </tr>
-                <tr>
+            </tr>
+            <tr class="table-border">
                 <td class="table-title">{% trans 'Menu' %}</td>
                 <td class="table-description">{{restaurant.menu|linebreaks}}</td>
-                </tr>
-                <tr>
+            </tr>
+            <tr class="table-border">
                 <td class="table-title">{% trans 'Business time' %}</td>
                 <td class="table-description">
                     {% if restaurant.holiday %}                            
@@ -131,25 +131,25 @@
                         <div class="text-gray-500">{{restaurant.biztime_desc}}</div>
                     {% endif %}
                 </td>
-                </tr>                  
-                {% if restaurant.breaktime %}
-                <tr>
+            </tr>                  
+            {% if restaurant.breaktime %}
+                <tr class="table-border">
                     <td class="table-title">{% trans 'Break time' %}</td>
                     <td class="table-description">{{restaurant.breaktime}}</td>
                 </tr>
-                {% endif %}                      
-                {% if restaurant.holiday %}
-                <tr>
+            {% endif %}                      
+            {% if restaurant.holiday %}
+                <tr class="table-border">
                     <td class="table-title">{% trans 'Holiday' %}</td>
                     <td class="table-description">{{restaurant.holiday}}</td>
                 </tr>                       
-                {% endif %}                      
-                {% if restaurant.tv_list %}
-                <tr>
+            {% endif %}                      
+            {% if restaurant.tv_list %}
+                <tr class="table-border">
                     <td class="table-title">{% trans 'Broadcasting' %}</td>
                     <td class="table-description">{{restaurant.tv_list|linebreaks}}</td>
                 </tr>                       
-                {% endif %}      
+            {% endif %}      
         </tbody>
     </table>
     <div class="w-11/12 lg:w-3/5 text-right text-gray-400 font-normal mb-20 mt-3 px-2 lg:text-base text-xs">
